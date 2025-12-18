@@ -1,0 +1,12 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+<suite name="Automation Suite" verbose="10" thread-count="1">
+  <test name="SignIn Tests">
+    <classes>
+       <class name="com.automation.tests.SignInTest">
+         <methods>
+           <include name="testSignIn"/>
+         </methods>
+       </class>
+    </classes>
+  </test>
+</suite>
