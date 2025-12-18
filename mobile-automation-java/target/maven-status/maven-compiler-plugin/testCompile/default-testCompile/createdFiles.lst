@@ -1,3 +1,5 @@
+com/automation/pages/SignUpPage.class
+com/automation/pages/SignInPage.class
+com/automation/tests/SignUpTest.class
 com/automation/base/BaseTest.class
 com/automation/tests/SignInTest.class
-com/automation/pages/SignInPage.class

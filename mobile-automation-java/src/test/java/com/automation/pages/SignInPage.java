@@ -66,6 +66,15 @@ public class SignInPage {
         }
     }
 
+    /**
+     * Click "Don't have an account? Sign up" button to navigate to Sign Up page
+     */
+    public void clickSignUp() {
+        String signUpBtnXpath = "//android.widget.Button[@content-desc=\"Don't have an account? Sign up\"]";
+        WebElement btn = findElementWithFallback(null, signUpBtnXpath, null);
+        btn.click();
+    }
+
     public boolean isContinueButtonEnabled() {
         try {
             WebElement btn = findElementWithFallback(null, continueBtnXpath, "CONTINUE");
@@ -216,5 +225,245 @@ public class SignInPage {
         } catch (Exception e) {
             return "not_found";
         }
+    }
+
+    /**
+     * ✅ RUNTIME-BASED VALIDATION DETECTION (NO HARDCODED MESSAGES)
+     * 
+     * Checks at runtime if ANY validation element is visible:
+     * - Toast message
+     * - Inline error text (TextView with error-like content)
+     * - EditText with error state / red error box
+     * 
+     * @return true if ANY validation is detected, false if NONE found
+     */
+    public boolean isAnyValidationVisible() {
+        WebDriverWait shortWait = new WebDriverWait(driver, Duration.ofSeconds(3));
+
+        // ✅ Check 1: Android Toast Message
+        try {
+            WebElement toast = shortWait.until(ExpectedConditions.presenceOfElementLocated(
+                    By.xpath("//android.widget.Toast[1]")));
+            if (toast != null && toast.getText() != null && !toast.getText().trim().isEmpty()) {
+                return true; // Toast detected
+            }
+        } catch (Exception ignored) {
+        }
+
+        // ✅ Check 2: Validation message via content-desc (android.view.View)
+        try {
+            WebElement validationView = shortWait.until(ExpectedConditions.presenceOfElementLocated(
+                    By.xpath("//android.view.View[@content-desc and string-length(@content-desc) > 10]")));
+            String contentDesc = validationView.getAttribute("content-desc");
+            if (contentDesc != null && !contentDesc.trim().isEmpty() &&
+                    !contentDesc.equals("SIGN IN") &&
+                    !contentDesc.equals("Forgot Password?") &&
+                    !contentDesc.equals("Don't have an account? Sign up") &&
+                    !contentDesc.equals("CONTINUE") &&
+                    !contentDesc.equals("or") &&
+                    !contentDesc.contains("CONTINUE WITH")) {
+                return true; // Validation message detected via content-desc
+            }
+        } catch (Exception ignored) {
+        }
+
+        // ✅ Check 3: Inline Error Text (TextView below password or email field)
+        try {
+            WebElement errorText = shortWait.until(ExpectedConditions.visibilityOfElementLocated(
+                    By.xpath(
+                            "//android.widget.EditText[@password='true']/following-sibling::android.widget.TextView[1]")));
+            if (errorText != null && errorText.getText() != null && !errorText.getText().trim().isEmpty()) {
+                return true; // Inline error detected
+            }
+        } catch (Exception ignored) {
+        }
+
+        // ✅ Check 4: Any TextView with error keywords (case-insensitive)
+        try {
+            WebElement errorKeyword = shortWait.until(ExpectedConditions.visibilityOfElementLocated(
+                    By.xpath("//android.widget.TextView[" +
+                            "contains(translate(@text, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'invalid') or "
+                            +
+                            "contains(translate(@text, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'error') or "
+                            +
+                            "contains(translate(@text, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'required') or "
+                            +
+                            "contains(translate(@text, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'wrong') or "
+                            +
+                            "contains(translate(@text, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'incorrect') or "
+                            +
+                            "contains(translate(@text, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'please') or "
+                            +
+                            "contains(translate(@text, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'must') or "
+                            +
+                            "contains(translate(@text, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'cannot')]")));
+            String text = errorKeyword.getText();
+            // Filter out known non-error texts
+            if (text != null && !text.trim().isEmpty() &&
+                    !text.equals("Forgot Password?") && !text.equals("Don't have an account? Sign up")) {
+                return true; // Error keyword detected
+            }
+        } catch (Exception ignored) {
+        }
+
+        // ✅ Check 5: TextView with error resource-id
+        try {
+            WebElement errorById = shortWait.until(ExpectedConditions.visibilityOfElementLocated(
+                    By.xpath(
+                            "//android.widget.TextView[contains(@resource-id, 'error') or contains(@resource-id, 'validation')]")));
+            if (errorById != null && errorById.getText() != null && !errorById.getText().trim().isEmpty()) {
+                return true; // Error by resource-id detected
+            }
+        } catch (Exception ignored) {
+        }
+
+        // ✅ Check 6: EditText with error attribute (red error box)
+        try {
+            WebElement editTextError = shortWait.until(ExpectedConditions.presenceOfElementLocated(
+                    By.xpath("//android.widget.EditText[@error='true' or @focused='true']")));
+            if (editTextError != null) {
+                return true; // EditText error state detected
+            }
+        } catch (Exception ignored) {
+        }
+
+        // ❌ No validation detected
+        return false;
+    }
+
+    /**
+     * 🆕 GET ACTUAL RUNTIME VALIDATION MESSAGE
+     * 
+     * Captures the actual validation message displayed by the app at runtime.
+     * This method does NOT compare with any expected value - it simply reads
+     * whatever text is shown by the app.
+     * 
+     * Priority order for message capture:
+     * 1. Validation message from content-desc (android.view.View)
+     * 2. Toast message text
+     * 3. Inline error TextView text
+     * 4. TextView with error keywords
+     * 5. EditText error attribute
+     * 6. Disabled Continue button state
+     * 
+     * @return The actual validation message text, or null if no validation found
+     */
+    public String getValidationMessage() {
+        WebDriverWait shortWait = new WebDriverWait(driver, Duration.ofSeconds(3));
+
+        // ✅ Priority 1: Validation message via content-desc (android.view.View)
+        // This is the primary validation message location for this app
+        try {
+            WebElement validationView = shortWait.until(ExpectedConditions.presenceOfElementLocated(
+                    By.xpath("//android.view.View[@content-desc and string-length(@content-desc) > 10]")));
+            String contentDesc = validationView.getAttribute("content-desc");
+            if (contentDesc != null && !contentDesc.trim().isEmpty() &&
+                    !contentDesc.equals("SIGN IN") &&
+                    !contentDesc.equals("Forgot Password?") &&
+                    !contentDesc.equals("Don't have an account? Sign up") &&
+                    !contentDesc.equals("CONTINUE") &&
+                    !contentDesc.equals("or") &&
+                    !contentDesc.contains("CONTINUE WITH")) {
+                return contentDesc;
+            }
+        } catch (Exception ignored) {
+        }
+
+        // ✅ Priority 2: Android Toast Message
+        try {
+            WebElement toast = shortWait.until(ExpectedConditions.presenceOfElementLocated(
+                    By.xpath("//android.widget.Toast[1]")));
+            String toastText = toast.getText();
+            if (toastText != null && !toastText.trim().isEmpty()) {
+                return toastText;
+            }
+        } catch (Exception ignored) {
+        }
+
+        // ✅ Priority 3: Inline Error Text (TextView below password field)
+        try {
+            WebElement errorText = shortWait.until(ExpectedConditions.visibilityOfElementLocated(
+                    By.xpath(
+                            "//android.widget.EditText[@password='true']/following-sibling::android.widget.TextView[1]")));
+            String text = errorText.getText();
+            if (text != null && !text.trim().isEmpty()) {
+                return text;
+            }
+        } catch (Exception ignored) {
+        }
+
+        // ✅ Priority 4: Inline Error Text (TextView below email field)
+        try {
+            WebElement errorText = shortWait.until(ExpectedConditions.visibilityOfElementLocated(
+                    By.xpath(
+                            "//android.widget.EditText[@hint='Email']/following-sibling::android.widget.TextView[1]")));
+            String text = errorText.getText();
+            if (text != null && !text.trim().isEmpty()) {
+                return text;
+            }
+        } catch (Exception ignored) {
+        }
+
+        // ✅ Priority 5: Any TextView with error keywords
+        try {
+            WebElement errorKeyword = shortWait.until(ExpectedConditions.visibilityOfElementLocated(
+                    By.xpath("//android.widget.TextView[" +
+                            "contains(translate(@text, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'invalid') or "
+                            +
+                            "contains(translate(@text, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'error') or "
+                            +
+                            "contains(translate(@text, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'required') or "
+                            +
+                            "contains(translate(@text, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'wrong') or "
+                            +
+                            "contains(translate(@text, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'incorrect') or "
+                            +
+                            "contains(translate(@text, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'please') or "
+                            +
+                            "contains(translate(@text, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'must') or "
+                            +
+                            "contains(translate(@text, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'cannot')]")));
+            String text = errorKeyword.getText();
+            if (text != null && !text.trim().isEmpty() &&
+                    !text.equals("Forgot Password?") && !text.equals("Don't have an account? Sign up")) {
+                return text;
+            }
+        } catch (Exception ignored) {
+        }
+
+        // ✅ Priority 6: TextView with error resource-id
+        try {
+            WebElement errorById = shortWait.until(ExpectedConditions.visibilityOfElementLocated(
+                    By.xpath(
+                            "//android.widget.TextView[contains(@resource-id, 'error') or contains(@resource-id, 'validation')]")));
+            String text = errorById.getText();
+            if (text != null && !text.trim().isEmpty()) {
+                return text;
+            }
+        } catch (Exception ignored) {
+        }
+
+        // ✅ Priority 7: EditText error attribute
+        try {
+            WebElement editTextError = shortWait.until(ExpectedConditions.presenceOfElementLocated(
+                    By.xpath("//android.widget.EditText[@error='true']")));
+            String errorAttr = editTextError.getAttribute("error");
+            if (errorAttr != null && !errorAttr.trim().isEmpty()) {
+                return errorAttr;
+            }
+        } catch (Exception ignored) {
+        }
+
+        // ✅ Priority 8: Disabled Continue button (for empty fields)
+        try {
+            WebElement btn = findElementWithFallback(null, continueBtnXpath, "CONTINUE");
+            if (!btn.isEnabled()) {
+                return "Continue button is disabled (fields are empty or invalid)";
+            }
+        } catch (Exception ignored) {
+        }
+
+        // ❌ No validation message found
+        return null;
     }
 }

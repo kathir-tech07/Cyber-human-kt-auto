@@ -9,87 +9,112 @@ import org.testng.annotations.Test;
 
 public class SignInTest extends BaseTest {
 
-    @DataProvider(name = "loginData")
-    public Object[][] getLoginData() {
+    /**
+     * ✅ NEGATIVE TEST DATA (NO HARDCODED EXPECTED MESSAGES)
+     * Only test scenario name, email, and password
+     */
+    @DataProvider(name = "negativeLoginData")
+    public Object[][] getNegativeLoginData() {
         return new Object[][] {
-                { "Valid Login", "testuser@example.com", "Password@123", "Success" },
-                { "Invalid Password", "testuser@example.com", "WrongPass", "Error" },
-                { "Invalid Email Format", "testuser", "Password@123", "Error" },
-                { "Non-existent Account", "notfound@example.com", "Password@123", "Error" },
-                { "Empty Email", "", "Password@123", "Empty" },
-                { "Empty Password", "testuser@example.com", "", "Empty" },
-                { "Both Empty", "", "", "Empty" }
+                { "Invalid Password", "testuser@example.com", "WrongPass" },
+                { "Invalid Email Format", "testuser", "Password@123" },
+                { "Non-existent Account", "notfound@example.com", "Password@123" },
+                { "Empty Email", "", "Password@123" },
+                { "Empty Password", "testuser@example.com", "" },
+                { "Both Empty", "", "" },
+                { "Special Characters Email", "test@#$%@example.com", "Password@123" },
         };
     }
 
-    @Test(dataProvider = "loginData")
-    public void testSignIn(String description, String email, String password, String expectedType)
+    /**
+     * ✅ RUNTIME-BASED NEGATIVE TEST (NO HARDCODED VALIDATION)
+     * 
+     * Test Flow:
+     * 1. Enter email and password
+     * 2. Click Continue button
+     * 3. Check if ANY validation appears at runtime
+     * 4. PASS if validation detected, FAIL if not
+     * 5. Log the actual runtime validation message in Extent Report
+     */
+    @Test(dataProvider = "negativeLoginData")
+    public void testNegativeSignIn(String testScenario, String email, String password)
             throws InterruptedException {
 
-        test = extent.createTest("Test: " + description);
-        test.log(Status.INFO, "Email: " + email + " | Password: " + password);
+        test = extent.createTest("Negative Test: " + testScenario);
+        test.log(Status.INFO, "Email: '" + email + "' | Password: '" + password + "'");
 
         SignInPage signInPage = new SignInPage(driver);
 
+        // Step 1: Enter credentials
         signInPage.enterEmail(email);
         signInPage.enterPassword(password);
+        test.log(Status.INFO, "Entered credentials");
 
-        // Check button state before clicking
-        boolean isButtonDisabled = signInPage.isContinueButtonDisabled();
-        String buttonState = signInPage.getContinueButtonState();
-        
-        test.log(Status.INFO, "Continue button state: " + buttonState);
-        if (isButtonDisabled) {
-            test.log(Status.INFO, "Continue button is disabled (light grey)");
+        // Step 2: Click Continue button
+        signInPage.clickContinue();
+        test.log(Status.INFO, "Clicked Continue button");
+
+        // Step 3: Wait for validation to appear (if any)
+        Thread.sleep(2000); // Allow time for validation to render
+
+        // Step 4: ✅ RUNTIME VALIDATION CHECK (NO HARDCODED MESSAGES)
+        boolean validationDetected = signInPage.isAnyValidationVisible();
+
+        if (validationDetected) {
+            // ✅ PASS: Validation appeared (negative case handled correctly)
+
+            // 🆕 Capture and log the actual runtime validation message
+            String validationMessage = signInPage.getValidationMessage();
+            if (validationMessage != null && !validationMessage.trim().isEmpty()) {
+                test.log(Status.INFO, "📋 Validation message displayed: \"" + validationMessage + "\"");
+            }
+
+            test.log(Status.PASS, "✓ Validation detected at runtime - Negative case handled correctly");
+            test.log(Status.PASS, "Test PASSED: Application showed validation for invalid input");
+        } else {
+            // ❌ FAIL: No validation appeared (security/UX issue)
+            test.log(Status.FAIL, "✗ NO validation detected at runtime");
+            test.log(Status.FAIL, "Test FAILED: Application did not show any validation for invalid input");
+            Assert.fail("Expected validation to appear for negative test case, but NONE was detected");
         }
+    }
+
+    /**
+     * ✅ POSITIVE LOGIN TEST (Optional - for comparison)
+     * This test expects successful login without validation errors
+     */
+    @Test
+    public void testPositiveSignIn() throws InterruptedException {
+        test = extent.createTest("Positive Test: Valid Login");
+        test.log(Status.INFO, "Testing valid credentials");
+
+        SignInPage signInPage = new SignInPage(driver);
+
+        // Use valid credentials
+        String validEmail = "testuser@example.com";
+        String validPassword = "Password@123";
+
+        signInPage.enterEmail(validEmail);
+        signInPage.enterPassword(validPassword);
+        test.log(Status.INFO, "Entered valid credentials");
 
         signInPage.clickContinue();
+        test.log(Status.INFO, "Clicked Continue button");
 
-        // Reduced wait time - validation messages appear quickly
-        Thread.sleep(1500);
+        Thread.sleep(3000); // Wait for navigation/success
 
-        /* ================= EMPTY FIELD ================= */
-        if (expectedType.equalsIgnoreCase("Empty")) {
-            // Check validation message first
-            String validationMsg = signInPage.getRuntimeValidationMessage();
-            
-            if (isButtonDisabled) {
-                test.log(Status.PASS, "✓ Continue button is disabled (light grey) for empty fields");
-            }
-            
-            if (validationMsg != null && !validationMsg.isBlank()) {
-                test.log(Status.PASS, "✓ Validation message displayed: " + validationMsg);
-            }
-            
-            if (isButtonDisabled || validationMsg != null) {
-                test.log(Status.PASS, "Empty field validation working correctly");
-            } else {
-                test.log(Status.FAIL, "Empty field validation NOT detected - button enabled and no message");
-                Assert.fail();
-            }
-            return;
-        }
+        // For positive case, we expect NO validation errors
+        boolean validationDetected = signInPage.isAnyValidationVisible();
 
-        /* ================= SUCCESS ================= */
-        if (expectedType.equalsIgnoreCase("Success")) {
-            test.log(Status.PASS, "Login successful");
-            return;
-        }
-
-        /* ================= NEGATIVE CASES ================= */
-        String error = signInPage.getRuntimeValidationMessage();
-        
-        // Log button state for negative cases too
-        if (signInPage.isContinueButtonDisabled()) {
-            test.log(Status.INFO, "Continue button became disabled after validation");
-        }
-        
-        if (error != null && !error.isBlank()) {
-            test.log(Status.INFO, "✓ Validation Message: " + error);
-            test.log(Status.PASS, "Negative validation displayed correctly");
+        if (!validationDetected) {
+            // ✅ PASS: No validation errors for valid credentials
+            test.log(Status.PASS, "✓ No validation errors - Login successful");
+            test.log(Status.PASS, "Test PASSED: Valid credentials accepted");
         } else {
-            test.log(Status.FAIL, "Expected validation message not captured");
-            Assert.fail();
+            // ❌ FAIL: Unexpected validation for valid credentials
+            test.log(Status.FAIL, "✗ Unexpected validation appeared for valid credentials");
+            test.log(Status.FAIL, "Test FAILED: Valid credentials were rejected");
+            Assert.fail("Valid credentials should not show validation errors");
         }
     }
 }

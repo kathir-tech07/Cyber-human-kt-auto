@@ -4,7 +4,8 @@
     <classes>
        <class name="com.automation.tests.SignInTest">
          <methods>
-           <include name="testSignIn"/>
+           <include name="testNegativeSignIn"/>
+           <include name="testPositiveSignIn"/>
          </methods>
        </class>
     </classes>

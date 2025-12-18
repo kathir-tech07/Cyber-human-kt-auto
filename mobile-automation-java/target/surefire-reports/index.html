@@ -25,7 +25,7 @@
       <span class="top-banner-title-font">Test results</span>
       <button id="button" class="button">Switch Retro Theme</button> <!-- button -->
       <br/>
-      <span class="top-banner-font-1">1 suite, 6 failed tests</span>
+      <span class="top-banner-font-1">1 suite, 2 failed tests</span>
     </div> <!-- top-banner-root -->
     <div class="navigator-root">
       <div class="navigator-suite-header">
@@ -38,8 +38,8 @@
       <div class="suite">
         <div class="rounded-window">
           <div class="suite-header light-rounded-window-top">
-            <a href="#" panel-name="suite-Automation_Suite" class="navigator-link">
-              <span class="suite-name border-failed">Automation Suite</span>
+            <a href="#" panel-name="suite-Surefire_suite" class="navigator-link">
+              <span class="suite-name border-failed">Surefire suite</span>
             </a> <!-- navigator-link -->
           </div> <!-- suite-header light-rounded-window-top -->
           <div class="navigator-suite-content">
@@ -49,37 +49,37 @@
             <div class="suite-section-content">
               <ul>
                 <li>
-                  <a href="#" panel-name="test-xml-Automation_Suite" class="navigator-link ">
-                    <span>testng.xml</span>
+                  <a href="#" panel-name="test-xml-Surefire_suite" class="navigator-link ">
+                    <span>[unset file name]</span>
                   </a> <!-- navigator-link  -->
                 </li>
                 <li>
-                  <a href="#" panel-name="testlist-Automation_Suite" class="navigator-link ">
+                  <a href="#" panel-name="testlist-Surefire_suite" class="navigator-link ">
                     <span class="test-stats">1 test</span>
                   </a> <!-- navigator-link  -->
                 </li>
                 <li>
-                  <a href="#" panel-name="group-Automation_Suite" class="navigator-link ">
+                  <a href="#" panel-name="group-Surefire_suite" class="navigator-link ">
                     <span>0 groups</span>
                   </a> <!-- navigator-link  -->
                 </li>
                 <li>
-                  <a href="#" panel-name="times-Automation_Suite" class="navigator-link ">
+                  <a href="#" panel-name="times-Surefire_suite" class="navigator-link ">
                     <span>Times</span>
                   </a> <!-- navigator-link  -->
                 </li>
                 <li>
-                  <a href="#" panel-name="reporter-Automation_Suite" class="navigator-link ">
+                  <a href="#" panel-name="reporter-Surefire_suite" class="navigator-link ">
                     <span>Reporter output</span>
                   </a> <!-- navigator-link  -->
                 </li>
                 <li>
-                  <a href="#" panel-name="ignored-methods-Automation_Suite" class="navigator-link ">
+                  <a href="#" panel-name="ignored-methods-Surefire_suite" class="navigator-link ">
                     <span>Ignored methods</span>
                   </a> <!-- navigator-link  -->
                 </li>
                 <li>
-                  <a href="#" panel-name="chronological-Automation_Suite" class="navigator-link ">
+                  <a href="#" panel-name="chronological-Surefire_suite" class="navigator-link ">
                     <span>Chronological view</span>
                   </a> <!-- navigator-link  -->
                 </li>
@@ -92,60 +92,90 @@
               <div class="suite-section-content">
                 <ul>
                   <li>
-                    <span class="method-stats">7 methods, 6 failed,   1 passed</span>
+                    <span class="method-stats">13 methods, 2 failed,   11 passed</span>
                   </li>
                   <li>
                     <span class="method-list-title failed">Failed methods</span>
                     <span class="show-or-hide-methods failed">
-                      <a href="#" panel-name="suite-Automation_Suite" class="hide-methods failed suite-Automation_Suite"> (hide)</a> <!-- hide-methods failed suite-Automation_Suite -->
-                      <a href="#" panel-name="suite-Automation_Suite" class="show-methods failed suite-Automation_Suite"> (show)</a> <!-- show-methods failed suite-Automation_Suite -->
+                      <a href="#" panel-name="suite-Surefire_suite" class="hide-methods failed suite-Surefire_suite"> (hide)</a> <!-- hide-methods failed suite-Surefire_suite -->
+                      <a href="#" panel-name="suite-Surefire_suite" class="show-methods failed suite-Surefire_suite"> (show)</a> <!-- show-methods failed suite-Surefire_suite -->
                     </span>
-                    <div class="method-list-content failed suite-Automation_Suite">
+                    <div class="method-list-content failed suite-Surefire_suite">
                       <span>
                         <img src="failed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Automation_Suite" title="com.automation.tests.SignInTest" class="method navigator-link" hash-for-method="testSignIn(Empty Email, , Password@123, Empty)">testSignIn(Empty Email, , Password@123, Empty)</a> <!-- method navigator-link -->
+                        <a href="#" panel-name="suite-Surefire_suite" title="com.automation.tests.SignUpTest" class="method navigator-link" hash-for-method="testNegativeSignUp(Special Characters in Name, @#$%^&amp;*, test@example.com, Password@123, Password@123)">testNegativeSignUp(Special Characters in Name, @#$%^&*, test@example.com, Password@123, Password@123)</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                       <span>
                         <img src="failed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Automation_Suite" title="com.automation.tests.SignInTest" class="method navigator-link" hash-for-method="testSignIn(Invalid Password, testuser@example.com, WrongPass, Error)">testSignIn(Invalid Password, testuser@example.com, WrongPass, Error)</a> <!-- method navigator-link -->
+                        <a href="#" panel-name="suite-Surefire_suite" title="com.automation.tests.SignUpTest" class="method navigator-link" hash-for-method="testNegativeSignUp(Email Without Domain, John Doe, test@, Password@123, Password@123)">testNegativeSignUp(Email Without Domain, John Doe, test@, Password@123, Password@123)</a> <!-- method navigator-link -->
                       </span>
                       <br/>
-                      <span>
-                        <img src="failed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Automation_Suite" title="com.automation.tests.SignInTest" class="method navigator-link" hash-for-method="testSignIn(Both Empty, , , Empty)">testSignIn(Both Empty, , , Empty)</a> <!-- method navigator-link -->
-                      </span>
-                      <br/>
-                      <span>
-                        <img src="failed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Automation_Suite" title="com.automation.tests.SignInTest" class="method navigator-link" hash-for-method="testSignIn(Non-existent Account, notfound@example.com, Password@123, Error)">testSignIn(Non-existent Account, notfound@example.com, Password@123, Error)</a> <!-- method navigator-link -->
-                      </span>
-                      <br/>
-                      <span>
-                        <img src="failed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Automation_Suite" title="com.automation.tests.SignInTest" class="method navigator-link" hash-for-method="testSignIn(Empty Password, testuser@example.com, , Empty)">testSignIn(Empty Password, testuser@example.com, , Empty)</a> <!-- method navigator-link -->
-                      </span>
-                      <br/>
-                      <span>
-                        <img src="failed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Automation_Suite" title="com.automation.tests.SignInTest" class="method navigator-link" hash-for-method="testSignIn(Invalid Email Format, testuser, Password@123, Error)">testSignIn(Invalid Email Format, testuser, Password@123, Error)</a> <!-- method navigator-link -->
-                      </span>
-                      <br/>
-                    </div> <!-- method-list-content failed suite-Automation_Suite -->
+                    </div> <!-- method-list-content failed suite-Surefire_suite -->
                   </li>
                   <li>
                     <span class="method-list-title passed">Passed methods</span>
                     <span class="show-or-hide-methods passed">
-                      <a href="#" panel-name="suite-Automation_Suite" class="hide-methods passed suite-Automation_Suite"> (hide)</a> <!-- hide-methods passed suite-Automation_Suite -->
-                      <a href="#" panel-name="suite-Automation_Suite" class="show-methods passed suite-Automation_Suite"> (show)</a> <!-- show-methods passed suite-Automation_Suite -->
+                      <a href="#" panel-name="suite-Surefire_suite" class="hide-methods passed suite-Surefire_suite"> (hide)</a> <!-- hide-methods passed suite-Surefire_suite -->
+                      <a href="#" panel-name="suite-Surefire_suite" class="show-methods passed suite-Surefire_suite"> (show)</a> <!-- show-methods passed suite-Surefire_suite -->
                     </span>
-                    <div class="method-list-content passed suite-Automation_Suite">
+                    <div class="method-list-content passed suite-Surefire_suite">
                       <span>
                         <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Automation_Suite" title="com.automation.tests.SignInTest" class="method navigator-link" hash-for-method="testSignIn(Valid Login, testuser@example.com, Password@123, Success)">testSignIn(Valid Login, testuser@example.com, Password@123, Success)</a> <!-- method navigator-link -->
+                        <a href="#" panel-name="suite-Surefire_suite" title="com.automation.tests.SignUpTest" class="method navigator-link" hash-for-method="testNegativeSignUp(Empty Email Field, John Doe, , Password@123, Password@123)">testNegativeSignUp(Empty Email Field, John Doe, , Password@123, Password@123)</a> <!-- method navigator-link -->
                       </span>
                       <br/>
-                    </div> <!-- method-list-content passed suite-Automation_Suite -->
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Surefire_suite" title="com.automation.tests.SignUpTest" class="method navigator-link" hash-for-method="testNegativeSignUp(Empty Confirm Password, John Doe, test@example.com, Password@123, )">testNegativeSignUp(Empty Confirm Password, John Doe, test@example.com, Password@123, )</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Surefire_suite" title="com.automation.tests.SignUpTest" class="method navigator-link" hash-for-method="testNegativeSignUp(Only Spaces in Name,    , test@example.com, Password@123, Password@123)">testNegativeSignUp(Only Spaces in Name,    , test@example.com, Password@123, Password@123)</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Surefire_suite" title="com.automation.tests.SignUpTest" class="method navigator-link" hash-for-method="testNegativeSignUp(Empty Password Field, John Doe, test@example.com, , Password@123)">testNegativeSignUp(Empty Password Field, John Doe, test@example.com, , Password@123)</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Surefire_suite" title="com.automation.tests.SignUpTest" class="method navigator-link" hash-for-method="testNegativeSignUp(Short Password, John Doe, test@example.com, 12, 12)">testNegativeSignUp(Short Password, John Doe, test@example.com, 12, 12)</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Surefire_suite" title="com.automation.tests.SignUpTest" class="method navigator-link" hash-for-method="testNegativeSignUp(Password Mismatch, John Doe, test@example.com, Password@123, DifferentPass@123)">testNegativeSignUp(Password Mismatch, John Doe, test@example.com, Password@123, DifferentPass@123)</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Surefire_suite" title="com.automation.tests.SignUpTest" class="method navigator-link" hash-for-method="testNegativeSignUp(Weak Password, John Doe, test@example.com, 123, 123)">testNegativeSignUp(Weak Password, John Doe, test@example.com, 123, 123)</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Surefire_suite" title="com.automation.tests.SignUpTest" class="method navigator-link" hash-for-method="testNegativeSignUp(All Fields Empty, , , , )">testNegativeSignUp(All Fields Empty, , , , )</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Surefire_suite" title="com.automation.tests.SignUpTest" class="method navigator-link" hash-for-method="testNegativeSignUp(Empty Name Field, , test@example.com, Password@123, Password@123)">testNegativeSignUp(Empty Name Field, , test@example.com, Password@123, Password@123)</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Surefire_suite" title="com.automation.tests.SignUpTest" class="method navigator-link" hash-for-method="testNegativeSignUp(Invalid Email Format, John Doe, invalidemail, Password@123, Password@123)">testNegativeSignUp(Invalid Email Format, John Doe, invalidemail, Password@123, Password@123)</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Surefire_suite" title="com.automation.tests.SignUpTest" class="method navigator-link" hash-for-method="testPositiveSignUp">testPositiveSignUp</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                    </div> <!-- method-list-content passed suite-Surefire_suite -->
                   </li>
                 </ul>
               </div> <!-- suite-section-content -->
@@ -156,332 +186,440 @@
     </div> <!-- navigator-root -->
     <div class="wrapper">
       <div class="main-panel-root">
-        <div panel-name="suite-Automation_Suite" class="panel Automation_Suite">
-          <div class="suite-Automation_Suite-class-failed">
+        <div panel-name="suite-Surefire_suite" class="panel Surefire_suite">
+          <div class="suite-Surefire_suite-class-failed">
             <div class="main-panel-header rounded-window-top">
               <img src="failed.png"/>
-              <span class="class-name">com.automation.tests.SignInTest</span>
+              <span class="class-name">com.automation.tests.SignUpTest</span>
             </div> <!-- main-panel-header rounded-window-top -->
             <div class="main-panel-content rounded-window-bottom">
               <div class="method">
                 <div class="method-content">
-                  <a name="testSignIn(Empty Email, , Password@123, Empty)">
-                  </a> <!-- testSignIn(Empty Email, , Password@123, Empty) -->
-                  <span class="method-name">testSignIn</span>
-                  <span class="parameters">(Empty Email,,Password@123,Empty)</span>
-                  <div class="stack-trace">java.lang.RuntimeException: Element not found with ID: null, XPath: //android.widget.EditText[@hint=&apos;Email&apos;], AccessID: null
+                  <a name="testNegativeSignUp(Special Characters in Name, @#$%^&amp;*, test@example.com, Password@123, Password@123)">
+                  </a> <!-- testNegativeSignUp(Special Characters in Name, @#$%^&*, test@example.com, Password@123, Password@123) -->
+                  <span class="method-name">testNegativeSignUp</span>
+                  <span class="parameters">(Special Characters in Name,@#$%^&*,test@example.com,Password@123,Password@123)</span>
+                  <div class="stack-trace">java.lang.AssertionError: Expected validation to appear for negative test case, but NONE was detected
+	at com.automation.tests.SignUpTest.testNegativeSignUp(SignUpTest.java:107)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1541)
+... Removed 33 stack frames
+</div> <!-- stack-trace -->
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="testNegativeSignUp(Email Without Domain, John Doe, test@, Password@123, Password@123)">
+                  </a> <!-- testNegativeSignUp(Email Without Domain, John Doe, test@, Password@123, Password@123) -->
+                  <span class="method-name">testNegativeSignUp</span>
+                  <span class="parameters">(Email Without Domain,John Doe,test@,Password@123,Password@123)</span>
+                  <div class="stack-trace">java.lang.RuntimeException: Element not found with ID: null, XPath: //android.widget.Button[@content-desc=&quot;Don&apos;t have an account? Sign up&quot;], AccessID: null
 	at com.automation.pages.SignInPage.findElementWithFallback(SignInPage.java:40)
-	at com.automation.pages.SignInPage.enterEmail(SignInPage.java:49)
-	at com.automation.tests.SignInTest.testSignIn(SignInTest.java:34)
+	at com.automation.pages.SignInPage.clickSignUp(SignInPage.java:74)
+	at com.automation.tests.SignUpTest.testNegativeSignUp(SignUpTest.java:58)
 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1541)
-... Removed 31 stack frames
-</div> <!-- stack-trace -->
-                </div> <!-- method-content -->
-              </div> <!-- method -->
-              <div class="method">
-                <div class="method-content">
-                  <a name="testSignIn(Invalid Password, testuser@example.com, WrongPass, Error)">
-                  </a> <!-- testSignIn(Invalid Password, testuser@example.com, WrongPass, Error) -->
-                  <span class="method-name">testSignIn</span>
-                  <span class="parameters">(Invalid Password,testuser@example.com,WrongPass,Error)</span>
-                  <div class="stack-trace">java.lang.AssertionError: null
-	at com.automation.tests.SignInTest.testSignIn(SignInTest.java:92)
-	at java.base/java.util.ArrayList.forEach(ArrayList.java:1541)
-... Removed 33 stack frames
-</div> <!-- stack-trace -->
-                </div> <!-- method-content -->
-              </div> <!-- method -->
-              <div class="method">
-                <div class="method-content">
-                  <a name="testSignIn(Both Empty, , , Empty)">
-                  </a> <!-- testSignIn(Both Empty, , , Empty) -->
-                  <span class="method-name">testSignIn</span>
-                  <span class="parameters">(Both Empty,,,Empty)</span>
-                  <div class="stack-trace">java.lang.RuntimeException: Element not found with ID: null, XPath: //android.widget.EditText[@hint=&apos;Email&apos;], AccessID: null
-	at com.automation.pages.SignInPage.findElementWithFallback(SignInPage.java:40)
-	at com.automation.pages.SignInPage.enterEmail(SignInPage.java:49)
-	at com.automation.tests.SignInTest.testSignIn(SignInTest.java:34)
-	at java.base/java.util.ArrayList.forEach(ArrayList.java:1541)
-... Removed 31 stack frames
-</div> <!-- stack-trace -->
-                </div> <!-- method-content -->
-              </div> <!-- method -->
-              <div class="method">
-                <div class="method-content">
-                  <a name="testSignIn(Non-existent Account, notfound@example.com, Password@123, Error)">
-                  </a> <!-- testSignIn(Non-existent Account, notfound@example.com, Password@123, Error) -->
-                  <span class="method-name">testSignIn</span>
-                  <span class="parameters">(Non-existent Account,notfound@example.com,Password@123,Error)</span>
-                  <div class="stack-trace">java.lang.AssertionError: null
-	at com.automation.tests.SignInTest.testSignIn(SignInTest.java:92)
-	at java.base/java.util.ArrayList.forEach(ArrayList.java:1541)
-... Removed 33 stack frames
-</div> <!-- stack-trace -->
-                </div> <!-- method-content -->
-              </div> <!-- method -->
-              <div class="method">
-                <div class="method-content">
-                  <a name="testSignIn(Empty Password, testuser@example.com, , Empty)">
-                  </a> <!-- testSignIn(Empty Password, testuser@example.com, , Empty) -->
-                  <span class="method-name">testSignIn</span>
-                  <span class="parameters">(Empty Password,testuser@example.com,,Empty)</span>
-                  <div class="stack-trace">java.lang.AssertionError: null
-	at com.automation.tests.SignInTest.testSignIn(SignInTest.java:68)
-	at java.base/java.util.ArrayList.forEach(ArrayList.java:1541)
-... Removed 33 stack frames
-</div> <!-- stack-trace -->
-                </div> <!-- method-content -->
-              </div> <!-- method -->
-              <div class="method">
-                <div class="method-content">
-                  <a name="testSignIn(Invalid Email Format, testuser, Password@123, Error)">
-                  </a> <!-- testSignIn(Invalid Email Format, testuser, Password@123, Error) -->
-                  <span class="method-name">testSignIn</span>
-                  <span class="parameters">(Invalid Email Format,testuser,Password@123,Error)</span>
-                  <div class="stack-trace">java.lang.AssertionError: null
-	at com.automation.tests.SignInTest.testSignIn(SignInTest.java:92)
-	at java.base/java.util.ArrayList.forEach(ArrayList.java:1541)
-... Removed 33 stack frames
+... Removed 32 stack frames
 </div> <!-- stack-trace -->
                 </div> <!-- method-content -->
               </div> <!-- method -->
             </div> <!-- main-panel-content rounded-window-bottom -->
-          </div> <!-- suite-Automation_Suite-class-failed -->
-          <div class="suite-Automation_Suite-class-passed">
+          </div> <!-- suite-Surefire_suite-class-failed -->
+          <div class="suite-Surefire_suite-class-passed">
             <div class="main-panel-header rounded-window-top">
               <img src="passed.png"/>
-              <span class="class-name">com.automation.tests.SignInTest</span>
+              <span class="class-name">com.automation.tests.SignUpTest</span>
             </div> <!-- main-panel-header rounded-window-top -->
             <div class="main-panel-content rounded-window-bottom">
               <div class="method">
                 <div class="method-content">
-                  <a name="testSignIn(Valid Login, testuser@example.com, Password@123, Success)">
-                  </a> <!-- testSignIn(Valid Login, testuser@example.com, Password@123, Success) -->
-                  <span class="method-name">testSignIn</span>
-                  <span class="parameters">(Valid Login,testuser@example.com,Password@123,Success)</span>
+                  <a name="testNegativeSignUp(Empty Email Field, John Doe, , Password@123, Password@123)">
+                  </a> <!-- testNegativeSignUp(Empty Email Field, John Doe, , Password@123, Password@123) -->
+                  <span class="method-name">testNegativeSignUp</span>
+                  <span class="parameters">(Empty Email Field,John Doe,,Password@123,Password@123)</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="testNegativeSignUp(Empty Confirm Password, John Doe, test@example.com, Password@123, )">
+                  </a> <!-- testNegativeSignUp(Empty Confirm Password, John Doe, test@example.com, Password@123, ) -->
+                  <span class="method-name">testNegativeSignUp</span>
+                  <span class="parameters">(Empty Confirm Password,John Doe,test@example.com,Password@123,)</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="testNegativeSignUp(Only Spaces in Name,    , test@example.com, Password@123, Password@123)">
+                  </a> <!-- testNegativeSignUp(Only Spaces in Name,    , test@example.com, Password@123, Password@123) -->
+                  <span class="method-name">testNegativeSignUp</span>
+                  <span class="parameters">(Only Spaces in Name,   ,test@example.com,Password@123,Password@123)</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="testNegativeSignUp(Empty Password Field, John Doe, test@example.com, , Password@123)">
+                  </a> <!-- testNegativeSignUp(Empty Password Field, John Doe, test@example.com, , Password@123) -->
+                  <span class="method-name">testNegativeSignUp</span>
+                  <span class="parameters">(Empty Password Field,John Doe,test@example.com,,Password@123)</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="testNegativeSignUp(Short Password, John Doe, test@example.com, 12, 12)">
+                  </a> <!-- testNegativeSignUp(Short Password, John Doe, test@example.com, 12, 12) -->
+                  <span class="method-name">testNegativeSignUp</span>
+                  <span class="parameters">(Short Password,John Doe,test@example.com,12,12)</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="testNegativeSignUp(Password Mismatch, John Doe, test@example.com, Password@123, DifferentPass@123)">
+                  </a> <!-- testNegativeSignUp(Password Mismatch, John Doe, test@example.com, Password@123, DifferentPass@123) -->
+                  <span class="method-name">testNegativeSignUp</span>
+                  <span class="parameters">(Password Mismatch,John Doe,test@example.com,Password@123,DifferentPass@123)</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="testNegativeSignUp(Weak Password, John Doe, test@example.com, 123, 123)">
+                  </a> <!-- testNegativeSignUp(Weak Password, John Doe, test@example.com, 123, 123) -->
+                  <span class="method-name">testNegativeSignUp</span>
+                  <span class="parameters">(Weak Password,John Doe,test@example.com,123,123)</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="testNegativeSignUp(All Fields Empty, , , , )">
+                  </a> <!-- testNegativeSignUp(All Fields Empty, , , , ) -->
+                  <span class="method-name">testNegativeSignUp</span>
+                  <span class="parameters">(All Fields Empty,,,,)</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="testNegativeSignUp(Empty Name Field, , test@example.com, Password@123, Password@123)">
+                  </a> <!-- testNegativeSignUp(Empty Name Field, , test@example.com, Password@123, Password@123) -->
+                  <span class="method-name">testNegativeSignUp</span>
+                  <span class="parameters">(Empty Name Field,,test@example.com,Password@123,Password@123)</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="testNegativeSignUp(Invalid Email Format, John Doe, invalidemail, Password@123, Password@123)">
+                  </a> <!-- testNegativeSignUp(Invalid Email Format, John Doe, invalidemail, Password@123, Password@123) -->
+                  <span class="method-name">testNegativeSignUp</span>
+                  <span class="parameters">(Invalid Email Format,John Doe,invalidemail,Password@123,Password@123)</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="testPositiveSignUp">
+                  </a> <!-- testPositiveSignUp -->
+                  <span class="method-name">testPositiveSignUp</span>
                 </div> <!-- method-content -->
               </div> <!-- method -->
             </div> <!-- main-panel-content rounded-window-bottom -->
-          </div> <!-- suite-Automation_Suite-class-passed -->
-        </div> <!-- panel Automation_Suite -->
-        <div panel-name="test-xml-Automation_Suite" class="panel">
+          </div> <!-- suite-Surefire_suite-class-passed -->
+        </div> <!-- panel Surefire_suite -->
+        <div panel-name="test-xml-Surefire_suite" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">/home/ds/Cyber-human-kt-auto/mobile-automation-java/testng.xml</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <pre>
 &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
 &lt;!DOCTYPE suite SYSTEM &quot;https://testng.org/testng-1.0.dtd&quot;&gt;
-&lt;suite thread-count=&quot;1&quot; name=&quot;Automation Suite&quot; guice-stage=&quot;DEVELOPMENT&quot; verbose=&quot;0&quot;&gt;
-  &lt;test thread-count=&quot;1&quot; name=&quot;SignIn Tests&quot; verbose=&quot;0&quot;&gt;
+&lt;suite name=&quot;Surefire suite&quot; verbose=&quot;0&quot;&gt;
+  &lt;test thread-count=&quot;5&quot; name=&quot;Surefire test&quot; verbose=&quot;0&quot;&gt;
     &lt;classes&gt;
-      &lt;class name=&quot;com.automation.tests.SignInTest&quot;&gt;
-        &lt;methods&gt;
-          &lt;include name=&quot;testSignIn&quot;/&gt;
-        &lt;/methods&gt;
-      &lt;/class&gt; &lt;!-- com.automation.tests.SignInTest --&gt;
+      &lt;class name=&quot;com.automation.tests.SignUpTest&quot;/&gt;
     &lt;/classes&gt;
-  &lt;/test&gt; &lt;!-- SignIn Tests --&gt;
-&lt;/suite&gt; &lt;!-- Automation Suite --&gt;
+  &lt;/test&gt; &lt;!-- Surefire test --&gt;
+&lt;/suite&gt; &lt;!-- Surefire suite --&gt;
             </pre>
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->
-        <div panel-name="testlist-Automation_Suite" class="panel">
+        <div panel-name="testlist-Surefire_suite" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">Tests for Automation Suite</span>
+            <span class="header-content">Tests for Surefire suite</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <ul>
               <li>
-                <span class="test-name">SignIn Tests (1 class)</span>
+                <span class="test-name">Surefire test (1 class)</span>
               </li>
             </ul>
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->
-        <div panel-name="group-Automation_Suite" class="panel">
+        <div panel-name="group-Surefire_suite" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">Groups for Automation Suite</span>
+            <span class="header-content">Groups for Surefire suite</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->
-        <div panel-name="times-Automation_Suite" class="panel">
+        <div panel-name="times-Surefire_suite" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">Times for Automation Suite</span>
+            <span class="header-content">Times for Surefire suite</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <div class="times-div">
               <script type="text/javascript">
-suiteTableInitFunctions.push('tableData_Automation_Suite');
-function tableData_Automation_Suite() {
+suiteTableInitFunctions.push('tableData_Surefire_suite');
+function tableData_Surefire_suite() {
 var data = new google.visualization.DataTable();
 data.addColumn('number', 'Number');
 data.addColumn('string', 'Method');
 data.addColumn('string', 'Class');
 data.addColumn('number', 'Time (ms)');
-data.addRows(7);
+data.addRows(13);
 data.setCell(0, 0, 0)
-data.setCell(0, 1, 'testSignIn')
-data.setCell(0, 2, 'com.automation.tests.SignInTest')
-data.setCell(0, 3, 39001);
+data.setCell(0, 1, 'testNegativeSignUp')
+data.setCell(0, 2, 'com.automation.tests.SignUpTest')
+data.setCell(0, 3, 74449);
 data.setCell(1, 0, 1)
-data.setCell(1, 1, 'testSignIn')
-data.setCell(1, 2, 'com.automation.tests.SignInTest')
-data.setCell(1, 3, 38981);
+data.setCell(1, 1, 'testNegativeSignUp')
+data.setCell(1, 2, 'com.automation.tests.SignUpTest')
+data.setCell(1, 3, 73957);
 data.setCell(2, 0, 2)
-data.setCell(2, 1, 'testSignIn')
-data.setCell(2, 2, 'com.automation.tests.SignInTest')
-data.setCell(2, 3, 38374);
+data.setCell(2, 1, 'testNegativeSignUp')
+data.setCell(2, 2, 'com.automation.tests.SignUpTest')
+data.setCell(2, 3, 73752);
 data.setCell(3, 0, 3)
-data.setCell(3, 1, 'testSignIn')
-data.setCell(3, 2, 'com.automation.tests.SignInTest')
-data.setCell(3, 3, 15358);
+data.setCell(3, 1, 'testPositiveSignUp')
+data.setCell(3, 2, 'com.automation.tests.SignUpTest')
+data.setCell(3, 3, 49260);
 data.setCell(4, 0, 4)
-data.setCell(4, 1, 'testSignIn')
-data.setCell(4, 2, 'com.automation.tests.SignInTest')
-data.setCell(4, 3, 13143);
+data.setCell(4, 1, 'testNegativeSignUp')
+data.setCell(4, 2, 'com.automation.tests.SignUpTest')
+data.setCell(4, 3, 48983);
 data.setCell(5, 0, 5)
-data.setCell(5, 1, 'testSignIn')
-data.setCell(5, 2, 'com.automation.tests.SignInTest')
-data.setCell(5, 3, 12967);
+data.setCell(5, 1, 'testNegativeSignUp')
+data.setCell(5, 2, 'com.automation.tests.SignUpTest')
+data.setCell(5, 3, 19385);
 data.setCell(6, 0, 6)
-data.setCell(6, 1, 'testSignIn')
-data.setCell(6, 2, 'com.automation.tests.SignInTest')
-data.setCell(6, 3, 7898);
-window.suiteTableData['Automation_Suite']= { tableData: data, tableDiv: 'times-div-Automation_Suite'}
+data.setCell(6, 1, 'testNegativeSignUp')
+data.setCell(6, 2, 'com.automation.tests.SignUpTest')
+data.setCell(6, 3, 19071);
+data.setCell(7, 0, 7)
+data.setCell(7, 1, 'testNegativeSignUp')
+data.setCell(7, 2, 'com.automation.tests.SignUpTest')
+data.setCell(7, 3, 18889);
+data.setCell(8, 0, 8)
+data.setCell(8, 1, 'testNegativeSignUp')
+data.setCell(8, 2, 'com.automation.tests.SignUpTest')
+data.setCell(8, 3, 18888);
+data.setCell(9, 0, 9)
+data.setCell(9, 1, 'testNegativeSignUp')
+data.setCell(9, 2, 'com.automation.tests.SignUpTest')
+data.setCell(9, 3, 18388);
+data.setCell(10, 0, 10)
+data.setCell(10, 1, 'testNegativeSignUp')
+data.setCell(10, 2, 'com.automation.tests.SignUpTest')
+data.setCell(10, 3, 18268);
+data.setCell(11, 0, 11)
+data.setCell(11, 1, 'testNegativeSignUp')
+data.setCell(11, 2, 'com.automation.tests.SignUpTest')
+data.setCell(11, 3, 16170);
+data.setCell(12, 0, 12)
+data.setCell(12, 1, 'testNegativeSignUp')
+data.setCell(12, 2, 'com.automation.tests.SignUpTest')
+data.setCell(12, 3, 12869);
+window.suiteTableData['Surefire_suite']= { tableData: data, tableDiv: 'times-div-Surefire_suite'}
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 2 minutes</span>
-              <div id="times-div-Automation_Suite">
-              </div> <!-- times-div-Automation_Suite -->
+              <span class="suite-total-time">Total running time: 7 minutes</span>
+              <div id="times-div-Surefire_suite">
+              </div> <!-- times-div-Surefire_suite -->
             </div> <!-- times-div -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->
-        <div panel-name="reporter-Automation_Suite" class="panel">
+        <div panel-name="reporter-Surefire_suite" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">Reporter output for Automation Suite</span>
+            <span class="header-content">Reporter output for Surefire suite</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->
-        <div panel-name="ignored-methods-Automation_Suite" class="panel">
+        <div panel-name="ignored-methods-Surefire_suite" class="panel">
           <div class="main-panel-header rounded-window-top">
             <span class="header-content">0 ignored methods</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->
-        <div panel-name="chronological-Automation_Suite" class="panel">
+        <div panel-name="chronological-Surefire_suite" class="panel">
           <div class="main-panel-header rounded-window-top">
             <span class="header-content">Methods in chronological order</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <div class="chronological-class">
-              <div class="chronological-class-name">com.automation.tests.SignInTest</div> <!-- chronological-class-name -->
+              <div class="chronological-class-name">com.automation.tests.SignUpTest</div> <!-- chronological-class-name -->
               <div class="configuration-suite before">
                 <span class="method-name">setupReport</span>
                 <span class="method-start">0 ms</span>
               </div> <!-- configuration-suite before -->
               <div class="configuration-method before">
                 <span class="method-name">setup</span>
-                <span class="method-start">309 ms</span>
+                <span class="method-start">162 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
-                <span class="method-name">testSignIn(Valid Login, testuser@example.com, Password@123, Success)</span>
-                <span class="method-start">6486 ms</span>
+                <span class="method-name">testNegativeSignUp(Invalid Email Format, John Doe, invalidemail, Password@123, Password@123)</span>
+                <span class="method-start">7765 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
-                <span class="method-name">tearDown([TestResult name=testSignIn status=SUCCESS method=SignInTest.testSignIn(java.lang.String,java.lang.S...)</span>
-                <span class="method-start">14388 ms</span>
+                <span class="method-name">tearDown([TestResult name=testNegativeSignUp status=SUCCESS method=SignUpTest.testNegativeSignUp(java.lang.St...)</span>
+                <span class="method-start">26656 ms</span>
               </div> <!-- configuration-method after -->
               <div class="configuration-method before">
                 <span class="method-name">setup</span>
-                <span class="method-start">15672 ms</span>
+                <span class="method-start">27758 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <span class="method-name">testNegativeSignUp(Empty Name Field, , test@example.com, Password@123, Password@123)</span>
+                <span class="method-start">32389 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">tearDown([TestResult name=testNegativeSignUp status=SUCCESS method=SignUpTest.testNegativeSignUp(java.lang.St...)</span>
+                <span class="method-start">51460 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-method before">
+                <span class="method-name">setup</span>
+                <span class="method-start">52622 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <span class="method-name">testNegativeSignUp(Empty Email Field, John Doe, , Password@123, Password@123)</span>
+                <span class="method-start">57223 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">tearDown([TestResult name=testNegativeSignUp status=SUCCESS method=SignUpTest.testNegativeSignUp(java.lang.St...)</span>
+                <span class="method-start">76113 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-method before">
+                <span class="method-name">setup</span>
+                <span class="method-start">77214 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <span class="method-name">testNegativeSignUp(Empty Password Field, John Doe, test@example.com, , Password@123)</span>
+                <span class="method-start">81694 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">tearDown([TestResult name=testNegativeSignUp status=SUCCESS method=SignUpTest.testNegativeSignUp(java.lang.St...)</span>
+                <span class="method-start">155447 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-method before">
+                <span class="method-name">setup</span>
+                <span class="method-start">156761 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <span class="method-name">testNegativeSignUp(Empty Confirm Password, John Doe, test@example.com, Password@123, )</span>
+                <span class="method-start">161193 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">tearDown([TestResult name=testNegativeSignUp status=SUCCESS method=SignUpTest.testNegativeSignUp(java.lang.St...)</span>
+                <span class="method-start">179461 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-method before">
+                <span class="method-name">setup</span>
+                <span class="method-start">180666 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <span class="method-name">testNegativeSignUp(Password Mismatch, John Doe, test@example.com, Password@123, DifferentPass@123)</span>
+                <span class="method-start">185161 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">tearDown([TestResult name=testNegativeSignUp status=SUCCESS method=SignUpTest.testNegativeSignUp(java.lang.St...)</span>
+                <span class="method-start">204546 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-method before">
+                <span class="method-name">setup</span>
+                <span class="method-start">206144 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <span class="method-name">testNegativeSignUp(Weak Password, John Doe, test@example.com, 123, 123)</span>
+                <span class="method-start">210589 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">tearDown([TestResult name=testNegativeSignUp status=SUCCESS method=SignUpTest.testNegativeSignUp(java.lang.St...)</span>
+                <span class="method-start">285039 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-method before">
+                <span class="method-name">setup</span>
+                <span class="method-start">286228 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <span class="method-name">testNegativeSignUp(All Fields Empty, , , , )</span>
+                <span class="method-start">290720 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">tearDown([TestResult name=testNegativeSignUp status=SUCCESS method=SignUpTest.testNegativeSignUp(java.lang.St...)</span>
+                <span class="method-start">306891 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-method before">
+                <span class="method-name">setup</span>
+                <span class="method-start">308026 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
                 <img src="failed.png">
                 </img>
-                <span class="method-name">testSignIn(Invalid Password, testuser@example.com, WrongPass, Error)</span>
-                <span class="method-start">20329 ms</span>
+                <span class="method-name">testNegativeSignUp(Special Characters in Name, @#$%^&*, test@example.com, Password@123, Password@123)</span>
+                <span class="method-start">312544 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
-                <span class="method-name">tearDown([TestResult name=testSignIn status=FAILURE method=SignInTest.testSignIn(java.lang.String,java.lang.S...)</span>
-                <span class="method-start">35692 ms</span>
+                <span class="method-name">tearDown([TestResult name=testNegativeSignUp status=FAILURE method=SignUpTest.testNegativeSignUp(java.lang.St...)</span>
+                <span class="method-start">361530 ms</span>
               </div> <!-- configuration-method after -->
               <div class="configuration-method before">
                 <span class="method-name">setup</span>
-                <span class="method-start">36808 ms</span>
+                <span class="method-start">363559 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
                 <img src="failed.png">
                 </img>
-                <span class="method-name">testSignIn(Invalid Email Format, testuser, Password@123, Error)</span>
-                <span class="method-start">41559 ms</span>
+                <span class="method-name">testNegativeSignUp(Email Without Domain, John Doe, test@, Password@123, Password@123)</span>
+                <span class="method-start">366745 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
-                <span class="method-name">tearDown([TestResult name=testSignIn status=FAILURE method=SignInTest.testSignIn(java.lang.String,java.lang.S...)</span>
-                <span class="method-start">80542 ms</span>
+                <span class="method-name">tearDown([TestResult name=testNegativeSignUp status=FAILURE method=SignUpTest.testNegativeSignUp(java.lang.St...)</span>
+                <span class="method-start">379614 ms</span>
               </div> <!-- configuration-method after -->
               <div class="configuration-method before">
                 <span class="method-name">setup</span>
-                <span class="method-start">82558 ms</span>
+                <span class="method-start">381710 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
-                <img src="failed.png">
-                </img>
-                <span class="method-name">testSignIn(Non-existent Account, notfound@example.com, Password@123, Error)</span>
-                <span class="method-start">87371 ms</span>
+                <span class="method-name">testNegativeSignUp(Short Password, John Doe, test@example.com, 12, 12)</span>
+                <span class="method-start">386242 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
-                <span class="method-name">tearDown([TestResult name=testSignIn status=FAILURE method=SignInTest.testSignIn(java.lang.String,java.lang.S...)</span>
-                <span class="method-start">126374 ms</span>
+                <span class="method-name">tearDown([TestResult name=testNegativeSignUp status=SUCCESS method=SignUpTest.testNegativeSignUp(java.lang.St...)</span>
+                <span class="method-start">460200 ms</span>
               </div> <!-- configuration-method after -->
               <div class="configuration-method before">
                 <span class="method-name">setup</span>
-                <span class="method-start">128523 ms</span>
+                <span class="method-start">461485 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
-                <img src="failed.png">
-                </img>
-                <span class="method-name">testSignIn(Empty Email, , Password@123, Empty)</span>
-                <span class="method-start">131928 ms</span>
+                <span class="method-name">testNegativeSignUp(Only Spaces in Name,    , test@example.com, Password@123, Password@123)</span>
+                <span class="method-start">465954 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
-                <span class="method-name">tearDown([TestResult name=testSignIn status=FAILURE method=SignInTest.testSignIn(java.lang.String,java.lang.S...)</span>
-                <span class="method-start">145073 ms</span>
+                <span class="method-name">tearDown([TestResult name=testNegativeSignUp status=SUCCESS method=SignUpTest.testNegativeSignUp(java.lang.St...)</span>
+                <span class="method-start">484343 ms</span>
               </div> <!-- configuration-method after -->
               <div class="configuration-method before">
                 <span class="method-name">setup</span>
-                <span class="method-start">147415 ms</span>
+                <span class="method-start">485542 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
-                <img src="failed.png">
-                </img>
-                <span class="method-name">testSignIn(Empty Password, testuser@example.com, , Empty)</span>
-                <span class="method-start">152174 ms</span>
+                <span class="method-name">testPositiveSignUp</span>
+                <span class="method-start">490004 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
-                <span class="method-name">tearDown([TestResult name=testSignIn status=FAILURE method=SignInTest.testSignIn(java.lang.String,java.lang.S...)</span>
-                <span class="method-start">190551 ms</span>
-              </div> <!-- configuration-method after -->
-              <div class="configuration-method before">
-                <span class="method-name">setup</span>
-                <span class="method-start">192696 ms</span>
-              </div> <!-- configuration-method before -->
-              <div class="test-method">
-                <img src="failed.png">
-                </img>
-                <span class="method-name">testSignIn(Both Empty, , , Empty)</span>
-                <span class="method-start">196059 ms</span>
-              </div> <!-- test-method -->
-              <div class="configuration-method after">
-                <span class="method-name">tearDown([TestResult name=testSignIn status=FAILURE method=SignInTest.testSignIn(java.lang.String,java.lang.S...)</span>
-                <span class="method-start">209028 ms</span>
+                <span class="method-name">tearDown([TestResult name=testPositiveSignUp status=SUCCESS method=SignUpTest.testPositiveSignUp()[pri:0, ins...)</span>
+                <span class="method-start">539264 ms</span>
               </div> <!-- configuration-method after -->
               <div class="configuration-suite after">
                 <span class="method-name">tearDownReport</span>
-                <span class="method-start">211156 ms</span>
+                <span class="method-start">540099 ms</span>
               </div> <!-- configuration-suite after -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->
