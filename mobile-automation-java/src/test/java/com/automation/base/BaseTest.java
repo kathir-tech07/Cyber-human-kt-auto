@@ -88,6 +88,13 @@ public class BaseTest {
             }
             driver.quit();
         }
+
+        // 🛑 User requested 2-second delay after every test
+        try {
+            Thread.sleep(2000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
     }
 
     /* ================= REPORT FLUSH ================= */

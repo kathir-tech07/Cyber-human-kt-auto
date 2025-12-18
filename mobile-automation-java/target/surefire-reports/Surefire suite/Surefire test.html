@@ -55,11 +55,11 @@ function toggleAllBoxes() {
 <body>
 <h2 align='center'>Surefire test</h2><table border='1' align="center">
 <tr>
-<td>Tests passed/Failed/Skipped:</td><td>11/2/0</td>
+<td>Tests passed/Failed/Skipped:</td><td>9/0/0</td>
 </tr><tr>
-<td>Started on:</td><td>Thu Dec 18 12:36:29 IST 2025</td>
+<td>Started on:</td><td>Thu Dec 18 17:51:03 IST 2025</td>
 </tr>
-<tr><td>Total time:</td><td>539 seconds (539928 ms)</td>
+<tr><td>Total time:</td><td>726 seconds (726991 ms)</td>
 </tr><tr>
 <td>Included groups:</td><td></td>
 </tr><tr>
@@ -67,108 +67,6 @@ function toggleAllBoxes() {
 </tr>
 </table><p/>
 <small><i>(Hover the method name to see the test class name)</i></small><p/>
-<table width='100%' border='1' class='invocation-failed'>
-<tr><td colspan='4' align='center'><b>FAILED TESTS</b></td></tr>
-<tr><td><b>Test method</b></td>
-<td><b>Attribute(s)</b></td>
-<td width="30%"><b>Exception</b></td>
-<td width="10%"><b>Time (seconds)</b></td>
-<td><b>Instance</b></td>
-</tr>
-<tr>
-<td title='com.automation.tests.SignUpTest.testNegativeSignUp()'><b>testNegativeSignUp</b><br>Test class: com.automation.tests.SignUpTest<br>Parameters: Special Characters in Name, @#$%^&*, test@example.com, Password@123, Password@123</td>
-<td><div><pre>java.lang.AssertionError: Expected validation to appear for negative test case, but NONE was detected
-	at com.automation.tests.SignUpTest.testNegativeSignUp(SignUpTest.java:107)
-	at java.base/java.util.ArrayList.forEach(ArrayList.java:1541)
-... Removed 33 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1200601052", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace1200601052'><pre>java.lang.AssertionError: Expected validation to appear for negative test case, but NONE was detected
-	at org.testng.Assert.fail(Assert.java:111)
-	at com.automation.tests.SignUpTest.testNegativeSignUp(SignUpTest.java:107)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
-	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:139)
-	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:664)
-	at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:227)
-	at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:50)
-	at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:957)
-	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:200)
-	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:148)
-	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:128)
-	at java.base/java.util.ArrayList.forEach(ArrayList.java:1541)
-	at org.testng.TestRunner.privateRun(TestRunner.java:848)
-	at org.testng.TestRunner.run(TestRunner.java:621)
-	at org.testng.SuiteRunner.runTest(SuiteRunner.java:443)
-	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:437)
-	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:397)
-	at org.testng.SuiteRunner.run(SuiteRunner.java:336)
-	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
-	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
-	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1280)
-	at org.testng.TestNG.runSuitesLocally(TestNG.java:1200)
-	at org.testng.TestNG.runSuites(TestNG.java:1114)
-	at org.testng.TestNG.run(TestNG.java:1082)
-	at org.apache.maven.surefire.testng.TestNGExecutor.run(TestNGExecutor.java:155)
-	at org.apache.maven.surefire.testng.TestNGDirectoryTestSuite.executeSingleClass(TestNGDirectoryTestSuite.java:102)
-	at org.apache.maven.surefire.testng.TestNGDirectoryTestSuite.execute(TestNGDirectoryTestSuite.java:91)
-	at org.apache.maven.surefire.testng.TestNGProvider.invoke(TestNGProvider.java:137)
-	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:385)
-	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162)
-	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507)
-	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
-</pre></div></td>
-<td>48</td>
-<td>com.automation.tests.SignUpTest@1afd44cb</td></tr>
-<tr>
-<td title='com.automation.tests.SignUpTest.testNegativeSignUp()'><b>testNegativeSignUp</b><br>Test class: com.automation.tests.SignUpTest<br>Parameters: Email Without Domain, John Doe, test@, Password@123, Password@123</td>
-<td><div><pre>java.lang.RuntimeException: Element not found with ID: null, XPath: //android.widget.Button[@content-desc=&quot;Don&apos;t have an account? Sign up&quot;], AccessID: null
-	at com.automation.pages.SignInPage.findElementWithFallback(SignInPage.java:40)
-	at com.automation.pages.SignInPage.clickSignUp(SignInPage.java:74)
-	at com.automation.tests.SignUpTest.testNegativeSignUp(SignUpTest.java:58)
-	at java.base/java.util.ArrayList.forEach(ArrayList.java:1541)
-... Removed 32 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1287728562", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace1287728562'><pre>java.lang.RuntimeException: Element not found with ID: null, XPath: //android.widget.Button[@content-desc=&quot;Don&apos;t have an account? Sign up&quot;], AccessID: null
-	at com.automation.pages.SignInPage.findElementWithFallback(SignInPage.java:40)
-	at com.automation.pages.SignInPage.clickSignUp(SignInPage.java:74)
-	at com.automation.tests.SignUpTest.testNegativeSignUp(SignUpTest.java:58)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
-	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:139)
-	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:664)
-	at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:227)
-	at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:50)
-	at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:957)
-	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:200)
-	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:148)
-	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:128)
-	at java.base/java.util.ArrayList.forEach(ArrayList.java:1541)
-	at org.testng.TestRunner.privateRun(TestRunner.java:848)
-	at org.testng.TestRunner.run(TestRunner.java:621)
-	at org.testng.SuiteRunner.runTest(SuiteRunner.java:443)
-	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:437)
-	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:397)
-	at org.testng.SuiteRunner.run(SuiteRunner.java:336)
-	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
-	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
-	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1280)
-	at org.testng.TestNG.runSuitesLocally(TestNG.java:1200)
-	at org.testng.TestNG.runSuites(TestNG.java:1114)
-	at org.testng.TestNG.run(TestNG.java:1082)
-	at org.apache.maven.surefire.testng.TestNGExecutor.run(TestNGExecutor.java:155)
-	at org.apache.maven.surefire.testng.TestNGDirectoryTestSuite.executeSingleClass(TestNGDirectoryTestSuite.java:102)
-	at org.apache.maven.surefire.testng.TestNGDirectoryTestSuite.execute(TestNGDirectoryTestSuite.java:91)
-	at org.apache.maven.surefire.testng.TestNGProvider.invoke(TestNGProvider.java:137)
-	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:385)
-	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162)
-	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507)
-	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
-</pre></div></td>
-<td>12</td>
-<td>com.automation.tests.SignUpTest@1afd44cb</td></tr>
-</table><p>
 <table width='100%' border='1' class='invocation-passed'>
 <tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
 <tr><td><b>Test method</b></td>
@@ -178,60 +76,50 @@ function toggleAllBoxes() {
 <td><b>Instance</b></td>
 </tr>
 <tr>
-<td title='com.automation.tests.SignUpTest.testNegativeSignUp()'><b>testNegativeSignUp</b><br>Test class: com.automation.tests.SignUpTest<br>Parameters: Empty Email Field, John Doe, , Password@123, Password@123</td>
+<td title='com.automation.tests.EditProfileTest.testNegativeEditProfile()'><b>testNegativeEditProfile</b><br>Test class: com.automation.tests.EditProfileTest<br>Parameters: Email Without @, John Doe, testexample.com, 123456789</td>
 <td></td>
-<td>18</td>
-<td>com.automation.tests.SignUpTest@1afd44cb</td></tr>
+<td>71</td>
+<td>com.automation.tests.EditProfileTest@5f058f00</td></tr>
 <tr>
-<td title='com.automation.tests.SignUpTest.testNegativeSignUp()'><b>testNegativeSignUp</b><br>Test class: com.automation.tests.SignUpTest<br>Parameters: Empty Confirm Password, John Doe, test@example.com, Password@123, </td>
+<td title='com.automation.tests.EditProfileTest.testNegativeEditProfile()'><b>testNegativeEditProfile</b><br>Test class: com.automation.tests.EditProfileTest<br>Parameters: Invalid Email Format, John Doe, invalidemail, 123456789</td>
 <td></td>
-<td>18</td>
-<td>com.automation.tests.SignUpTest@1afd44cb</td></tr>
+<td>70</td>
+<td>com.automation.tests.EditProfileTest@5f058f00</td></tr>
 <tr>
-<td title='com.automation.tests.SignUpTest.testNegativeSignUp()'><b>testNegativeSignUp</b><br>Test class: com.automation.tests.SignUpTest<br>Parameters: Only Spaces in Name,    , test@example.com, Password@123, Password@123</td>
+<td title='com.automation.tests.EditProfileTest.testNegativeEditProfile()'><b>testNegativeEditProfile</b><br>Test class: com.automation.tests.EditProfileTest<br>Parameters: Empty Phone Number, John Doe, test@example.com, </td>
 <td></td>
-<td>18</td>
-<td>com.automation.tests.SignUpTest@1afd44cb</td></tr>
+<td>61</td>
+<td>com.automation.tests.EditProfileTest@5f058f00</td></tr>
 <tr>
-<td title='com.automation.tests.SignUpTest.testPositiveSignUp()'><b>testPositiveSignUp</b><br>Test class: com.automation.tests.SignUpTest</td>
+<td title='com.automation.tests.EditProfileTest.testEditProfileWithDateGenderCountry()'><b>testEditProfileWithDateGenderCountry</b><br>Test class: com.automation.tests.EditProfileTest</td>
 <td></td>
-<td>49</td>
-<td>com.automation.tests.SignUpTest@1afd44cb</td></tr>
+<td>97</td>
+<td>com.automation.tests.EditProfileTest@5f058f00</td></tr>
 <tr>
-<td title='com.automation.tests.SignUpTest.testNegativeSignUp()'><b>testNegativeSignUp</b><br>Test class: com.automation.tests.SignUpTest<br>Parameters: Empty Password Field, John Doe, test@example.com, , Password@123</td>
+<td title='com.automation.tests.EditProfileTest.testNegativeEditProfile()'><b>testNegativeEditProfile</b><br>Test class: com.automation.tests.EditProfileTest<br>Parameters: Empty Name Field, , test@example.com, 123456789</td>
 <td></td>
-<td>73</td>
-<td>com.automation.tests.SignUpTest@1afd44cb</td></tr>
+<td>71</td>
+<td>com.automation.tests.EditProfileTest@5f058f00</td></tr>
 <tr>
-<td title='com.automation.tests.SignUpTest.testNegativeSignUp()'><b>testNegativeSignUp</b><br>Test class: com.automation.tests.SignUpTest<br>Parameters: Short Password, John Doe, test@example.com, 12, 12</td>
+<td title='com.automation.tests.EditProfileTest.testNegativeEditProfile()'><b>testNegativeEditProfile</b><br>Test class: com.automation.tests.EditProfileTest<br>Parameters: Empty Email Field, John Doe, , 123456789</td>
 <td></td>
-<td>73</td>
-<td>com.automation.tests.SignUpTest@1afd44cb</td></tr>
+<td>69</td>
+<td>com.automation.tests.EditProfileTest@5f058f00</td></tr>
 <tr>
-<td title='com.automation.tests.SignUpTest.testNegativeSignUp()'><b>testNegativeSignUp</b><br>Test class: com.automation.tests.SignUpTest<br>Parameters: Password Mismatch, John Doe, test@example.com, Password@123, DifferentPass@123</td>
+<td title='com.automation.tests.EditProfileTest.testNegativeEditProfile()'><b>testNegativeEditProfile</b><br>Test class: com.automation.tests.EditProfileTest<br>Parameters: Invalid Phone - Letters, John Doe, test@example.com, abcdefgh</td>
 <td></td>
-<td>19</td>
-<td>com.automation.tests.SignUpTest@1afd44cb</td></tr>
+<td>71</td>
+<td>com.automation.tests.EditProfileTest@5f058f00</td></tr>
 <tr>
-<td title='com.automation.tests.SignUpTest.testNegativeSignUp()'><b>testNegativeSignUp</b><br>Test class: com.automation.tests.SignUpTest<br>Parameters: Weak Password, John Doe, test@example.com, 123, 123</td>
+<td title='com.automation.tests.EditProfileTest.testNegativeEditProfile()'><b>testNegativeEditProfile</b><br>Test class: com.automation.tests.EditProfileTest<br>Parameters: Short Phone Number, John Doe, test@example.com, 12</td>
 <td></td>
-<td>74</td>
-<td>com.automation.tests.SignUpTest@1afd44cb</td></tr>
+<td>69</td>
+<td>com.automation.tests.EditProfileTest@5f058f00</td></tr>
 <tr>
-<td title='com.automation.tests.SignUpTest.testNegativeSignUp()'><b>testNegativeSignUp</b><br>Test class: com.automation.tests.SignUpTest<br>Parameters: All Fields Empty, , , , </td>
+<td title='com.automation.tests.EditProfileTest.testNegativeEditProfile()'><b>testNegativeEditProfile</b><br>Test class: com.automation.tests.EditProfileTest<br>Parameters: Email Without Domain, John Doe, test@, 123456789</td>
 <td></td>
-<td>16</td>
-<td>com.automation.tests.SignUpTest@1afd44cb</td></tr>
-<tr>
-<td title='com.automation.tests.SignUpTest.testNegativeSignUp()'><b>testNegativeSignUp</b><br>Test class: com.automation.tests.SignUpTest<br>Parameters: Empty Name Field, , test@example.com, Password@123, Password@123</td>
-<td></td>
-<td>19</td>
-<td>com.automation.tests.SignUpTest@1afd44cb</td></tr>
-<tr>
-<td title='com.automation.tests.SignUpTest.testNegativeSignUp()'><b>testNegativeSignUp</b><br>Test class: com.automation.tests.SignUpTest<br>Parameters: Invalid Email Format, John Doe, invalidemail, Password@123, Password@123</td>
-<td></td>
-<td>18</td>
-<td>com.automation.tests.SignUpTest@1afd44cb</td></tr>
+<td>70</td>
+<td>com.automation.tests.EditProfileTest@5f058f00</td></tr>
 </table><p>
 </body>
 </html>
