@@ -122,16 +122,22 @@ public class DailyPrescriptionTest extends BaseTest {
             test.log(Status.INFO, "Step 16-17: Swiping and clicking New File icon");
             dailyPrescriptionPage.swipeAndClickNewFile();
             test.log(Status.PASS, "✓ New File icon clicked");
+            Thread.sleep(5000); // 5 sec delay after step 17
 
             // Step 18: Enter file name "AutoFile"
             test.log(Status.INFO, "Step 18: Entering file name 'AutoFile'");
             dailyPrescriptionPage.enterFileName("AutoFile");
             test.log(Status.PASS, "✓ File name 'AutoFile' entered");
+            Thread.sleep(2000); // Small wait for button to stabilize
+
+            // Wait for Modified button
+            dailyPrescriptionPage.waitForModifiedButton();
 
             // Step 19: Click modified button
             test.log(Status.INFO, "Step 19: Clicking modified button");
             dailyPrescriptionPage.clickModifiedButton();
             test.log(Status.PASS, "✓ Modified button clicked");
+            Thread.sleep(5000); // 5 sec delay after step 19
 
             // Step 20: Click final close icon
             test.log(Status.INFO, "Step 20: Clicking final close icon");

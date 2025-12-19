@@ -343,9 +343,22 @@ public class DailyPrescriptionPage {
             editText.click();
             editText.clear();
             editText.sendKeys(fileName);
-            hideKeyboard();
+            // hideKeyboard(); // Removed as per user request to keep dialog open
         } catch (TimeoutException e) {
             throw new RuntimeException("EditText field not found", e);
+        }
+    }
+
+    /**
+     * Explicitly wait for the Modified button before clicking
+     */
+    public void waitForModifiedButton() {
+        try {
+            WebDriverWait shortWait = new WebDriverWait(driver, Duration.ofSeconds(5));
+            shortWait.until(ExpectedConditions.presenceOfElementLocated(
+                    By.xpath("//android.widget.Button[contains(@content-desc, 'Modified')]")));
+        } catch (TimeoutException e) {
+            throw new RuntimeException("Modified button did not appear after entering file name");
         }
     }
 
@@ -355,8 +368,7 @@ public class DailyPrescriptionPage {
     public void clickModifiedButton() {
         try {
             WebElement btn = wait.until(ExpectedConditions.elementToBeClickable(
-                    By.xpath(
-                            "//android.widget.Button[contains(@content-desc, 'One') and contains(@content-desc, 'Modified Dec 19')]")));
+                    By.xpath("//android.widget.Button[contains(@content-desc, 'Modified')]")));
             btn.click();
             System.out.println("✓ Clicked modified button");
         } catch (TimeoutException e) {
