@@ -2,35 +2,35 @@
 <testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2025-12-19T18:33:09 IST" name="Surefire suite" finished-at="2025-12-19T18:34:04 IST" duration-ms="55001">
+  <suite started-at="2025-12-22T20:02:11 IST" name="Surefire suite" finished-at="2025-12-22T20:03:15 IST" duration-ms="64088">
     <groups>
     </groups>
-    <test started-at="2025-12-19T18:33:09 IST" name="Surefire test" finished-at="2025-12-19T18:34:04 IST" duration-ms="55001">
+    <test started-at="2025-12-22T20:02:11 IST" name="Surefire test" finished-at="2025-12-22T20:03:15 IST" duration-ms="64088">
       <class name="com.automation.tests.DailyPrescriptionTest">
-        <test-method is-config="true" signature="setupReport()[pri:0, instance:com.automation.tests.DailyPrescriptionTest@c33b74f]" started-at="2025-12-19T18:33:09 IST" name="setupReport" finished-at="2025-12-19T18:33:09 IST" duration-ms="211" status="PASS">
+        <test-method is-config="true" signature="setupReport()[pri:0, instance:com.automation.tests.DailyPrescriptionTest@619713e5]" started-at="2025-12-22T20:02:10 IST" name="setupReport" finished-at="2025-12-22T20:02:11 IST" duration-ms="195" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setupReport -->
-        <test-method is-config="true" signature="setup()[pri:0, instance:com.automation.tests.DailyPrescriptionTest@c33b74f]" started-at="2025-12-19T18:33:09 IST" name="setup" finished-at="2025-12-19T18:33:15 IST" duration-ms="5192" status="PASS">
+        <test-method is-config="true" signature="setup()[pri:0, instance:com.automation.tests.DailyPrescriptionTest@619713e5]" started-at="2025-12-22T20:02:11 IST" name="setup" finished-at="2025-12-22T20:02:19 IST" duration-ms="8101" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setup -->
-        <test-method signature="testScheduleTimeAndFileCreation()[pri:0, instance:com.automation.tests.DailyPrescriptionTest@c33b74f]" started-at="2025-12-19T18:33:15 IST" name="testScheduleTimeAndFileCreation" finished-at="2025-12-19T18:34:01 IST" duration-ms="46559" status="PASS">
+        <test-method signature="testScheduleTimeAndFileCreation()[pri:0, instance:com.automation.tests.DailyPrescriptionTest@619713e5]" started-at="2025-12-22T20:02:19 IST" name="testScheduleTimeAndFileCreation" finished-at="2025-12-22T20:03:12 IST" duration-ms="52807" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- testScheduleTimeAndFileCreation -->
-        <test-method is-config="true" signature="tearDown(org.testng.ITestResult)[pri:0, instance:com.automation.tests.DailyPrescriptionTest@c33b74f]" started-at="2025-12-19T18:34:01 IST" name="tearDown" finished-at="2025-12-19T18:34:04 IST" duration-ms="3224" status="PASS">
+        <test-method is-config="true" signature="tearDown(org.testng.ITestResult)[pri:0, instance:com.automation.tests.DailyPrescriptionTest@619713e5]" started-at="2025-12-22T20:03:12 IST" name="tearDown" finished-at="2025-12-22T20:03:15 IST" duration-ms="3151" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=testScheduleTimeAndFileCreation status=SUCCESS method=DailyPrescriptionTest.testScheduleTimeAndFileCreation()[pri:0, instance:com.automation.tests.DailyPrescriptionTest@c33b74f] output={null}]]]>
+                <![CDATA[[TestResult name=testScheduleTimeAndFileCreation status=SUCCESS method=DailyPrescriptionTest.testScheduleTimeAndFileCreation()[pri:0, instance:com.automation.tests.DailyPrescriptionTest@619713e5] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-        <test-method is-config="true" signature="tearDownReport()[pri:0, instance:com.automation.tests.DailyPrescriptionTest@c33b74f]" started-at="2025-12-19T18:34:04 IST" name="tearDownReport" finished-at="2025-12-19T18:34:05 IST" duration-ms="206" status="PASS">
+        <test-method is-config="true" signature="tearDownReport()[pri:0, instance:com.automation.tests.DailyPrescriptionTest@619713e5]" started-at="2025-12-22T20:03:15 IST" name="tearDownReport" finished-at="2025-12-22T20:03:15 IST" duration-ms="262" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDownReport -->

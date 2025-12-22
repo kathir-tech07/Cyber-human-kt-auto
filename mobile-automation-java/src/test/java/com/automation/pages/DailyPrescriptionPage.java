@@ -125,20 +125,22 @@ public class DailyPrescriptionPage {
     }
 
     /**
-     * Step 9: Swipe right and left on Nutrition & Metabolism section
-     * Wait for data to load
+     * Step 10: Swipe left and right on Nutrition & Metabolism section
+     * Wait for data to load after each swipe
      */
     public void swipeNutritionSection() {
         try {
             Thread.sleep(1000); // Wait for page to settle
 
-            // Swipe right (from right to left)
+            // 1. Swipe Left (Right to Left gesture)
+            System.out.println("Performing Swipe Left...");
             swipeHorizontal(true);
-            Thread.sleep(500);
+            Thread.sleep(2000); // Wait for data to load
 
-            // Swipe left (from left to right)
+            // 2. Swipe Right (Left to Right gesture)
+            System.out.println("Performing Swipe Right...");
             swipeHorizontal(false);
-            Thread.sleep(1000); // Wait 1 second for data to load
+            Thread.sleep(2000); // Wait for data to load
         } catch (Exception e) {
             System.out.println("Error in swipeNutritionSection: " + e.getMessage());
         }

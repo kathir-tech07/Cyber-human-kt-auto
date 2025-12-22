@@ -79,10 +79,11 @@ public class DailyPrescriptionTest extends BaseTest {
             dailyPrescriptionPage.clickOk();
             test.log(Status.PASS, "✓ OK button clicked");
 
-            // Step 10: Swipe right and left on Nutrition & Metabolism section
-            test.log(Status.INFO, "Step 10: Swiping on Nutrition & Metabolism section and waiting for data load");
+            // Step 10: Swipe left and right on Nutrition & Metabolism section
+            test.log(Status.INFO,
+                    "Step 10: Swiping left and right on Nutrition & Metabolism section and waiting for data load");
             dailyPrescriptionPage.swipeNutritionSection();
-            test.log(Status.PASS, "✓ Swipe completed, data loaded");
+            test.log(Status.PASS, "✓ Swipe left and right completed, data loaded");
 
             // Step 11: Swipe up 2 times in ScrollView
             test.log(Status.INFO, "Step 11: Swiping up 2 times in ScrollView");
