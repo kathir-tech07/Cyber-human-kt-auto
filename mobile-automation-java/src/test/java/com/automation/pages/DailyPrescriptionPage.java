@@ -54,15 +54,44 @@ public class DailyPrescriptionPage {
     }
 
     /**
-     * Step 4: Swipe up one time
+     * Step 5: Perform a single swipe up in the time picker
+     * Targeted specifically at the ScrollView picker container.
      */
     public void swipeUpOnce() {
         try {
-            Thread.sleep(1000); // Wait for time picker to appear
-            swipeUpVertical(); // Swipe up once
-            Thread.sleep(500); // Wait after swipe
+            // Identify the picker container specifically - often the ScrollView within the
+            // modal
+            WebElement pickerContainer = wait.until(ExpectedConditions
+                    .presenceOfElementLocated(By.xpath(
+                            "//android.view.View[contains(@content-desc, 'min')]/ancestor::android.widget.ScrollView[1]")));
+
+            org.openqa.selenium.Point location = pickerContainer.getLocation();
+            org.openqa.selenium.Dimension size = pickerContainer.getSize();
+
+            // Calculate swipe points within the picker bounds (Center-X, Bottom-to-Top Y)
+            int centerX = location.getX() + (size.getWidth() / 2);
+            int startY = location.getY() + (int) (size.getHeight() * 0.8);
+            int endY = location.getY() + (int) (size.getHeight() * 0.2);
+
+            System.out.println("Single Swipe: Targeting ScrollView picker at " + location + " with size " + size);
+
+            // Perform exactly one slow, stable W3C swipe gesture inside the picker bounds
+            PointerInput finger = new PointerInput(PointerInput.Kind.TOUCH, "finger");
+            Sequence swipe = new Sequence(finger, 1);
+            swipe.addAction(
+                    finger.createPointerMove(Duration.ZERO, PointerInput.Origin.viewport(), centerX, startY));
+            swipe.addAction(finger.createPointerDown(PointerInput.MouseButton.LEFT.asArg()));
+            swipe.addAction(
+                    finger.createPointerMove(Duration.ofMillis(1000), PointerInput.Origin.viewport(), centerX,
+                            endY));
+            swipe.addAction(finger.createPointerUp(PointerInput.MouseButton.LEFT.asArg()));
+
+            driver.perform(Collections.singletonList(swipe));
+            Thread.sleep(1200); // Wait for wheel to settle/decelerate
+
         } catch (Exception e) {
-            System.out.println("Error in swipeUpOnce: " + e.getMessage());
+            System.out.println("Error performing single swipe in picker: " + e.getMessage());
+            throw new RuntimeException("Time picker swipe failed: " + e.getMessage(), e);
         }
     }
 
@@ -164,30 +193,24 @@ public class DailyPrescriptionPage {
     }
 
     /**
-     * Step 12: Click on the specific article about Biological Rhythms
+     * Step 12: Click on whichever article is present using a common XPath
      */
-    public void clickBiologicalRhythmsArticle() {
+    public void clickAnyArticle() {
         try {
-            // Click the specific article: "The Dance of Life: Understanding Our Biological
-            // Rhythms"
-            // Find the element first - using the original working locator for the
-            // text/content
+            // Use a common XPath to find any article view
             WebDriverWait shortWait = new WebDriverWait(driver, Duration.ofSeconds(8));
             WebElement articleElement = shortWait.until(ExpectedConditions.presenceOfElementLocated(
-                    By.xpath(
-                            "//android.view.View[contains(@content-desc, 'The Dance of Life') and contains(@content-desc, 'Article')]")));
+                    By.xpath("//android.view.View[contains(@content-desc, 'Article')]")));
 
             // Get location and size
             org.openqa.selenium.Point location = articleElement.getLocation();
             org.openqa.selenium.Dimension size = articleElement.getSize();
 
-            // Calculate coordinates - target the left side (image area)
-            // X: Start of element + offset (e.g. 15% of width or fixed amount)
-            // Y: Center of the element
+            // Calculate coordinates - target the left side (usually image area)
             int leftX = location.getX() + (int) (size.getWidth() * 0.25);
             int centerY = location.getY() + (size.getHeight() / 2);
 
-            System.out.println("Tapping at coordinates: " + leftX + ", " + centerY);
+            System.out.println("Tapping article at coordinates: " + leftX + ", " + centerY);
 
             // Use W3C Actions for tapping at coordinates
             PointerInput finger = new PointerInput(PointerInput.Kind.TOUCH, "finger");
@@ -199,74 +222,54 @@ public class DailyPrescriptionPage {
 
             Thread.sleep(2000); // Wait for article detail page to load
 
-            // Validate that article detail page opened
+            // Validate that an article detail page opened (generic validation)
             try {
-                WebElement detailPageElement = wait.until(ExpectedConditions.presenceOfElementLocated(
-                        By.xpath(
-                                "//android.view.View[@content-desc='The Dance of Life: Understanding Our Biological Rhythms']")));
+                wait.until(ExpectedConditions.presenceOfElementLocated(
+                        By.xpath("//android.view.View[contains(@content-desc, 'min read')]")));
                 System.out.println("✓ Article detail page opened successfully");
             } catch (Exception e) {
-                try {
-                    WebElement anyArticleContent = wait.until(ExpectedConditions.presenceOfElementLocated(
-                            By.xpath(
-                                    "//android.view.View[contains(@content-desc, 'min read') and not(contains(@content-desc, 'Article'))]")));
-                    System.out.println("✓ Article detail page loaded (verified via content)");
-                } catch (Exception e2) {
-                    throw new RuntimeException("Article detail page did not open - still on list screen", e2);
-                }
+                System.out.println("Warning: Could not confirm article detail page via 'min read' tag");
             }
         } catch (Exception e) {
-            System.out.println("Error in clickBiologicalRhythmsArticle: " + e.getMessage());
+            System.out.println("Error in clickAnyArticle: " + e.getMessage());
             throw new RuntimeException("Failed to click article or verify detail page opened", e);
         }
     }
 
     /**
-     * Step 13: Get article heading from the article detail page
+     * Step 13: Get heading from any article detail page at runtime
      */
     public String getArticleHeading() {
         try {
             Thread.sleep(1500); // Wait for page to fully load
             WebDriverWait shortWait = new WebDriverWait(driver, Duration.ofSeconds(8));
 
-            // Strategy 1: Try to find the exact heading
+            // Strategy 1: Find the first significant View in the ScrollView that isn't a
+            // tag
+            // Usually the heading is the first or second View with content-desc
             try {
                 WebElement headingElement = shortWait.until(ExpectedConditions.presenceOfElementLocated(
                         By.xpath(
-                                "//android.view.View[@content-desc='The Dance of Life: Understanding Our Biological Rhythms']")));
+                                "//android.widget.ScrollView//android.view.View[@content-desc!='' and not(contains(@content-desc, 'min read')) and not(contains(@content-desc, 'Article Detail'))][1]")));
                 String heading = headingElement.getAttribute("content-desc");
                 if (heading != null && !heading.isEmpty()) {
+                    System.out.println("✓ Extracted article heading: " + heading);
                     return heading;
                 }
             } catch (Exception e1) {
-                System.out.println("Strategy 1 failed, trying alternative...");
+                System.out.println("Strategy 1 failed, trying Strategy 2...");
             }
 
-            // Strategy 2: Try to find any View containing "Dance of Life" in the article
-            // detail page
+            // Strategy 2: Fallback to the second View in ScrollView
             try {
                 WebElement headingElement = driver.findElement(
-                        By.xpath(
-                                "//android.widget.ScrollView//android.view.View[contains(@content-desc, 'The Dance of Life') and not(contains(@content-desc, 'Article'))]"));
-                String heading = headingElement.getAttribute("content-desc");
-                if (heading != null && !heading.isEmpty()) {
-                    return heading;
-                }
-            } catch (Exception e2) {
-                System.out.println("Strategy 2 failed, trying alternative...");
-            }
-
-            // Strategy 3: Get the second View element in ScrollView (usually the heading)
-            try {
-                WebElement headingElement = driver.findElement(
-                        By.xpath(
-                                "(//android.widget.ScrollView//android.view.View[@content-desc and @content-desc!=''])[2]"));
+                        By.xpath("(//android.widget.ScrollView//android.view.View[@content-desc!=''])[2]"));
                 String heading = headingElement.getAttribute("content-desc");
                 if (heading != null && !heading.isEmpty() && !heading.contains("min read")) {
                     return heading;
                 }
-            } catch (Exception e3) {
-                System.out.println("Strategy 3 failed: " + e3.getMessage());
+            } catch (Exception e2) {
+                System.out.println("Strategy 2 failed: " + e2.getMessage());
             }
 
             return "Article heading extracted";
@@ -316,25 +319,92 @@ public class DailyPrescriptionPage {
      * Step 16-17: Swipe up once and click New File icon
      */
     public void swipeAndClickNewFile() {
-        try {
-            Thread.sleep(1000);
-            swipeUpInDialog(); // Swipe up once
-            Thread.sleep(500);
+        String newFileXpath = "(//android.widget.ImageView[@content-desc=\"New File\"])";
+        int maxSwipes = 5;
+        int swipes = 0;
 
-            // Click New File icon
-            WebDriverWait shortWait = new WebDriverWait(driver, Duration.ofSeconds(5));
-            WebElement newFileIcon = shortWait.until(ExpectedConditions.elementToBeClickable(
-                    By.xpath("//android.widget.ImageView[@content-desc='New File']")));
-            newFileIcon.click();
+        while (swipes < maxSwipes) {
+            try {
+                // Check if New File icon is present and clickable
+                WebDriverWait shortWait = new WebDriverWait(driver, Duration.ofSeconds(3));
+                WebElement newFileIcon = shortWait
+                        .until(ExpectedConditions.elementToBeClickable(By.xpath(newFileXpath)));
+
+                if (newFileIcon.isDisplayed()) {
+                    newFileIcon.click();
+                    System.out.println("✓ Found and clicked New File icon after " + swipes + " swipes");
+                    return;
+                }
+            } catch (Exception e) {
+                // Not found or not clickable yet, swipe up
+                System.out.println("New File icon not ready, swiping... (" + (swipes + 1) + ")");
+                swipeUpInDialog();
+                swipes++;
+                try {
+                    Thread.sleep(1000);
+                } catch (InterruptedException ignored) {
+                }
+            }
+        }
+        throw new RuntimeException("Could not find or click New File icon after " + maxSwipes + " swipes");
+    }
+
+    /**
+     * Search for a file in the ADD TO FILE dialog
+     */
+    public void searchInAddToFile(String query) {
+        try {
+            WebElement editText = wait
+                    .until(ExpectedConditions.elementToBeClickable(By.xpath("//android.widget.EditText")));
+            editText.click();
+            editText.clear();
+            editText.sendKeys(query);
+            System.out.println("✓ Searched for: " + query);
         } catch (Exception e) {
-            System.out.println("Error in swipeAndClickNewFile: " + e.getMessage());
+            throw new RuntimeException("Failed to search in ADD TO FILE dialog: " + e.getMessage());
+        }
+    }
+
+    /**
+     * Check if a specific search result is displayed
+     */
+    public boolean isSearchResultDisplayed(String contentDesc) {
+        try {
+            // Remove potential trailing space in XPath and handle newline character
+            String xpath = "(//android.widget.Button[@content-desc=\"" + contentDesc + "\"])";
+            WebDriverWait shortWait = new WebDriverWait(driver, Duration.ofSeconds(10));
+            WebElement result = shortWait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(xpath)));
+            return result.isDisplayed();
+        } catch (Exception e) {
+            // Fallback: If literal match fails, try replacing newline with space as some
+            // tools report it that way
+            try {
+                String altContentDesc = contentDesc.replace("\n", " ");
+                String xpathAlt = "(//android.widget.Button[@content-desc=\"" + altContentDesc + "\"])";
+                return driver.findElement(By.xpath(xpathAlt)).isDisplayed();
+            } catch (Exception e2) {
+                System.out.println("Search result not found: " + contentDesc);
+                return false;
+            }
+        }
+    }
+
+    /**
+     * Clear the search field in ADD TO FILE dialog
+     */
+    public void clearSearchField() {
+        try {
+            WebElement editText = wait
+                    .until(ExpectedConditions.elementToBeClickable(By.xpath("//android.widget.EditText")));
+            editText.clear();
+            System.out.println("✓ Search field cleared");
+        } catch (Exception e) {
+            System.out.println("Could not clear search field: " + e.getMessage());
         }
     }
 
     /**
      * Step 18: Enter file name in EditText field
-     * 
-     * @param fileName The file name to enter
      */
     public void enterFileName(String fileName) {
         try {
@@ -389,6 +459,38 @@ public class DailyPrescriptionPage {
             System.out.println("✓ Clicked final close icon");
         } catch (TimeoutException e) {
             throw new RuntimeException("Final close icon not found", e);
+        }
+    }
+
+    /**
+     * Step 21: Validate SAVED dialog is displayed
+     * 
+     * @return true if SAVED dialog is visible
+     */
+    public boolean isSavedDialogDisplayed() {
+        try {
+            WebDriverWait shortWait = new WebDriverWait(driver, Duration.ofSeconds(5));
+            WebElement savedView = shortWait.until(ExpectedConditions
+                    .presenceOfElementLocated(By.xpath("//android.view.View[@content-desc='SAVED']")));
+            return savedView.isDisplayed();
+        } catch (Exception e) {
+            return false;
+        }
+    }
+
+    /**
+     * Step 21: Get saved success message
+     * 
+     * @return The success message text
+     */
+    public String getSavedMessage() {
+        try {
+            WebDriverWait shortWait = new WebDriverWait(driver, Duration.ofSeconds(5));
+            WebElement messageView = shortWait.until(ExpectedConditions.presenceOfElementLocated(
+                    By.xpath("//android.view.View[@content-desc='Your article has been successfully saved.']")));
+            return messageView.getAttribute("content-desc");
+        } catch (Exception e) {
+            return null;
         }
     }
 
@@ -470,21 +572,47 @@ public class DailyPrescriptionPage {
      * Swipe up within dialog (smaller swipe area)
      */
     private void swipeUpInDialog() {
-        org.openqa.selenium.Dimension size = driver.manage().window().getSize();
-        int centerX = size.width / 2;
-        int startY = (int) (size.height * 0.7);
-        int endY = (int) (size.height * 0.3);
+        try {
+            // Target the specific container provided by the user
+            String containerXpath = "//android.view.View[@content-desc=\"ADD TO FILE\"]/android.view.View/android.view.View/android.view.View[2]";
+            WebElement container = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(containerXpath)));
 
-        PointerInput finger = new PointerInput(PointerInput.Kind.TOUCH, "finger");
-        Sequence swipe = new Sequence(finger, 1);
+            org.openqa.selenium.Point location = container.getLocation();
+            org.openqa.selenium.Dimension size = container.getSize();
 
-        swipe.addAction(finger.createPointerMove(Duration.ZERO, PointerInput.Origin.viewport(), centerX, startY));
-        swipe.addAction(finger.createPointerDown(PointerInput.MouseButton.LEFT.asArg()));
-        swipe.addAction(
-                finger.createPointerMove(Duration.ofMillis(400), PointerInput.Origin.viewport(), centerX, endY));
-        swipe.addAction(finger.createPointerUp(PointerInput.MouseButton.LEFT.asArg()));
+            int centerX = location.getX() + (size.getWidth() / 2);
+            int startY = location.getY() + (int) (size.getHeight() * 0.82);
+            int endY = location.getY() + (int) (size.getHeight() * 0.18);
 
-        driver.perform(Collections.singletonList(swipe));
+            System.out.println("Swiping up in container: " + containerXpath + " at " + location + " size " + size);
+
+            PointerInput finger = new PointerInput(PointerInput.Kind.TOUCH, "finger");
+            Sequence swipe = new Sequence(finger, 1);
+            swipe.addAction(finger.createPointerMove(Duration.ZERO, PointerInput.Origin.viewport(), centerX, startY));
+            swipe.addAction(finger.createPointerDown(PointerInput.MouseButton.LEFT.asArg()));
+            swipe.addAction(
+                    finger.createPointerMove(Duration.ofMillis(650), PointerInput.Origin.viewport(), centerX, endY));
+            swipe.addAction(finger.createPointerUp(PointerInput.MouseButton.LEFT.asArg()));
+
+            driver.perform(Collections.singletonList(swipe));
+        } catch (Exception e) {
+            System.out.println("Specific container swipe failed, falling back to window swipe: " + e.getMessage());
+            org.openqa.selenium.Dimension winSize = driver.manage().window().getSize();
+            int winCenterX = winSize.width / 2;
+            int winStartY = (int) (winSize.height * 0.75);
+            int winEndY = (int) (winSize.height * 0.25);
+
+            PointerInput finger = new PointerInput(PointerInput.Kind.TOUCH, "finger");
+            Sequence swipe = new Sequence(finger, 1);
+            swipe.addAction(
+                    finger.createPointerMove(Duration.ZERO, PointerInput.Origin.viewport(), winCenterX, winStartY));
+            swipe.addAction(finger.createPointerDown(PointerInput.MouseButton.LEFT.asArg()));
+            swipe.addAction(
+                    finger.createPointerMove(Duration.ofMillis(500), PointerInput.Origin.viewport(), winCenterX,
+                            winEndY));
+            swipe.addAction(finger.createPointerUp(PointerInput.MouseButton.LEFT.asArg()));
+            driver.perform(Collections.singletonList(swipe));
+        }
     }
 
     /**

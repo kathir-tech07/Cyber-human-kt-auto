@@ -46,8 +46,8 @@ public class DailyPrescriptionTest extends BaseTest {
             dailyPrescriptionPage.clickScheduleTime();
             test.log(Status.PASS, "✓ SCHEDULE TIME button clicked");
 
-            // Step 5: Swipe up one time
-            test.log(Status.INFO, "Step 5: Swiping up once");
+            // Step 5: Swipe once in time picker
+            test.log(Status.INFO, "Step 5: Swiping up one time in the time picker container");
             dailyPrescriptionPage.swipeUpOnce();
             test.log(Status.PASS, "✓ Swipe up completed");
 
@@ -90,14 +90,13 @@ public class DailyPrescriptionTest extends BaseTest {
             dailyPrescriptionPage.swipeUpTwiceInScrollView();
             test.log(Status.PASS, "✓ Swipe up completed (2 times)");
 
-            // Step 12: Click Biological Rhythms article
-            test.log(Status.INFO,
-                    "Step 12: Clicking 'The Dance of Life: Understanding Our Biological Rhythms' article");
-            dailyPrescriptionPage.clickBiologicalRhythmsArticle();
+            // Step 12: Click whatever article is present
+            test.log(Status.INFO, "Step 12: Clicking whichever article is present in the list");
+            dailyPrescriptionPage.clickAnyArticle();
             test.log(Status.PASS, "✓ Article clicked");
 
-            // Step 13: Get article heading from detail page
-            test.log(Status.INFO, "Step 13: Getting article heading from detail page");
+            // Step 13: Get heading from detail page at runtime
+            test.log(Status.INFO, "Step 13: Capturing article heading from detail page at runtime");
             String articleHeading = dailyPrescriptionPage.getArticleHeading();
             if (articleHeading == null || articleHeading.isEmpty() || articleHeading.contains("Unable to extract")) {
                 test.log(Status.FAIL, "Failed to extract article heading");
@@ -119,14 +118,27 @@ public class DailyPrescriptionTest extends BaseTest {
             }
             test.log(Status.PASS, "✓ ADD TO FILE dialog is displayed");
 
-            // Step 16-17: Swipe and click New File icon
-            test.log(Status.INFO, "Step 16-17: Swiping and clicking New File icon");
+            // Step 16: Search and validate "one"
+            test.log(Status.INFO, "Step 16: Searching for 'one' in ADD TO FILE dialog");
+            dailyPrescriptionPage.searchInAddToFile("one");
+            boolean isResultVisible = dailyPrescriptionPage.isSearchResultDisplayed("One\nModified Dec 19");
+            if (!isResultVisible) {
+                test.log(Status.FAIL, "Search result 'One\\nModified Dec 19' not found");
+                Assert.fail("Search result validation failed - Step 16");
+            } else {
+                test.log(Status.PASS, "✓ Search result 'One\\nModified Dec 19' is displayed");
+            }
+            dailyPrescriptionPage.clearSearchField();
+            test.log(Status.INFO, "✓ Search field cleared");
+
+            // Step 17-18: Swipe and click New File icon
+            test.log(Status.INFO, "Step 17-18: Swiping and clicking New File icon");
             dailyPrescriptionPage.swipeAndClickNewFile();
             test.log(Status.PASS, "✓ New File icon clicked");
-            Thread.sleep(5000); // 5 sec delay after step 17
+            Thread.sleep(5000); // 5 sec delay after step 18
 
-            // Step 18: Enter file name "AutoFile"
-            test.log(Status.INFO, "Step 18: Entering file name 'AutoFile'");
+            // Step 19: Enter file name "AutoFile"
+            test.log(Status.INFO, "Step 19: Entering file name 'AutoFile'");
             dailyPrescriptionPage.enterFileName("AutoFile");
             test.log(Status.PASS, "✓ File name 'AutoFile' entered");
             Thread.sleep(2000); // Small wait for button to stabilize
@@ -134,20 +146,36 @@ public class DailyPrescriptionTest extends BaseTest {
             // Wait for Modified button
             dailyPrescriptionPage.waitForModifiedButton();
 
-            // Step 19: Click modified button
-            test.log(Status.INFO, "Step 19: Clicking modified button");
+            // Step 20: Click modified button
+            test.log(Status.INFO, "Step 20: Clicking modified button");
             dailyPrescriptionPage.clickModifiedButton();
             test.log(Status.PASS, "✓ Modified button clicked");
-            Thread.sleep(5000); // 5 sec delay after step 19
+            Thread.sleep(5000); // 5 sec delay after step 20
 
-            // Step 20: Click final close icon
-            test.log(Status.INFO, "Step 20: Clicking final close icon");
+            // Step 21: Click final close icon
+            test.log(Status.INFO, "Step 21: Clicking final close icon");
             dailyPrescriptionPage.clickFinalCloseIcon();
             test.log(Status.PASS, "✓ Final close icon clicked");
 
+            // Step 22: Validate SAVED dialog and message
+            test.log(Status.INFO, "Step 22: Validating SAVED dialog");
+            boolean savedDialogDisplayed = dailyPrescriptionPage.isSavedDialogDisplayed();
+            if (!savedDialogDisplayed) {
+                test.log(Status.FAIL, "SAVED dialog not displayed");
+                Assert.fail("SAVED dialog validation failed");
+            }
+            test.log(Status.PASS, "✓ SAVED dialog is displayed");
+
+            String savedMessage = dailyPrescriptionPage.getSavedMessage();
+            if (savedMessage != null && !savedMessage.isEmpty()) {
+                test.log(Status.PASS, "✓ Saved message: <b>" + savedMessage + "</b>");
+            } else {
+                test.log(Status.WARNING, "SAVED dialog displayed but message not found");
+            }
+
             // ✅ ALL STEPS COMPLETED SUCCESSFULLY
             test.log(Status.PASS,
-                    "<b>🎉 TEST PASSED - All 20 steps executed successfully with runtime validation</b>");
+                    "<b>🎉 TEST PASSED - All 22 steps executed successfully with runtime validation</b>");
 
         } catch (Exception e) {
             test.log(Status.FAIL, "Test failed with exception: " + e.getMessage());
