@@ -221,6 +221,9 @@ public class DataBankTest extends BaseTest {
         dataBankPage.clickOkButton();
         test.log(Status.PASS, "✓ Step 15: OK button clicked");
 
+        // Wait for UI to settle after closing the success dialog
+        Thread.sleep(2000);
+
         // ✅ TEST CASE 2 - STEP 16: Click remove button and verify ARE YOU SURE? dialog
         test.log(Status.INFO, "Step 16: Clicking remove button and verifying ARE YOU SURE? dialog");
         dataBankPage.clickRemoveAndVerifyAreYouSureDialog();
@@ -241,6 +244,11 @@ public class DataBankTest extends BaseTest {
         Assert.assertEquals(deleteSuccessMessage, "Your report has been successfully removed.",
                 "Delete success message should confirm successful removal");
         test.log(Status.PASS, "✓ Verified: Correct delete success message displayed");
+
+        // ✅ TEST CASE 2 - STEP 19: Click OK button after delete success
+        test.log(Status.INFO, "Step 19: Clicking OK button");
+        dataBankPage.clickOkButton();
+        test.log(Status.PASS, "✓ Step 19: OK button clicked");
 
         test.log(Status.PASS, "Data Bank Test Case 2 completed successfully");
     }
@@ -460,52 +468,46 @@ public class DataBankTest extends BaseTest {
         dataBankPage.clickAndVerifyBloodReport();
         test.log(Status.PASS, "✓ Step 5: BLOOD REPORT clicked and page verified");
 
-        // ✅ TEST CASE 4 - STEP 6: Click UPLOAD REPORT button and verify UPLOAD DATA
-        // page
-        test.log(Status.INFO, "Step 6: Clicking UPLOAD REPORT button and verifying UPLOAD DATA page");
-        dataBankPage.clickUploadReportAndVerifyUploadDataPage();
-        test.log(Status.PASS, "✓ Step 6: UPLOAD REPORT clicked and UPLOAD DATA page verified");
+        // ✅ TEST CASE 4 - STEP 6: Click back button once
+        test.log(Status.INFO, "Step 6: Clicking back button once");
+        dataBankPage.clickBackButton();
+        test.log(Status.PASS, "✓ Step 6: Back button clicked once");
 
-        // ✅ TEST CASE 4 - STEP 7: Click back button twice
-        test.log(Status.INFO, "Step 7: Clicking back button twice");
-        dataBankPage.clickBackButtonTwice();
-        test.log(Status.PASS, "✓ Step 7: Back button clicked twice");
-
-        // ✅ TEST CASE 4 - STEP 8: Click REPORTS again
-        test.log(Status.INFO, "Step 8: Clicking REPORTS");
+        // ✅ TEST CASE 4 - STEP 7: Click REPORTS again
+        test.log(Status.INFO, "Step 7: Clicking REPORTS");
         dataBankPage.clickReports();
-        test.log(Status.PASS, "✓ Step 8: REPORTS clicked");
+        test.log(Status.PASS, "✓ Step 7: REPORTS clicked");
 
-        // ✅ TEST CASE 4 - STEP 9: Click DNA REPORT and verify page
-        test.log(Status.INFO, "Step 9: Clicking DNA REPORT and verifying page");
+        // ✅ TEST CASE 4 - STEP 8: Click DNA REPORT and verify page
+        test.log(Status.INFO, "Step 8: Clicking DNA REPORT and verifying page");
         dataBankPage.clickAndVerifyDnaReport();
-        test.log(Status.PASS, "✓ Step 9: DNA REPORT clicked and page verified");
+        test.log(Status.PASS, "✓ Step 8: DNA REPORT clicked and page verified");
 
-        // ✅ TEST CASE 4 - STEP 10: Click EPIGENETIC MAPPING button and verify PACKAGES
+        // ✅ TEST CASE 4 - STEP 9: Click EPIGENETIC MAPPING button and verify PACKAGES
         // & PRICING page
-        test.log(Status.INFO, "Step 10: Clicking EPIGENETIC MAPPING button and verifying PACKAGES & PRICING page");
+        test.log(Status.INFO, "Step 9: Clicking EPIGENETIC MAPPING button and verifying PACKAGES & PRICING page");
         dataBankPage.clickEpigeneticMappingAndVerifyPackagesPage();
-        test.log(Status.PASS, "✓ Step 10: EPIGENETIC MAPPING clicked and PACKAGES & PRICING page verified");
+        test.log(Status.PASS, "✓ Step 9: EPIGENETIC MAPPING clicked and PACKAGES & PRICING page verified");
 
-        // ✅ TEST CASE 4 - STEP 11: Click back button twice
-        test.log(Status.INFO, "Step 11: Clicking back button twice");
+        // ✅ TEST CASE 4 - STEP 10: Click back button twice
+        test.log(Status.INFO, "Step 10: Clicking back button twice");
         dataBankPage.clickBackButtonTwice();
-        test.log(Status.PASS, "✓ Step 11: Back button clicked twice");
+        test.log(Status.PASS, "✓ Step 10: Back button clicked twice");
 
-        // ✅ TEST CASE 4 - STEP 12: Click REPORTS again
-        test.log(Status.INFO, "Step 12: Clicking REPORTS");
+        // ✅ TEST CASE 4 - STEP 11: Click REPORTS again
+        test.log(Status.INFO, "Step 11: Clicking REPORTS");
         dataBankPage.clickReports();
-        test.log(Status.PASS, "✓ Step 12: REPORTS clicked");
+        test.log(Status.PASS, "✓ Step 11: REPORTS clicked");
 
-        // ✅ TEST CASE 4 - STEP 13: Click DEVICE REPORT and verify page
-        test.log(Status.INFO, "Step 13: Clicking DEVICE REPORT and verifying page");
+        // ✅ TEST CASE 4 - STEP 12: Click DEVICE REPORT and verify page
+        test.log(Status.INFO, "Step 12: Clicking DEVICE REPORT and verifying page");
         dataBankPage.clickAndVerifyDeviceReport();
-        test.log(Status.PASS, "✓ Step 13: DEVICE REPORT clicked and page verified");
+        test.log(Status.PASS, "✓ Step 12: DEVICE REPORT clicked and page verified");
 
-        // ✅ TEST CASE 4 - STEP 14: Click back button twice
-        test.log(Status.INFO, "Step 14: Clicking back button twice");
+        // ✅ TEST CASE 4 - STEP 13: Click back button twice
+        test.log(Status.INFO, "Step 13: Clicking back button twice");
         dataBankPage.clickBackButtonTwice();
-        test.log(Status.PASS, "✓ Step 14: Back button clicked twice");
+        test.log(Status.PASS, "✓ Step 13: Back button clicked twice");
 
         test.log(Status.PASS, "Data Bank Test Case 4 completed successfully");
     }

@@ -37,7 +37,7 @@ public class DataBankPage {
     private final String okButtonXpath = "//android.widget.Button[@content-desc=\"OK\"]";
     private final String uploadSuccessfulDialogXpath = "//android.view.View[@content-desc=\"UPLOAD SUCCESSFUL\"]";
     private final String uploadSuccessMessageXpath = "//android.view.View[@content-desc=\"Your document has been successfully uploaded\"]";
-    private final String removeButtonXpath = "//android.widget.ScrollView/android.widget.ImageView[2]";
+    private final String removeButtonXpath = "//android.widget.FrameLayout[@resource-id=\"android:id/content\"]/android.widget.FrameLayout/android.widget.FrameLayout/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[2]/android.widget.ImageView[2]";
     private final String areYouSureDialogXpath = "//android.view.View[@content-desc=\"ARE YOU SURE?\"]";
     private final String yesButtonXpath = "//android.widget.Button[@content-desc=\"YES\"]";
     private final String deleteSuccessfulDialogXpath = "//android.view.View[@content-desc=\"DELETE SUCCESSFUL\"]";

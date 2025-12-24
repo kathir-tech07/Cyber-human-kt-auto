@@ -58,17 +58,6 @@ public class BaseTest {
         driver.manage()
                 .timeouts()
                 .implicitlyWait(Duration.ofSeconds(6));
-
-        // ✅ BEST PRACTICE: Reset app state before every test
-        // This ensures all tests are independent and start from Home Page
-        try {
-            ((AndroidDriver) driver).terminateApp("com.houseofepigenetics.abchopra");
-            Thread.sleep(1000); // Brief pause to ensure clean termination
-            ((AndroidDriver) driver).activateApp("com.houseofepigenetics.abchopra");
-            Thread.sleep(2000); // Wait for app to fully launch and reach Home Page
-        } catch (Exception e) {
-            System.err.println("Warning: App reset failed - " + e.getMessage());
-        }
     }
 
     /* ================= CLEAN TEARDOWN ================= */
