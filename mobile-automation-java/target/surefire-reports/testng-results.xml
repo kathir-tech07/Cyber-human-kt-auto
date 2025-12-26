@@ -1,817 +1,97 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="13" passed="8" failed="5" skipped="0">
+<testng-results ignored="0" total="4" passed="4" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2025-12-26T10:30:19 IST" name="Surefire suite" finished-at="2025-12-26T10:39:07 IST" duration-ms="528443">
+  <suite started-at="2025-12-26T11:23:17 IST" name="Surefire suite" finished-at="2025-12-26T11:26:15 IST" duration-ms="178146">
     <groups>
     </groups>
-    <test started-at="2025-12-26T10:30:19 IST" name="Surefire test" finished-at="2025-12-26T10:39:07 IST" duration-ms="528443">
-      <class name="com.automation.tests.SignUpTest">
-        <test-method is-config="true" signature="setupReport()[pri:0, instance:com.automation.tests.SignUpTest@5f058f00]" started-at="2025-12-26T10:30:18 IST" name="setupReport" finished-at="2025-12-26T10:30:19 IST" duration-ms="183" status="PASS">
+    <test started-at="2025-12-26T11:23:17 IST" name="Surefire test" finished-at="2025-12-26T11:26:15 IST" duration-ms="178146">
+      <class name="com.automation.tests.DataBankTest">
+        <test-method is-config="true" signature="setupReport()[pri:0, instance:com.automation.tests.DataBankTest@619713e5]" started-at="2025-12-26T11:23:17 IST" name="setupReport" finished-at="2025-12-26T11:23:17 IST" duration-ms="155" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setupReport -->
-        <test-method is-config="true" signature="setup()[pri:0, instance:com.automation.tests.SignUpTest@5f058f00]" started-at="2025-12-26T10:30:19 IST" name="setup" finished-at="2025-12-26T10:30:24 IST" duration-ms="5906" status="PASS">
+        <test-method is-config="true" signature="setup()[pri:0, instance:com.automation.tests.DataBankTest@619713e5]" started-at="2025-12-26T11:23:17 IST" name="setup" finished-at="2025-12-26T11:23:22 IST" duration-ms="4940" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setup -->
-        <test-method signature="testNegativeSignUp(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:0, instance:com.automation.tests.SignUpTest@5f058f00]" started-at="2025-12-26T10:30:24 IST" name="testNegativeSignUp" data-provider="negativeSignUpData" finished-at="2025-12-26T10:30:57 IST" duration-ms="32190" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[Invalid Email Format]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA[John Doe]]>
-              </value>
-            </param>
-            <param index="2">
-              <value>
-                <![CDATA[invalidemail]]>
-              </value>
-            </param>
-            <param index="3">
-              <value>
-                <![CDATA[Password@123]]>
-              </value>
-            </param>
-            <param index="4">
-              <value>
-                <![CDATA[Password@123]]>
-              </value>
-            </param>
-          </params>
+        <test-method signature="testDataBank_Case1()[pri:1, instance:com.automation.tests.DataBankTest@619713e5]" started-at="2025-12-26T11:23:22 IST" name="testDataBank_Case1" finished-at="2025-12-26T11:23:34 IST" duration-ms="11572" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- testNegativeSignUp -->
-        <test-method is-config="true" signature="tearDown(org.testng.ITestResult)[pri:0, instance:com.automation.tests.SignUpTest@5f058f00]" started-at="2025-12-26T10:30:57 IST" name="tearDown" finished-at="2025-12-26T10:31:01 IST" duration-ms="3893" status="PASS">
+        </test-method> <!-- testDataBank_Case1 -->
+        <test-method is-config="true" signature="tearDown(org.testng.ITestResult)[pri:0, instance:com.automation.tests.DataBankTest@619713e5]" started-at="2025-12-26T11:23:34 IST" name="tearDown" finished-at="2025-12-26T11:23:37 IST" duration-ms="3193" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=testNegativeSignUp status=SUCCESS method=SignUpTest.testNegativeSignUp(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:0, instance:com.automation.tests.SignUpTest@5f058f00] output={null}]]]>
+                <![CDATA[[TestResult name=testDataBank_Case1 status=SUCCESS method=DataBankTest.testDataBank_Case1()[pri:1, instance:com.automation.tests.DataBankTest@619713e5] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-        <test-method is-config="true" signature="setup()[pri:0, instance:com.automation.tests.SignUpTest@5f058f00]" started-at="2025-12-26T10:31:01 IST" name="setup" finished-at="2025-12-26T10:31:04 IST" duration-ms="3324" status="PASS">
+        <test-method is-config="true" signature="setup()[pri:0, instance:com.automation.tests.DataBankTest@619713e5]" started-at="2025-12-26T11:23:37 IST" name="setup" finished-at="2025-12-26T11:23:41 IST" duration-ms="4362" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setup -->
-        <test-method signature="testNegativeSignUp(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:0, instance:com.automation.tests.SignUpTest@5f058f00]" started-at="2025-12-26T10:31:04 IST" name="testNegativeSignUp" data-provider="negativeSignUpData" finished-at="2025-12-26T10:31:17 IST" duration-ms="13016" status="FAIL">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[Empty Name Field]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA[]]>
-              </value>
-            </param>
-            <param index="2">
-              <value>
-                <![CDATA[test@example.com]]>
-              </value>
-            </param>
-            <param index="3">
-              <value>
-                <![CDATA[Password@123]]>
-              </value>
-            </param>
-            <param index="4">
-              <value>
-                <![CDATA[Password@123]]>
-              </value>
-            </param>
-          </params>
-          <exception class="java.lang.RuntimeException">
-            <message>
-              <![CDATA[Element not found with ID: null, XPath: //android.widget.Button[@content-desc="Don't have an account? Sign up"], AccessID: null]]>
-            </message>
-            <full-stacktrace>
-              <![CDATA[java.lang.RuntimeException: Element not found with ID: null, XPath: //android.widget.Button[@content-desc="Don't have an account? Sign up"], AccessID: null
-at com.automation.pages.SignInPage.findElementWithFallback(SignInPage.java:40)
-at com.automation.pages.SignInPage.clickSignUp(SignInPage.java:74)
-at com.automation.tests.SignUpTest.testNegativeSignUp(SignUpTest.java:58)
-at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-at java.base/java.lang.reflect.Method.invoke(Method.java:566)
-at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:139)
-at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:664)
-at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:227)
-at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:50)
-at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:957)
-at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:200)
-at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:148)
-at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:128)
-at java.base/java.util.ArrayList.forEach(ArrayList.java:1541)
-at org.testng.TestRunner.privateRun(TestRunner.java:848)
-at org.testng.TestRunner.run(TestRunner.java:621)
-at org.testng.SuiteRunner.runTest(SuiteRunner.java:443)
-at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:437)
-at org.testng.SuiteRunner.privateRun(SuiteRunner.java:397)
-at org.testng.SuiteRunner.run(SuiteRunner.java:336)
-at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
-at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
-at org.testng.TestNG.runSuitesSequentially(TestNG.java:1280)
-at org.testng.TestNG.runSuitesLocally(TestNG.java:1200)
-at org.testng.TestNG.runSuites(TestNG.java:1114)
-at org.testng.TestNG.run(TestNG.java:1082)
-at org.apache.maven.surefire.testng.TestNGExecutor.run(TestNGExecutor.java:155)
-at org.apache.maven.surefire.testng.TestNGDirectoryTestSuite.executeSingleClass(TestNGDirectoryTestSuite.java:102)
-at org.apache.maven.surefire.testng.TestNGDirectoryTestSuite.execute(TestNGDirectoryTestSuite.java:91)
-at org.apache.maven.surefire.testng.TestNGProvider.invoke(TestNGProvider.java:137)
-at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:385)
-at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162)
-at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507)
-at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
-]]>
-            </full-stacktrace>
-          </exception> <!-- java.lang.RuntimeException -->
+        <test-method signature="testDataBank_Case2()[pri:2, instance:com.automation.tests.DataBankTest@619713e5]" started-at="2025-12-26T11:23:41 IST" name="testDataBank_Case2" finished-at="2025-12-26T11:24:57 IST" duration-ms="76362" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- testNegativeSignUp -->
-        <test-method is-config="true" signature="tearDown(org.testng.ITestResult)[pri:0, instance:com.automation.tests.SignUpTest@5f058f00]" started-at="2025-12-26T10:31:17 IST" name="tearDown" finished-at="2025-12-26T10:31:21 IST" duration-ms="4477" status="PASS">
+        </test-method> <!-- testDataBank_Case2 -->
+        <test-method is-config="true" signature="tearDown(org.testng.ITestResult)[pri:0, instance:com.automation.tests.DataBankTest@619713e5]" started-at="2025-12-26T11:24:57 IST" name="tearDown" finished-at="2025-12-26T11:25:01 IST" duration-ms="3174" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=testNegativeSignUp status=FAILURE method=SignUpTest.testNegativeSignUp(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:0, instance:com.automation.tests.SignUpTest@5f058f00] output={null}]]]>
+                <![CDATA[[TestResult name=testDataBank_Case2 status=SUCCESS method=DataBankTest.testDataBank_Case2()[pri:2, instance:com.automation.tests.DataBankTest@619713e5] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-        <test-method is-config="true" signature="setup()[pri:0, instance:com.automation.tests.SignUpTest@5f058f00]" started-at="2025-12-26T10:31:21 IST" name="setup" finished-at="2025-12-26T10:31:26 IST" duration-ms="4481" status="PASS">
+        <test-method is-config="true" signature="setup()[pri:0, instance:com.automation.tests.DataBankTest@619713e5]" started-at="2025-12-26T11:25:01 IST" name="setup" finished-at="2025-12-26T11:25:05 IST" duration-ms="4647" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setup -->
-        <test-method signature="testNegativeSignUp(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:0, instance:com.automation.tests.SignUpTest@5f058f00]" started-at="2025-12-26T10:31:26 IST" name="testNegativeSignUp" data-provider="negativeSignUpData" finished-at="2025-12-26T10:31:57 IST" duration-ms="31304" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[Empty Email Field]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA[John Doe]]>
-              </value>
-            </param>
-            <param index="2">
-              <value>
-                <![CDATA[]]>
-              </value>
-            </param>
-            <param index="3">
-              <value>
-                <![CDATA[Password@123]]>
-              </value>
-            </param>
-            <param index="4">
-              <value>
-                <![CDATA[Password@123]]>
-              </value>
-            </param>
-          </params>
+        <test-method signature="testDataBank_Case3()[pri:3, instance:com.automation.tests.DataBankTest@619713e5]" started-at="2025-12-26T11:25:05 IST" name="testDataBank_Case3" finished-at="2025-12-26T11:25:38 IST" duration-ms="32827" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- testNegativeSignUp -->
-        <test-method is-config="true" signature="tearDown(org.testng.ITestResult)[pri:0, instance:com.automation.tests.SignUpTest@5f058f00]" started-at="2025-12-26T10:31:57 IST" name="tearDown" finished-at="2025-12-26T10:32:00 IST" duration-ms="3277" status="PASS">
+        </test-method> <!-- testDataBank_Case3 -->
+        <test-method is-config="true" signature="tearDown(org.testng.ITestResult)[pri:0, instance:com.automation.tests.DataBankTest@619713e5]" started-at="2025-12-26T11:25:38 IST" name="tearDown" finished-at="2025-12-26T11:25:41 IST" duration-ms="2999" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=testNegativeSignUp status=SUCCESS method=SignUpTest.testNegativeSignUp(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:0, instance:com.automation.tests.SignUpTest@5f058f00] output={null}]]]>
+                <![CDATA[[TestResult name=testDataBank_Case3 status=SUCCESS method=DataBankTest.testDataBank_Case3()[pri:3, instance:com.automation.tests.DataBankTest@619713e5] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-        <test-method is-config="true" signature="setup()[pri:0, instance:com.automation.tests.SignUpTest@5f058f00]" started-at="2025-12-26T10:32:00 IST" name="setup" finished-at="2025-12-26T10:32:05 IST" duration-ms="4466" status="PASS">
+        <test-method is-config="true" signature="setup()[pri:0, instance:com.automation.tests.DataBankTest@619713e5]" started-at="2025-12-26T11:25:41 IST" name="setup" finished-at="2025-12-26T11:25:45 IST" duration-ms="4304" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setup -->
-        <test-method signature="testNegativeSignUp(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:0, instance:com.automation.tests.SignUpTest@5f058f00]" started-at="2025-12-26T10:32:05 IST" name="testNegativeSignUp" data-provider="negativeSignUpData" finished-at="2025-12-26T10:33:31 IST" duration-ms="86340" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[Empty Password Field]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA[John Doe]]>
-              </value>
-            </param>
-            <param index="2">
-              <value>
-                <![CDATA[test@example.com]]>
-              </value>
-            </param>
-            <param index="3">
-              <value>
-                <![CDATA[]]>
-              </value>
-            </param>
-            <param index="4">
-              <value>
-                <![CDATA[Password@123]]>
-              </value>
-            </param>
-          </params>
+        <test-method signature="testDataBank_Case4()[pri:4, instance:com.automation.tests.DataBankTest@619713e5]" started-at="2025-12-26T11:25:45 IST" name="testDataBank_Case4" finished-at="2025-12-26T11:26:12 IST" duration-ms="26691" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- testNegativeSignUp -->
-        <test-method is-config="true" signature="tearDown(org.testng.ITestResult)[pri:0, instance:com.automation.tests.SignUpTest@5f058f00]" started-at="2025-12-26T10:33:31 IST" name="tearDown" finished-at="2025-12-26T10:33:34 IST" duration-ms="3200" status="PASS">
+        </test-method> <!-- testDataBank_Case4 -->
+        <test-method is-config="true" signature="tearDown(org.testng.ITestResult)[pri:0, instance:com.automation.tests.DataBankTest@619713e5]" started-at="2025-12-26T11:26:12 IST" name="tearDown" finished-at="2025-12-26T11:26:15 IST" duration-ms="3036" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=testNegativeSignUp status=SUCCESS method=SignUpTest.testNegativeSignUp(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:0, instance:com.automation.tests.SignUpTest@5f058f00] output={null}]]]>
+                <![CDATA[[TestResult name=testDataBank_Case4 status=SUCCESS method=DataBankTest.testDataBank_Case4()[pri:4, instance:com.automation.tests.DataBankTest@619713e5] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-        <test-method is-config="true" signature="setup()[pri:0, instance:com.automation.tests.SignUpTest@5f058f00]" started-at="2025-12-26T10:33:34 IST" name="setup" finished-at="2025-12-26T10:33:39 IST" duration-ms="4615" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- setup -->
-        <test-method signature="testNegativeSignUp(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:0, instance:com.automation.tests.SignUpTest@5f058f00]" started-at="2025-12-26T10:33:39 IST" name="testNegativeSignUp" data-provider="negativeSignUpData" finished-at="2025-12-26T10:34:11 IST" duration-ms="31530" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[Empty Confirm Password]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA[John Doe]]>
-              </value>
-            </param>
-            <param index="2">
-              <value>
-                <![CDATA[test@example.com]]>
-              </value>
-            </param>
-            <param index="3">
-              <value>
-                <![CDATA[Password@123]]>
-              </value>
-            </param>
-            <param index="4">
-              <value>
-                <![CDATA[]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- testNegativeSignUp -->
-        <test-method is-config="true" signature="tearDown(org.testng.ITestResult)[pri:0, instance:com.automation.tests.SignUpTest@5f058f00]" started-at="2025-12-26T10:34:11 IST" name="tearDown" finished-at="2025-12-26T10:34:14 IST" duration-ms="3269" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[[TestResult name=testNegativeSignUp status=SUCCESS method=SignUpTest.testNegativeSignUp(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:0, instance:com.automation.tests.SignUpTest@5f058f00] output={null}]]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- tearDown -->
-        <test-method is-config="true" signature="setup()[pri:0, instance:com.automation.tests.SignUpTest@5f058f00]" started-at="2025-12-26T10:34:14 IST" name="setup" finished-at="2025-12-26T10:34:17 IST" duration-ms="3371" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- setup -->
-        <test-method signature="testNegativeSignUp(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:0, instance:com.automation.tests.SignUpTest@5f058f00]" started-at="2025-12-26T10:34:17 IST" name="testNegativeSignUp" data-provider="negativeSignUpData" finished-at="2025-12-26T10:34:30 IST" duration-ms="12873" status="FAIL">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[Password Mismatch]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA[John Doe]]>
-              </value>
-            </param>
-            <param index="2">
-              <value>
-                <![CDATA[test@example.com]]>
-              </value>
-            </param>
-            <param index="3">
-              <value>
-                <![CDATA[Password@123]]>
-              </value>
-            </param>
-            <param index="4">
-              <value>
-                <![CDATA[DifferentPass@123]]>
-              </value>
-            </param>
-          </params>
-          <exception class="java.lang.RuntimeException">
-            <message>
-              <![CDATA[Element not found with ID: null, XPath: //android.widget.Button[@content-desc="Don't have an account? Sign up"], AccessID: null]]>
-            </message>
-            <full-stacktrace>
-              <![CDATA[java.lang.RuntimeException: Element not found with ID: null, XPath: //android.widget.Button[@content-desc="Don't have an account? Sign up"], AccessID: null
-at com.automation.pages.SignInPage.findElementWithFallback(SignInPage.java:40)
-at com.automation.pages.SignInPage.clickSignUp(SignInPage.java:74)
-at com.automation.tests.SignUpTest.testNegativeSignUp(SignUpTest.java:58)
-at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-at java.base/java.lang.reflect.Method.invoke(Method.java:566)
-at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:139)
-at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:664)
-at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:227)
-at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:50)
-at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:957)
-at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:200)
-at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:148)
-at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:128)
-at java.base/java.util.ArrayList.forEach(ArrayList.java:1541)
-at org.testng.TestRunner.privateRun(TestRunner.java:848)
-at org.testng.TestRunner.run(TestRunner.java:621)
-at org.testng.SuiteRunner.runTest(SuiteRunner.java:443)
-at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:437)
-at org.testng.SuiteRunner.privateRun(SuiteRunner.java:397)
-at org.testng.SuiteRunner.run(SuiteRunner.java:336)
-at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
-at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
-at org.testng.TestNG.runSuitesSequentially(TestNG.java:1280)
-at org.testng.TestNG.runSuitesLocally(TestNG.java:1200)
-at org.testng.TestNG.runSuites(TestNG.java:1114)
-at org.testng.TestNG.run(TestNG.java:1082)
-at org.apache.maven.surefire.testng.TestNGExecutor.run(TestNGExecutor.java:155)
-at org.apache.maven.surefire.testng.TestNGDirectoryTestSuite.executeSingleClass(TestNGDirectoryTestSuite.java:102)
-at org.apache.maven.surefire.testng.TestNGDirectoryTestSuite.execute(TestNGDirectoryTestSuite.java:91)
-at org.apache.maven.surefire.testng.TestNGProvider.invoke(TestNGProvider.java:137)
-at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:385)
-at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162)
-at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507)
-at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
-]]>
-            </full-stacktrace>
-          </exception> <!-- java.lang.RuntimeException -->
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- testNegativeSignUp -->
-        <test-method is-config="true" signature="tearDown(org.testng.ITestResult)[pri:0, instance:com.automation.tests.SignUpTest@5f058f00]" started-at="2025-12-26T10:34:30 IST" name="tearDown" finished-at="2025-12-26T10:34:34 IST" duration-ms="4070" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[[TestResult name=testNegativeSignUp status=FAILURE method=SignUpTest.testNegativeSignUp(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:0, instance:com.automation.tests.SignUpTest@5f058f00] output={null}]]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- tearDown -->
-        <test-method is-config="true" signature="setup()[pri:0, instance:com.automation.tests.SignUpTest@5f058f00]" started-at="2025-12-26T10:34:34 IST" name="setup" finished-at="2025-12-26T10:34:39 IST" duration-ms="4595" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- setup -->
-        <test-method signature="testNegativeSignUp(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:0, instance:com.automation.tests.SignUpTest@5f058f00]" started-at="2025-12-26T10:34:39 IST" name="testNegativeSignUp" data-provider="negativeSignUpData" finished-at="2025-12-26T10:36:06 IST" duration-ms="87607" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[Weak Password]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA[John Doe]]>
-              </value>
-            </param>
-            <param index="2">
-              <value>
-                <![CDATA[test@example.com]]>
-              </value>
-            </param>
-            <param index="3">
-              <value>
-                <![CDATA[123]]>
-              </value>
-            </param>
-            <param index="4">
-              <value>
-                <![CDATA[123]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- testNegativeSignUp -->
-        <test-method is-config="true" signature="tearDown(org.testng.ITestResult)[pri:0, instance:com.automation.tests.SignUpTest@5f058f00]" started-at="2025-12-26T10:36:06 IST" name="tearDown" finished-at="2025-12-26T10:36:09 IST" duration-ms="3046" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[[TestResult name=testNegativeSignUp status=SUCCESS method=SignUpTest.testNegativeSignUp(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:0, instance:com.automation.tests.SignUpTest@5f058f00] output={null}]]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- tearDown -->
-        <test-method is-config="true" signature="setup()[pri:0, instance:com.automation.tests.SignUpTest@5f058f00]" started-at="2025-12-26T10:36:09 IST" name="setup" finished-at="2025-12-26T10:36:14 IST" duration-ms="4566" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- setup -->
-        <test-method signature="testNegativeSignUp(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:0, instance:com.automation.tests.SignUpTest@5f058f00]" started-at="2025-12-26T10:36:14 IST" name="testNegativeSignUp" data-provider="negativeSignUpData" finished-at="2025-12-26T10:36:45 IST" duration-ms="31050" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[All Fields Empty]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA[]]>
-              </value>
-            </param>
-            <param index="2">
-              <value>
-                <![CDATA[]]>
-              </value>
-            </param>
-            <param index="3">
-              <value>
-                <![CDATA[]]>
-              </value>
-            </param>
-            <param index="4">
-              <value>
-                <![CDATA[]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- testNegativeSignUp -->
-        <test-method is-config="true" signature="tearDown(org.testng.ITestResult)[pri:0, instance:com.automation.tests.SignUpTest@5f058f00]" started-at="2025-12-26T10:36:45 IST" name="tearDown" finished-at="2025-12-26T10:36:48 IST" duration-ms="3237" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[[TestResult name=testNegativeSignUp status=SUCCESS method=SignUpTest.testNegativeSignUp(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:0, instance:com.automation.tests.SignUpTest@5f058f00] output={null}]]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- tearDown -->
-        <test-method is-config="true" signature="setup()[pri:0, instance:com.automation.tests.SignUpTest@5f058f00]" started-at="2025-12-26T10:36:48 IST" name="setup" finished-at="2025-12-26T10:36:52 IST" duration-ms="3421" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- setup -->
-        <test-method signature="testNegativeSignUp(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:0, instance:com.automation.tests.SignUpTest@5f058f00]" started-at="2025-12-26T10:36:52 IST" name="testNegativeSignUp" data-provider="negativeSignUpData" finished-at="2025-12-26T10:37:05 IST" duration-ms="12889" status="FAIL">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[Special Characters in Name]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA[@#$%^&*]]>
-              </value>
-            </param>
-            <param index="2">
-              <value>
-                <![CDATA[test@example.com]]>
-              </value>
-            </param>
-            <param index="3">
-              <value>
-                <![CDATA[Password@123]]>
-              </value>
-            </param>
-            <param index="4">
-              <value>
-                <![CDATA[Password@123]]>
-              </value>
-            </param>
-          </params>
-          <exception class="java.lang.RuntimeException">
-            <message>
-              <![CDATA[Element not found with ID: null, XPath: //android.widget.Button[@content-desc="Don't have an account? Sign up"], AccessID: null]]>
-            </message>
-            <full-stacktrace>
-              <![CDATA[java.lang.RuntimeException: Element not found with ID: null, XPath: //android.widget.Button[@content-desc="Don't have an account? Sign up"], AccessID: null
-at com.automation.pages.SignInPage.findElementWithFallback(SignInPage.java:40)
-at com.automation.pages.SignInPage.clickSignUp(SignInPage.java:74)
-at com.automation.tests.SignUpTest.testNegativeSignUp(SignUpTest.java:58)
-at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-at java.base/java.lang.reflect.Method.invoke(Method.java:566)
-at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:139)
-at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:664)
-at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:227)
-at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:50)
-at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:957)
-at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:200)
-at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:148)
-at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:128)
-at java.base/java.util.ArrayList.forEach(ArrayList.java:1541)
-at org.testng.TestRunner.privateRun(TestRunner.java:848)
-at org.testng.TestRunner.run(TestRunner.java:621)
-at org.testng.SuiteRunner.runTest(SuiteRunner.java:443)
-at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:437)
-at org.testng.SuiteRunner.privateRun(SuiteRunner.java:397)
-at org.testng.SuiteRunner.run(SuiteRunner.java:336)
-at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
-at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
-at org.testng.TestNG.runSuitesSequentially(TestNG.java:1280)
-at org.testng.TestNG.runSuitesLocally(TestNG.java:1200)
-at org.testng.TestNG.runSuites(TestNG.java:1114)
-at org.testng.TestNG.run(TestNG.java:1082)
-at org.apache.maven.surefire.testng.TestNGExecutor.run(TestNGExecutor.java:155)
-at org.apache.maven.surefire.testng.TestNGDirectoryTestSuite.executeSingleClass(TestNGDirectoryTestSuite.java:102)
-at org.apache.maven.surefire.testng.TestNGDirectoryTestSuite.execute(TestNGDirectoryTestSuite.java:91)
-at org.apache.maven.surefire.testng.TestNGProvider.invoke(TestNGProvider.java:137)
-at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:385)
-at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162)
-at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507)
-at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
-]]>
-            </full-stacktrace>
-          </exception> <!-- java.lang.RuntimeException -->
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- testNegativeSignUp -->
-        <test-method is-config="true" signature="tearDown(org.testng.ITestResult)[pri:0, instance:com.automation.tests.SignUpTest@5f058f00]" started-at="2025-12-26T10:37:05 IST" name="tearDown" finished-at="2025-12-26T10:37:09 IST" duration-ms="4010" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[[TestResult name=testNegativeSignUp status=FAILURE method=SignUpTest.testNegativeSignUp(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:0, instance:com.automation.tests.SignUpTest@5f058f00] output={null}]]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- tearDown -->
-        <test-method is-config="true" signature="setup()[pri:0, instance:com.automation.tests.SignUpTest@5f058f00]" started-at="2025-12-26T10:37:09 IST" name="setup" finished-at="2025-12-26T10:37:13 IST" duration-ms="4485" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- setup -->
-        <test-method signature="testNegativeSignUp(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:0, instance:com.automation.tests.SignUpTest@5f058f00]" started-at="2025-12-26T10:37:13 IST" name="testNegativeSignUp" data-provider="negativeSignUpData" finished-at="2025-12-26T10:37:44 IST" duration-ms="31259" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[Email Without Domain]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA[John Doe]]>
-              </value>
-            </param>
-            <param index="2">
-              <value>
-                <![CDATA[test@]]>
-              </value>
-            </param>
-            <param index="3">
-              <value>
-                <![CDATA[Password@123]]>
-              </value>
-            </param>
-            <param index="4">
-              <value>
-                <![CDATA[Password@123]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- testNegativeSignUp -->
-        <test-method is-config="true" signature="tearDown(org.testng.ITestResult)[pri:0, instance:com.automation.tests.SignUpTest@5f058f00]" started-at="2025-12-26T10:37:44 IST" name="tearDown" finished-at="2025-12-26T10:37:48 IST" duration-ms="3256" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[[TestResult name=testNegativeSignUp status=SUCCESS method=SignUpTest.testNegativeSignUp(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:0, instance:com.automation.tests.SignUpTest@5f058f00] output={null}]]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- tearDown -->
-        <test-method is-config="true" signature="setup()[pri:0, instance:com.automation.tests.SignUpTest@5f058f00]" started-at="2025-12-26T10:37:48 IST" name="setup" finished-at="2025-12-26T10:37:51 IST" duration-ms="3253" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- setup -->
-        <test-method signature="testNegativeSignUp(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:0, instance:com.automation.tests.SignUpTest@5f058f00]" started-at="2025-12-26T10:37:51 IST" name="testNegativeSignUp" data-provider="negativeSignUpData" finished-at="2025-12-26T10:38:04 IST" duration-ms="13001" status="FAIL">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[Short Password]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA[John Doe]]>
-              </value>
-            </param>
-            <param index="2">
-              <value>
-                <![CDATA[test@example.com]]>
-              </value>
-            </param>
-            <param index="3">
-              <value>
-                <![CDATA[12]]>
-              </value>
-            </param>
-            <param index="4">
-              <value>
-                <![CDATA[12]]>
-              </value>
-            </param>
-          </params>
-          <exception class="java.lang.RuntimeException">
-            <message>
-              <![CDATA[Element not found with ID: null, XPath: //android.widget.Button[@content-desc="Don't have an account? Sign up"], AccessID: null]]>
-            </message>
-            <full-stacktrace>
-              <![CDATA[java.lang.RuntimeException: Element not found with ID: null, XPath: //android.widget.Button[@content-desc="Don't have an account? Sign up"], AccessID: null
-at com.automation.pages.SignInPage.findElementWithFallback(SignInPage.java:40)
-at com.automation.pages.SignInPage.clickSignUp(SignInPage.java:74)
-at com.automation.tests.SignUpTest.testNegativeSignUp(SignUpTest.java:58)
-at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-at java.base/java.lang.reflect.Method.invoke(Method.java:566)
-at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:139)
-at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:664)
-at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:227)
-at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:50)
-at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:957)
-at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:200)
-at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:148)
-at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:128)
-at java.base/java.util.ArrayList.forEach(ArrayList.java:1541)
-at org.testng.TestRunner.privateRun(TestRunner.java:848)
-at org.testng.TestRunner.run(TestRunner.java:621)
-at org.testng.SuiteRunner.runTest(SuiteRunner.java:443)
-at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:437)
-at org.testng.SuiteRunner.privateRun(SuiteRunner.java:397)
-at org.testng.SuiteRunner.run(SuiteRunner.java:336)
-at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
-at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
-at org.testng.TestNG.runSuitesSequentially(TestNG.java:1280)
-at org.testng.TestNG.runSuitesLocally(TestNG.java:1200)
-at org.testng.TestNG.runSuites(TestNG.java:1114)
-at org.testng.TestNG.run(TestNG.java:1082)
-at org.apache.maven.surefire.testng.TestNGExecutor.run(TestNGExecutor.java:155)
-at org.apache.maven.surefire.testng.TestNGDirectoryTestSuite.executeSingleClass(TestNGDirectoryTestSuite.java:102)
-at org.apache.maven.surefire.testng.TestNGDirectoryTestSuite.execute(TestNGDirectoryTestSuite.java:91)
-at org.apache.maven.surefire.testng.TestNGProvider.invoke(TestNGProvider.java:137)
-at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:385)
-at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162)
-at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507)
-at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
-]]>
-            </full-stacktrace>
-          </exception> <!-- java.lang.RuntimeException -->
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- testNegativeSignUp -->
-        <test-method is-config="true" signature="tearDown(org.testng.ITestResult)[pri:0, instance:com.automation.tests.SignUpTest@5f058f00]" started-at="2025-12-26T10:38:04 IST" name="tearDown" finished-at="2025-12-26T10:38:08 IST" duration-ms="3914" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[[TestResult name=testNegativeSignUp status=FAILURE method=SignUpTest.testNegativeSignUp(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:0, instance:com.automation.tests.SignUpTest@5f058f00] output={null}]]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- tearDown -->
-        <test-method is-config="true" signature="setup()[pri:0, instance:com.automation.tests.SignUpTest@5f058f00]" started-at="2025-12-26T10:38:08 IST" name="setup" finished-at="2025-12-26T10:38:12 IST" duration-ms="4411" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- setup -->
-        <test-method signature="testNegativeSignUp(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:0, instance:com.automation.tests.SignUpTest@5f058f00]" started-at="2025-12-26T10:38:12 IST" name="testNegativeSignUp" data-provider="negativeSignUpData" finished-at="2025-12-26T10:38:44 IST" duration-ms="31399" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[Only Spaces in Name]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA[   ]]>
-              </value>
-            </param>
-            <param index="2">
-              <value>
-                <![CDATA[test@example.com]]>
-              </value>
-            </param>
-            <param index="3">
-              <value>
-                <![CDATA[Password@123]]>
-              </value>
-            </param>
-            <param index="4">
-              <value>
-                <![CDATA[Password@123]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- testNegativeSignUp -->
-        <test-method is-config="true" signature="tearDown(org.testng.ITestResult)[pri:0, instance:com.automation.tests.SignUpTest@5f058f00]" started-at="2025-12-26T10:38:44 IST" name="tearDown" finished-at="2025-12-26T10:38:47 IST" duration-ms="3271" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[[TestResult name=testNegativeSignUp status=SUCCESS method=SignUpTest.testNegativeSignUp(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:0, instance:com.automation.tests.SignUpTest@5f058f00] output={null}]]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- tearDown -->
-        <test-method is-config="true" signature="setup()[pri:0, instance:com.automation.tests.SignUpTest@5f058f00]" started-at="2025-12-26T10:38:47 IST" name="setup" finished-at="2025-12-26T10:38:50 IST" duration-ms="3202" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- setup -->
-        <test-method signature="testPositiveSignUp()[pri:0, instance:com.automation.tests.SignUpTest@5f058f00]" started-at="2025-12-26T10:38:50 IST" name="testPositiveSignUp" finished-at="2025-12-26T10:39:03 IST" duration-ms="12911" status="FAIL">
-          <exception class="java.lang.RuntimeException">
-            <message>
-              <![CDATA[Element not found with ID: null, XPath: //android.widget.Button[@content-desc="Don't have an account? Sign up"], AccessID: null]]>
-            </message>
-            <full-stacktrace>
-              <![CDATA[java.lang.RuntimeException: Element not found with ID: null, XPath: //android.widget.Button[@content-desc="Don't have an account? Sign up"], AccessID: null
-at com.automation.pages.SignInPage.findElementWithFallback(SignInPage.java:40)
-at com.automation.pages.SignInPage.clickSignUp(SignInPage.java:74)
-at com.automation.tests.SignUpTest.testPositiveSignUp(SignUpTest.java:130)
-at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-at java.base/java.lang.reflect.Method.invoke(Method.java:566)
-at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:139)
-at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:664)
-at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:227)
-at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:50)
-at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:957)
-at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:200)
-at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:148)
-at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:128)
-at java.base/java.util.ArrayList.forEach(ArrayList.java:1541)
-at org.testng.TestRunner.privateRun(TestRunner.java:848)
-at org.testng.TestRunner.run(TestRunner.java:621)
-at org.testng.SuiteRunner.runTest(SuiteRunner.java:443)
-at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:437)
-at org.testng.SuiteRunner.privateRun(SuiteRunner.java:397)
-at org.testng.SuiteRunner.run(SuiteRunner.java:336)
-at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
-at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
-at org.testng.TestNG.runSuitesSequentially(TestNG.java:1280)
-at org.testng.TestNG.runSuitesLocally(TestNG.java:1200)
-at org.testng.TestNG.runSuites(TestNG.java:1114)
-at org.testng.TestNG.run(TestNG.java:1082)
-at org.apache.maven.surefire.testng.TestNGExecutor.run(TestNGExecutor.java:155)
-at org.apache.maven.surefire.testng.TestNGDirectoryTestSuite.executeSingleClass(TestNGDirectoryTestSuite.java:102)
-at org.apache.maven.surefire.testng.TestNGDirectoryTestSuite.execute(TestNGDirectoryTestSuite.java:91)
-at org.apache.maven.surefire.testng.TestNGProvider.invoke(TestNGProvider.java:137)
-at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:385)
-at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162)
-at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507)
-at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
-]]>
-            </full-stacktrace>
-          </exception> <!-- java.lang.RuntimeException -->
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- testPositiveSignUp -->
-        <test-method is-config="true" signature="tearDown(org.testng.ITestResult)[pri:0, instance:com.automation.tests.SignUpTest@5f058f00]" started-at="2025-12-26T10:39:03 IST" name="tearDown" finished-at="2025-12-26T10:39:07 IST" duration-ms="3983" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[[TestResult name=testPositiveSignUp status=FAILURE method=SignUpTest.testPositiveSignUp()[pri:0, instance:com.automation.tests.SignUpTest@5f058f00] output={null}]]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- tearDown -->
-        <test-method is-config="true" signature="tearDownReport()[pri:0, instance:com.automation.tests.SignUpTest@5f058f00]" started-at="2025-12-26T10:39:07 IST" name="tearDownReport" finished-at="2025-12-26T10:39:08 IST" duration-ms="435" status="PASS">
+        <test-method is-config="true" signature="tearDownReport()[pri:0, instance:com.automation.tests.DataBankTest@619713e5]" started-at="2025-12-26T11:26:15 IST" name="tearDownReport" finished-at="2025-12-26T11:26:15 IST" duration-ms="240" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDownReport -->
-      </class> <!-- com.automation.tests.SignUpTest -->
+      </class> <!-- com.automation.tests.DataBankTest -->
     </test> <!-- Surefire test -->
   </suite> <!-- Surefire suite -->
 </testng-results>
