@@ -50,7 +50,7 @@ public class BaseTest {
         options.setAutomationName("UiAutomator2");
         options.setAppPackage("com.houseofepigenetics.abchopra");
         options.setAppActivity(".MainActivity");
-        options.setNoReset(true);
+        options.setNoReset(true); // Keep login state
 
         driver = new AndroidDriver(
                 new URL("http://127.0.0.1:4723"), options);
@@ -58,6 +58,52 @@ public class BaseTest {
         driver.manage()
                 .timeouts()
                 .implicitlyWait(Duration.ofSeconds(6));
+
+        // ✅ RESET APP STATE: Navigate to Home page before each test
+        // This ensures test independence without requiring re-login
+        resetAppToHomePage();
+    }
+
+    /**
+     * Reset app state by navigating to Home page
+     * Uses Android system back to clear navigation stack
+     * This ensures each test starts from a known state
+     */
+    private void resetAppToHomePage() {
+        try {
+            Thread.sleep(2000); // Wait for app to fully load
+
+            int maxAttempts = 10;
+            int attempts = 0;
+
+            // Keep pressing back until we reach home page or max attempts
+            while (attempts < maxAttempts) {
+                try {
+                    // Check if we're on home page by looking for DAILY PRIORITY heading
+                    org.openqa.selenium.WebElement homeHeading = driver.findElement(
+                            org.openqa.selenium.By.xpath("//android.view.View[@content-desc='DAILY PRIORITY']"));
+                    if (homeHeading.isDisplayed()) {
+                        System.out.println("✓ App state reset: Successfully navigated to Home page");
+                        return; // Successfully reached home page
+                    }
+                } catch (Exception e) {
+                    // Not on home page yet, continue
+                }
+
+                // Press Android system back
+                driver.navigate().back();
+                Thread.sleep(500);
+                attempts++;
+            }
+
+            // If we couldn't reach home page, log warning but continue
+            // (test might still work if it handles navigation properly)
+            System.out.println("⚠ Warning: Could not navigate to Home page after " + maxAttempts + " attempts");
+
+        } catch (Exception e) {
+            // If reset fails, log warning but don't fail the test
+            System.out.println("⚠ Warning: App state reset failed: " + e.getMessage());
+        }
     }
 
     /* ================= CLEAN TEARDOWN ================= */
