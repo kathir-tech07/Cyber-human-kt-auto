@@ -27,7 +27,7 @@ public class EditProfilePage {
     private final String nameFieldXpath = "(//android.widget.EditText)[1]";
     private final String emailFieldXpath = "(//android.widget.EditText)[2]";
     private final String dateOfBirthFieldXpath = "//android.view.View[@hint='Date of birth']";
-    private final String genderButtonXpath = "//android.widget.Button[@content-desc='Gender']";
+    private final String genderButtonXpath = "//android.widget.ImageView[@content-desc='Gender']";
     private final String phoneNumberFieldXpath = "//android.widget.EditText[@hint='Phone Number']";
     private final String countryCodeXpath = "//android.view.View[contains(@content-desc, '+')]";
     private final String saveChangesButtonXpath = "//android.widget.Button[@content-desc='SAVE CHANGES']";
@@ -111,26 +111,34 @@ public class EditProfilePage {
     /**
      * ✅ PERFORM DATE SELECTION (SWIPE ACTIONS)
      * Swipes down on Day, Month, and Year SeekBars and clicks Confirm
+     * Uses position-based XPath to work with any date (future-proof)
      */
     public void performDateSelection() {
         try {
             Thread.sleep(1000); // Wait for date picker to appear
             WebDriverWait shortWait = new WebDriverWait(driver, Duration.ofSeconds(5));
 
-            // Map of content-desc to swipe
-            String[] seekBars = { "18", "12", "2025" };
+            // Use position-based XPath instead of hardcoded values
+            // This works regardless of what date is currently displayed
+            String[] seekBarXpaths = {
+                    "(//android.widget.SeekBar)[1]", // Day picker (1st SeekBar)
+                    "(//android.widget.SeekBar)[2]", // Month picker (2nd SeekBar)
+                    "(//android.widget.SeekBar)[3]" // Year picker (3rd SeekBar)
+            };
 
-            for (String desc : seekBars) {
+            for (int i = 0; i < seekBarXpaths.length; i++) {
                 try {
                     WebElement seekBar = shortWait.until(ExpectedConditions.presenceOfElementLocated(
-                            By.xpath("//android.widget.SeekBar[@content-desc='" + desc + "']")));
+                            By.xpath(seekBarXpaths[i])));
 
                     // Perform swipe down action using W3C Actions
                     swipeDown(seekBar);
                     Thread.sleep(500); // Wait for swipe animation
 
+                    System.out.println("Successfully swiped SeekBar " + (i + 1));
+
                 } catch (Exception e) {
-                    System.out.println("Could not find or swipe SeekBar with desc: " + desc);
+                    System.out.println("Could not find or swipe SeekBar at position: " + (i + 1));
                 }
             }
 
@@ -139,6 +147,7 @@ public class EditProfilePage {
                 WebElement confirmBtn = shortWait.until(ExpectedConditions.elementToBeClickable(
                         By.xpath("//android.widget.Button[@content-desc='CONFIRM']")));
                 confirmBtn.click();
+                System.out.println("Clicked CONFIRM button on date picker");
             } catch (Exception e) {
                 System.out.println("CONFIRM button not found on date picker");
             }

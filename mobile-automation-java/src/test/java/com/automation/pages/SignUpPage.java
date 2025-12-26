@@ -44,7 +44,7 @@ public class SignUpPage {
     // Locators
     private final String nameFieldXpath = "//android.widget.EditText[@hint='Name']";
     private final String emailFieldXpath = "//android.widget.EditText[@hint='Email']";
-    private final String countryButtonXpath = "//android.widget.Button[@content-desc='Country']";
+    private final String countryButtonXpath = "//android.widget.ImageView[@content-desc='Country']";
     private final String passwordFieldXpath = "//android.view.View[@content-desc='Password']//android.widget.EditText[@password='true']";
     private final String confirmPasswordFieldXpath = "//android.view.View[@content-desc='Confirm Password']//android.widget.EditText[@password='true']";
     private final String continueBtnXpath = "//android.widget.Button[@content-desc='CONTINUE']";
