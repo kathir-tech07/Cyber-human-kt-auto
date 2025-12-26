@@ -398,6 +398,11 @@ public class DataBankTest extends BaseTest {
         dataBankPage.clickOkButton();
         test.log(Status.PASS, "✓ Step 22: OK button clicked");
 
+        // ✅ Navigate back to home page for next test
+        test.log(Status.INFO, "Step 23: Navigating back to home page");
+        dataBankPage.clickBackButtonTwice();
+        test.log(Status.PASS, "✓ Step 23: Navigated back to home page (clicked back button twice)");
+
         test.log(Status.PASS, "Data Bank Test Case 3 completed successfully");
     }
 
