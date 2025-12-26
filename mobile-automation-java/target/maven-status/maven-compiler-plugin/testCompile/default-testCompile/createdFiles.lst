@@ -10,4 +10,5 @@ com/automation/pages/HomePage.class
 com/automation/pages/TwoFactorAuthPage.class
 com/automation/tests/DailyPrescriptionTest.class
 com/automation/tests/SignInTest.class
+com/automation/tests/DataBankTest.class
 com/automation/pages/EditProfilePage.class
