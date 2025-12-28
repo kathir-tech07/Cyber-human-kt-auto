@@ -1,3 +1,4 @@
+com/automation/pages/DailyPrescriptionPage.class
 com/automation/tests/EditProfileTest.class
 com/automation/pages/DataBankPage.class
 com/automation/pages/SignInPage.class
@@ -8,6 +9,7 @@ com/automation/pages/LinkDevicesPage.class
 com/automation/pages/SignUpPage.class
 com/automation/pages/HomePage.class
 com/automation/pages/TwoFactorAuthPage.class
+com/automation/tests/DailyPrescriptionTest.class
 com/automation/tests/SignInTest.class
 com/automation/tests/DataBankTest.class
 com/automation/pages/EditProfilePage.class

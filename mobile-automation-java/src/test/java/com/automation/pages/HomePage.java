@@ -60,6 +60,21 @@ public class HomePage {
         }
     }
 
+    private final String dailyPrescriptionXpath = "//android.view.View[@content-desc='DAILY PRESCRIPTION']";
+
+    /**
+     * Click on the DAILY PRESCRIPTION option
+     */
+    public void clickDailyPrescription() {
+        try {
+            WebElement dailyPrescriptionBtn = wait
+                    .until(ExpectedConditions.elementToBeClickable(By.xpath(dailyPrescriptionXpath)));
+            dailyPrescriptionBtn.click();
+        } catch (TimeoutException e) {
+            throw new RuntimeException("DAILY PRESCRIPTION button not found on Home page", e);
+        }
+    }
+
     /**
      * Check if Home page is displayed
      */
