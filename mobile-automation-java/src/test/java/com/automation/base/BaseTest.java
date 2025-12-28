@@ -66,17 +66,59 @@ public class BaseTest {
 
     /**
      * Reset app state by navigating to Home page
-     * Uses Android system back to clear navigation stack
+     * Uses a combination of clicking Wellbeing Dashboard tab and Android system
+     * back
      * This ensures each test starts from a known state
      */
     private void resetAppToHomePage() {
         try {
             Thread.sleep(2000); // Wait for app to fully load
 
-            int maxAttempts = 10;
+            // STEP 1: Try to dismiss any blocking dialogs first
+            try {
+                // Check for logout confirmation dialog and dismiss it
+                org.openqa.selenium.WebElement noButton = driver.findElement(
+                        org.openqa.selenium.By.xpath("//android.view.View[@content-desc='NO']"));
+                if (noButton.isDisplayed()) {
+                    noButton.click();
+                    Thread.sleep(500);
+                    System.out.println("✓ Dismissed logout confirmation dialog");
+                }
+            } catch (Exception e) {
+                // No dialog to dismiss, continue
+            }
+
+            // STEP 2: Try clicking Wellbeing Dashboard tab to get to main navigation area
+            try {
+                org.openqa.selenium.WebElement wellbeingDashboard = driver.findElement(
+                        org.openqa.selenium.By
+                                .xpath("//android.view.View[@content-desc='WELLBEING DASHBOARD\\nHOME']"));
+                if (wellbeingDashboard.isDisplayed()) {
+                    wellbeingDashboard.click();
+                    Thread.sleep(1000);
+                    System.out.println("✓ Clicked Wellbeing Dashboard tab");
+                }
+            } catch (Exception e) {
+                // Wellbeing Dashboard tab not visible, continue with back navigation
+            }
+
+            // STEP 3: Check if we're already on home page
+            try {
+                org.openqa.selenium.WebElement homeHeading = driver.findElement(
+                        org.openqa.selenium.By.xpath("//android.view.View[@content-desc='DAILY PRIORITY']"));
+                if (homeHeading.isDisplayed()) {
+                    System.out.println("✓ App state reset: Successfully navigated to Home page");
+                    Thread.sleep(2000); // Additional wait to ensure page is fully stable
+                    return; // Successfully reached home page
+                }
+            } catch (Exception e) {
+                // Not on home page yet, continue with back navigation
+            }
+
+            // STEP 4: Use back button navigation to reach home page
+            int maxAttempts = 15; // Increased from 10 to 15
             int attempts = 0;
 
-            // Keep pressing back until we reach home page or max attempts
             while (attempts < maxAttempts) {
                 try {
                     // Check if we're on home page by looking for DAILY PRIORITY heading
@@ -84,6 +126,7 @@ public class BaseTest {
                             org.openqa.selenium.By.xpath("//android.view.View[@content-desc='DAILY PRIORITY']"));
                     if (homeHeading.isDisplayed()) {
                         System.out.println("✓ App state reset: Successfully navigated to Home page");
+                        Thread.sleep(2000); // Additional wait to ensure page is fully stable
                         return; // Successfully reached home page
                     }
                 } catch (Exception e) {

@@ -2,111 +2,111 @@
 <testng-results ignored="0" total="5" passed="5" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2025-12-26T22:36:59 IST" name="Surefire suite" finished-at="2025-12-26T22:42:03 IST" duration-ms="304238">
+  <suite started-at="2025-12-28T21:07:04 IST" name="Surefire suite" finished-at="2025-12-28T21:12:42 IST" duration-ms="337795">
     <groups>
     </groups>
-    <test started-at="2025-12-26T22:36:59 IST" name="Surefire test" finished-at="2025-12-26T22:42:03 IST" duration-ms="304238">
+    <test started-at="2025-12-28T21:07:04 IST" name="Surefire test" finished-at="2025-12-28T21:12:42 IST" duration-ms="337795">
       <class name="com.automation.tests.ProfileTest">
-        <test-method is-config="true" signature="setupReport()[pri:0, instance:com.automation.tests.ProfileTest@708f5957]" started-at="2025-12-26T22:36:59 IST" name="setupReport" finished-at="2025-12-26T22:36:59 IST" duration-ms="364" status="PASS">
+        <test-method is-config="true" signature="setupReport()[pri:0, instance:com.automation.tests.ProfileTest@2ef3eef9]" started-at="2025-12-28T21:07:04 IST" name="setupReport" finished-at="2025-12-28T21:07:04 IST" duration-ms="182" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setupReport -->
-        <test-method is-config="true" signature="setup()[pri:0, instance:com.automation.tests.ProfileTest@708f5957]" started-at="2025-12-26T22:36:59 IST" name="setup" finished-at="2025-12-26T22:37:12 IST" duration-ms="13136" status="PASS">
+        <test-method is-config="true" signature="setup()[pri:0, instance:com.automation.tests.ProfileTest@2ef3eef9]" started-at="2025-12-28T21:07:04 IST" name="setup" finished-at="2025-12-28T21:07:26 IST" duration-ms="22000" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setup -->
-        <test-method signature="testMyOrders_TrackOrder()[pri:1, instance:com.automation.tests.ProfileTest@708f5957]" started-at="2025-12-26T22:37:12 IST" name="testMyOrders_TrackOrder" finished-at="2025-12-26T22:37:53 IST" duration-ms="41133" status="PASS">
+        <test-method signature="testMyOrders_TrackOrder()[pri:1, instance:com.automation.tests.ProfileTest@2ef3eef9]" started-at="2025-12-28T21:07:26 IST" name="testMyOrders_TrackOrder" finished-at="2025-12-28T21:08:08 IST" duration-ms="41589" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- testMyOrders_TrackOrder -->
-        <test-method is-config="true" signature="tearDown(org.testng.ITestResult)[pri:0, instance:com.automation.tests.ProfileTest@708f5957]" started-at="2025-12-26T22:37:53 IST" name="tearDown" finished-at="2025-12-26T22:37:57 IST" duration-ms="3243" status="PASS">
+        <test-method is-config="true" signature="tearDown(org.testng.ITestResult)[pri:0, instance:com.automation.tests.ProfileTest@2ef3eef9]" started-at="2025-12-28T21:08:08 IST" name="tearDown" finished-at="2025-12-28T21:08:11 IST" duration-ms="2986" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=testMyOrders_TrackOrder status=SUCCESS method=ProfileTest.testMyOrders_TrackOrder()[pri:1, instance:com.automation.tests.ProfileTest@708f5957] output={null}]]]>
+                <![CDATA[[TestResult name=testMyOrders_TrackOrder status=SUCCESS method=ProfileTest.testMyOrders_TrackOrder()[pri:1, instance:com.automation.tests.ProfileTest@2ef3eef9] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-        <test-method is-config="true" signature="setup()[pri:0, instance:com.automation.tests.ProfileTest@708f5957]" started-at="2025-12-26T22:37:57 IST" name="setup" finished-at="2025-12-26T22:38:08 IST" duration-ms="11319" status="PASS">
+        <test-method is-config="true" signature="setup()[pri:0, instance:com.automation.tests.ProfileTest@2ef3eef9]" started-at="2025-12-28T21:08:11 IST" name="setup" finished-at="2025-12-28T21:08:32 IST" duration-ms="20897" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setup -->
-        <test-method signature="testMyOrders_SendSample()[pri:2, instance:com.automation.tests.ProfileTest@708f5957]" started-at="2025-12-26T22:38:08 IST" name="testMyOrders_SendSample" finished-at="2025-12-26T22:38:59 IST" duration-ms="51135" status="PASS">
+        <test-method signature="testMyOrders_SendSample()[pri:2, instance:com.automation.tests.ProfileTest@2ef3eef9]" started-at="2025-12-28T21:08:32 IST" name="testMyOrders_SendSample" finished-at="2025-12-28T21:09:13 IST" duration-ms="41270" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- testMyOrders_SendSample -->
-        <test-method is-config="true" signature="tearDown(org.testng.ITestResult)[pri:0, instance:com.automation.tests.ProfileTest@708f5957]" started-at="2025-12-26T22:38:59 IST" name="tearDown" finished-at="2025-12-26T22:39:02 IST" duration-ms="3158" status="PASS">
+        <test-method is-config="true" signature="tearDown(org.testng.ITestResult)[pri:0, instance:com.automation.tests.ProfileTest@2ef3eef9]" started-at="2025-12-28T21:09:13 IST" name="tearDown" finished-at="2025-12-28T21:09:16 IST" duration-ms="3006" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=testMyOrders_SendSample status=SUCCESS method=ProfileTest.testMyOrders_SendSample()[pri:2, instance:com.automation.tests.ProfileTest@708f5957] output={null}]]]>
+                <![CDATA[[TestResult name=testMyOrders_SendSample status=SUCCESS method=ProfileTest.testMyOrders_SendSample()[pri:2, instance:com.automation.tests.ProfileTest@2ef3eef9] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-        <test-method is-config="true" signature="setup()[pri:0, instance:com.automation.tests.ProfileTest@708f5957]" started-at="2025-12-26T22:39:02 IST" name="setup" finished-at="2025-12-26T22:39:16 IST" duration-ms="13685" status="PASS">
+        <test-method is-config="true" signature="setup()[pri:0, instance:com.automation.tests.ProfileTest@2ef3eef9]" started-at="2025-12-28T21:09:16 IST" name="setup" finished-at="2025-12-28T21:09:37 IST" duration-ms="20681" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setup -->
-        <test-method signature="testHelpSupport_AllSections()[pri:3, instance:com.automation.tests.ProfileTest@708f5957]" started-at="2025-12-26T22:39:16 IST" name="testHelpSupport_AllSections" finished-at="2025-12-26T22:40:09 IST" duration-ms="53347" status="PASS">
+        <test-method signature="testHelpSupport_AllSections()[pri:3, instance:com.automation.tests.ProfileTest@2ef3eef9]" started-at="2025-12-28T21:09:37 IST" name="testHelpSupport_AllSections" finished-at="2025-12-28T21:10:29 IST" duration-ms="52444" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- testHelpSupport_AllSections -->
-        <test-method is-config="true" signature="tearDown(org.testng.ITestResult)[pri:0, instance:com.automation.tests.ProfileTest@708f5957]" started-at="2025-12-26T22:40:09 IST" name="tearDown" finished-at="2025-12-26T22:40:12 IST" duration-ms="3064" status="PASS">
+        <test-method is-config="true" signature="tearDown(org.testng.ITestResult)[pri:0, instance:com.automation.tests.ProfileTest@2ef3eef9]" started-at="2025-12-28T21:10:29 IST" name="tearDown" finished-at="2025-12-28T21:10:32 IST" duration-ms="3056" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=testHelpSupport_AllSections status=SUCCESS method=ProfileTest.testHelpSupport_AllSections()[pri:3, instance:com.automation.tests.ProfileTest@708f5957] output={null}]]]>
+                <![CDATA[[TestResult name=testHelpSupport_AllSections status=SUCCESS method=ProfileTest.testHelpSupport_AllSections()[pri:3, instance:com.automation.tests.ProfileTest@2ef3eef9] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-        <test-method is-config="true" signature="setup()[pri:0, instance:com.automation.tests.ProfileTest@708f5957]" started-at="2025-12-26T22:40:12 IST" name="setup" finished-at="2025-12-26T22:40:24 IST" duration-ms="11455" status="PASS">
+        <test-method is-config="true" signature="setup()[pri:0, instance:com.automation.tests.ProfileTest@2ef3eef9]" started-at="2025-12-28T21:10:32 IST" name="setup" finished-at="2025-12-28T21:10:53 IST" duration-ms="20653" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setup -->
-        <test-method signature="testLegalInformation_AllSections()[pri:4, instance:com.automation.tests.ProfileTest@708f5957]" started-at="2025-12-26T22:40:24 IST" name="testLegalInformation_AllSections" finished-at="2025-12-26T22:41:08 IST" duration-ms="44227" status="PASS">
+        <test-method signature="testLegalInformation_AllSections()[pri:4, instance:com.automation.tests.ProfileTest@2ef3eef9]" started-at="2025-12-28T21:10:53 IST" name="testLegalInformation_AllSections" finished-at="2025-12-28T21:11:38 IST" duration-ms="45428" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- testLegalInformation_AllSections -->
-        <test-method is-config="true" signature="tearDown(org.testng.ITestResult)[pri:0, instance:com.automation.tests.ProfileTest@708f5957]" started-at="2025-12-26T22:41:08 IST" name="tearDown" finished-at="2025-12-26T22:41:11 IST" duration-ms="3263" status="PASS">
+        <test-method is-config="true" signature="tearDown(org.testng.ITestResult)[pri:0, instance:com.automation.tests.ProfileTest@2ef3eef9]" started-at="2025-12-28T21:11:38 IST" name="tearDown" finished-at="2025-12-28T21:11:41 IST" duration-ms="3108" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=testLegalInformation_AllSections status=SUCCESS method=ProfileTest.testLegalInformation_AllSections()[pri:4, instance:com.automation.tests.ProfileTest@708f5957] output={null}]]]>
+                <![CDATA[[TestResult name=testLegalInformation_AllSections status=SUCCESS method=ProfileTest.testLegalInformation_AllSections()[pri:4, instance:com.automation.tests.ProfileTest@2ef3eef9] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-        <test-method is-config="true" signature="setup()[pri:0, instance:com.automation.tests.ProfileTest@708f5957]" started-at="2025-12-26T22:41:11 IST" name="setup" finished-at="2025-12-26T22:41:23 IST" duration-ms="11730" status="PASS">
+        <test-method is-config="true" signature="setup()[pri:0, instance:com.automation.tests.ProfileTest@2ef3eef9]" started-at="2025-12-28T21:11:41 IST" name="setup" finished-at="2025-12-28T21:12:02 IST" duration-ms="21231" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setup -->
-        <test-method signature="testLogout()[pri:5, instance:com.automation.tests.ProfileTest@708f5957]" started-at="2025-12-26T22:41:23 IST" name="testLogout" finished-at="2025-12-26T22:42:00 IST" duration-ms="36942" status="PASS">
+        <test-method signature="testLogout()[pri:5, instance:com.automation.tests.ProfileTest@2ef3eef9]" started-at="2025-12-28T21:12:02 IST" name="testLogout" finished-at="2025-12-28T21:12:39 IST" duration-ms="36129" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- testLogout -->
-        <test-method is-config="true" signature="tearDown(org.testng.ITestResult)[pri:0, instance:com.automation.tests.ProfileTest@708f5957]" started-at="2025-12-26T22:42:00 IST" name="tearDown" finished-at="2025-12-26T22:42:03 IST" duration-ms="3333" status="PASS">
+        <test-method is-config="true" signature="tearDown(org.testng.ITestResult)[pri:0, instance:com.automation.tests.ProfileTest@2ef3eef9]" started-at="2025-12-28T21:12:39 IST" name="tearDown" finished-at="2025-12-28T21:12:42 IST" duration-ms="3272" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=testLogout status=SUCCESS method=ProfileTest.testLogout()[pri:5, instance:com.automation.tests.ProfileTest@708f5957] output={null}]]]>
+                <![CDATA[[TestResult name=testLogout status=SUCCESS method=ProfileTest.testLogout()[pri:5, instance:com.automation.tests.ProfileTest@2ef3eef9] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-        <test-method is-config="true" signature="tearDownReport()[pri:0, instance:com.automation.tests.ProfileTest@708f5957]" started-at="2025-12-26T22:42:03 IST" name="tearDownReport" finished-at="2025-12-26T22:42:04 IST" duration-ms="495" status="PASS">
+        <test-method is-config="true" signature="tearDownReport()[pri:0, instance:com.automation.tests.ProfileTest@2ef3eef9]" started-at="2025-12-28T21:12:42 IST" name="tearDownReport" finished-at="2025-12-28T21:12:42 IST" duration-ms="453" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDownReport -->

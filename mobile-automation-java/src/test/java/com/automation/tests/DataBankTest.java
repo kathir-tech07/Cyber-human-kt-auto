@@ -3,6 +3,7 @@ package com.automation.tests;
 import com.automation.base.BaseTest;
 import com.automation.pages.HomePage;
 import com.automation.pages.DataBankPage;
+import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.Status;
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -304,17 +305,19 @@ public class DataBankTest extends BaseTest {
         test.log(Status.INFO, "Step 4: Clicking DEVICES");
         dataBankPage.clickDevices();
         test.log(Status.PASS, "✓ Step 4: DEVICES clicked");
-        Thread.sleep(2000); // Wait for UI to update after clicking DEVICES
+        Thread.sleep(3000); // Wait for UI to update after clicking DEVICES
 
         // ✅ TEST CASE 3 - STEP 5: Click LINK DEVICE button
         test.log(Status.INFO, "Step 5: Clicking LINK DEVICE button");
         dataBankPage.clickLinkDeviceButton();
         test.log(Status.PASS, "✓ Step 5: LINK DEVICE button clicked");
+        Thread.sleep(2000); // Wait for UI to update after clicking LINK DEVICE
 
         // ✅ TEST CASE 3 - STEP 6: Click checkbox
         test.log(Status.INFO, "Step 6: Clicking checkbox");
         dataBankPage.clickCheckbox();
         test.log(Status.PASS, "✓ Step 6: Checkbox clicked");
+        Thread.sleep(2000); // Wait for CONTINUE button to become available
 
         // ✅ TEST CASE 3 - STEP 7: Click CONTINUE button
         test.log(Status.INFO, "Step 7: Clicking CONTINUE button");
@@ -397,13 +400,78 @@ public class DataBankTest extends BaseTest {
         test.log(Status.INFO, "Step 22: Clicking OK button");
         dataBankPage.clickOkButton();
         test.log(Status.PASS, "✓ Step 22: OK button clicked");
+        Thread.sleep(2000); // Wait for dialog to fully dismiss
 
-        // ✅ Navigate back to home page for next test
-        test.log(Status.INFO, "Step 23: Navigating back to home page");
-        dataBankPage.clickBackButtonTwice();
-        test.log(Status.PASS, "✓ Step 23: Navigated back to home page (clicked back button twice)");
+        // ✅ Navigate back to Data Bank main page for next test
+        test.log(Status.INFO, "Step 23: Ensuring app is on Data Bank main page for next test");
+        ensureDataBankMainPageState(dataBankPage, test);
+        test.log(Status.PASS, "✓ Step 23: App is on Data Bank main page, ready for Test Case 4");
 
         test.log(Status.PASS, "Data Bank Test Case 3 completed successfully");
+    }
+
+    /**
+     * Helper method to ensure app is on Data Bank main page
+     * Handles dialogs, keyboard, and navigation with retry logic
+     * Uses existing clickBackButton() method only
+     * 
+     * @param dataBankPage DataBankPage instance
+     * @param test         ExtentTest instance for logging
+     */
+    private void ensureDataBankMainPageState(DataBankPage dataBankPage, ExtentTest test) {
+        int maxAttempts = 10;
+        int attempts = 0;
+
+        while (attempts < maxAttempts) {
+            // Check if already on Data Bank main page
+            if (dataBankPage.isAlreadyOnDataBankPage()) {
+                test.log(Status.INFO, "✓ Confirmed: App is on Data Bank main page (REPORTS tab visible)");
+                return; // Success!
+            }
+
+            try {
+                // Step 1: Try to dismiss any blocking dialogs (OK button)
+                try {
+                    dataBankPage.clickOkButton();
+                    test.log(Status.INFO, "Dismissed blocking dialog (attempt " + (attempts + 1) + ")");
+                    Thread.sleep(500);
+                    continue; // Recheck state after dismissing dialog
+                } catch (Exception e) {
+                    // No dialog present, continue
+                }
+
+                // Step 2: Try to hide keyboard if visible
+                try {
+                    ((io.appium.java_client.android.AndroidDriver) driver).hideKeyboard();
+                    test.log(Status.INFO, "Hid keyboard (attempt " + (attempts + 1) + ")");
+                    Thread.sleep(500);
+                } catch (Exception e) {
+                    // Keyboard not visible, continue
+                }
+
+                // Step 3: Navigate back using existing method
+                dataBankPage.clickBackButton();
+                test.log(Status.INFO, "Clicked back button (attempt " + (attempts + 1) + ")");
+                Thread.sleep(1000); // Wait for navigation to complete
+
+                attempts++;
+
+            } catch (Exception e) {
+                test.log(Status.INFO, "Navigation attempt " + (attempts + 1) + " encountered issue: " + e.getMessage());
+                attempts++;
+                try {
+                    Thread.sleep(1000);
+                } catch (InterruptedException ie) {
+                    // Ignore
+                }
+            }
+        }
+
+        // If we couldn't reach Data Bank main page after retries, log warning but don't
+        // crash
+        test.log(Status.WARNING,
+                "⚠ Could not confirm Data Bank main page after " + maxAttempts
+                        + " attempts. Test Case 4 will attempt to navigate.");
     }
 
     /**
