@@ -9,6 +9,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
+import java.util.List;
 
 public class ForgotPasswordPage {
     private AppiumDriver driver;
@@ -31,7 +32,8 @@ public class ForgotPasswordPage {
     private final String sendMessageBtnXpath = "//android.widget.Button[@content-desc=\"SEND MESSAGE\"]";
 
     // Step 4: Invalid email error message
-    private final String invalidEmailErrorXpath = "//android.view.View[@content-desc=\"We couldn't find an account with that email. Try a different one or sign up to get started.\"]";
+    // Using contains for robustness and handling potential smart quotes
+    private final String invalidEmailErrorXpath = "//android.view.View[contains(@content-desc, \"We couldn\") and contains(@content-desc, \"find an account\")]";
 
     // Step 7: Enter Verification Code page
     private final String verificationCodePageXpath = "//android.view.View[@content-desc=\"ENTER VERIFICATION CODE\"]";
@@ -183,14 +185,21 @@ public class ForgotPasswordPage {
      * Waits up to 5 seconds for the error message to appear
      * Returns a message indicating no error was shown if element not found
      */
+    /**
+     * Step 4: Get runtime error message for invalid email
+     * Waits up to 10 seconds for the error message to appear
+     * Returns the content-desc attribute of the error view
+     */
     public String getInvalidEmailErrorMessage() {
         try {
-            WebElement errorElement = waitForElement(invalidEmailErrorXpath, 5);
-            return errorElement.getAttribute("content-desc");
+            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+            WebElement errorMsg = wait.until(
+                    ExpectedConditions.visibilityOfElementLocated(By.xpath(invalidEmailErrorXpath)));
+            return errorMsg.getAttribute("content-desc");
         } catch (Exception e) {
             // Error message might not appear if email format is actually valid
             // or if the error appears in a different format
-            return "No error message displayed (email may have been accepted or error in different format)";
+            return "No error message displayed: " + e.getMessage();
         }
     }
 
@@ -428,7 +437,26 @@ public class ForgotPasswordPage {
     /**
      * Step 18, 22, 26: Click Reset Password button
      */
+    /**
+     * Step 18, 22, 26: Click Reset Password button
+     */
     public void clickResetPasswordButton() {
+        try {
+            ((io.appium.java_client.android.AndroidDriver) driver).hideKeyboard();
+            Thread.sleep(500);
+        } catch (Exception ignored) {
+        }
+
+        // Try to scroll to the button using UiScrollable
+        try {
+            driver.findElement(AppiumBy.androidUIAutomator(
+                    "new UiScrollable(new UiSelector().scrollable(true)).scrollIntoView("
+                            + "new UiSelector().description(\"RESET PASSWORD\"));"));
+            Thread.sleep(500);
+        } catch (Exception ignored) {
+            // If scrolling fails or not needed, continue to click
+        }
+
         WebElement btn = findElementWithFallback(null, resetPasswordBtnXpath, "RESET PASSWORD");
         btn.click();
     }
@@ -455,9 +483,23 @@ public class ForgotPasswordPage {
 
     /**
      * Step 23: Get password mismatch error message
-     * XPath: //android.view.View[@content-desc="Passwords do not match"]
+     * Checks for rule validation errors first (using content-desc contains)
+     * Then checks for specific mismatch error
      */
     public String getPasswordMismatchError() {
+        // First check for password rule validation message
+        try {
+            List<WebElement> ruleErrors = driver.findElements(
+                    By.xpath("//android.view.View[contains(@content-desc,'Use at least 8 characters')]"));
+
+            if (!ruleErrors.isEmpty()) {
+                // Rule error found
+                return ruleErrors.get(0).getAttribute("content-desc");
+            }
+        } catch (Exception ignored) {
+        }
+
+        // If no rule error, check for mismatch error
         try {
             WebElement errorElement = waitForElement(passwordMismatchErrorXpath, 5);
             return errorElement.getAttribute("content-desc");
