@@ -63,10 +63,13 @@ public class BaseTest {
         // EditProfileTest: manages Sign In -> Home -> Edit Profile flow
         // SignInTest: needs to start from Sign In page (logged out state)
         // SignUpTest: needs to start from Sign Up page
+        // ForgotPasswordTest: needs to start from Sign In page (for Forgot Password
+        // button)
         String testClassName = method.getDeclaringClass().getSimpleName();
         if (!"EditProfileTest".equals(testClassName) &&
                 !"SignInTest".equals(testClassName) &&
-                !"SignUpTest".equals(testClassName)) {
+                !"SignUpTest".equals(testClassName) &&
+                !"ForgotPasswordTest".equals(testClassName)) {
             // ✅ RESET APP STATE: Navigate to Home page before each test
             // This ensures test independence without requiring re-login
             resetAppToHomePage();

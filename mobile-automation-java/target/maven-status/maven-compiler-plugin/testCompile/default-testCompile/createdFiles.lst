@@ -1,4 +1,6 @@
 com/automation/pages/DailyPrescriptionPage.class
+com/automation/pages/ForgotPasswordPage.class
+com/automation/tests/ForgotPasswordTest.class
 com/automation/tests/ProfileTest.class
 com/automation/tests/EditProfileTest.class
 com/automation/pages/DataBankPage.class
