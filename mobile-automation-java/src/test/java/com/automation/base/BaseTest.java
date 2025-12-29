@@ -43,7 +43,7 @@ public class BaseTest {
     /* ================= DRIVER SETUP ================= */
 
     @BeforeMethod
-    public void setup() throws MalformedURLException {
+    public void setup(java.lang.reflect.Method method) throws MalformedURLException {
 
         UiAutomator2Options options = new UiAutomator2Options();
         options.setDeviceName("1dc3d76f");
@@ -59,9 +59,20 @@ public class BaseTest {
                 .timeouts()
                 .implicitlyWait(Duration.ofSeconds(6));
 
-        // ✅ RESET APP STATE: Navigate to Home page before each test
-        // This ensures test independence without requiring re-login
-        resetAppToHomePage();
+        // ✅ CONDITIONAL RESET: Skip resetAppToHomePage for tests with custom navigation
+        // EditProfileTest: manages Sign In -> Home -> Edit Profile flow
+        // SignInTest: needs to start from Sign In page (logged out state)
+        // SignUpTest: needs to start from Sign Up page
+        String testClassName = method.getDeclaringClass().getSimpleName();
+        if (!"EditProfileTest".equals(testClassName) &&
+                !"SignInTest".equals(testClassName) &&
+                !"SignUpTest".equals(testClassName)) {
+            // ✅ RESET APP STATE: Navigate to Home page before each test
+            // This ensures test independence without requiring re-login
+            resetAppToHomePage();
+        } else {
+            System.out.println("⏭ Skipping resetAppToHomePage for " + testClassName + " - uses custom navigation");
+        }
     }
 
     /**

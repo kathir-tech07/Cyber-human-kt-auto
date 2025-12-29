@@ -10,49 +10,20 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
-import io.appium.java_client.android.AndroidDriver;
-import io.appium.java_client.android.options.UiAutomator2Options;
-import java.net.MalformedURLException;
-import java.net.URL;
-import java.time.Duration;
-
 public class SignInTest extends BaseTest {
 
     /**
-     * ✅ OVERRIDE SETUP TO SKIP HOME PAGE RESET
-     * Sign In tests need to start from Sign In page (logged out state),
-     * not Home page (logged in state). We override setup() to initialize
-     * the driver without calling resetAppToHomePage().
+     * ✅ NAVIGATE TO SIGN IN PAGE BEFORE EACH TEST
+     * This ensures every test starts from Sign In page.
      */
     @BeforeMethod
-    public void setup() throws MalformedURLException {
-        // Initialize driver with same options as BaseTest, but skip home page reset
-        UiAutomator2Options options = new UiAutomator2Options();
-        options.setDeviceName("1dc3d76f");
-        options.setAutomationName("UiAutomator2");
-        options.setAppPackage("com.houseofepigenetics.abchopra");
-        options.setAppActivity(".MainActivity");
-        options.setNoReset(true); // Keep login state
-
-        driver = new AndroidDriver(
-                new URL("http://127.0.0.1:4723"), options);
-
-        driver.manage()
-                .timeouts()
-                .implicitlyWait(Duration.ofSeconds(6));
-
-        // Wait for app to load and navigate to Sign In page
-        try {
-            Thread.sleep(2000);
-            navigateToSignInPage();
-        } catch (Exception e) {
-            System.out.println("⚠ Warning: Navigation setup failed: " + e.getMessage());
-        }
+    public void navigateToSignInPageBeforeTest() throws Exception {
+        navigateToSignInPage();
     }
 
     /**
      * ✅ NAVIGATE TO SIGN IN PAGE
-     * This ensures every test starts from Sign In page.
+     * This ensures tests start from Sign In page.
      */
     private void navigateToSignInPage() throws Exception {
         // Driver already initialized by BaseTest.setup()
