@@ -466,4 +466,42 @@ public class SignInPage {
         // ❌ No validation message found
         return null;
     }
+
+    /**
+     * Check if the app is currently on the Sign In page.
+     * This is used to determine if navigation to Sign In page is needed.
+     * 
+     * @return true if on Sign In page, false otherwise
+     */
+    public boolean isOnSignInPage() {
+        try {
+            WebDriverWait shortWait = new WebDriverWait(driver, Duration.ofSeconds(3));
+            // Check for email field which is unique to Sign In page
+            WebElement emailField = shortWait.until(
+                    ExpectedConditions.presenceOfElementLocated(By.xpath(emailXpath)));
+            return emailField.isDisplayed();
+        } catch (Exception e) {
+            return false;
+        }
+    }
+
+    /**
+     * Wait for validation message to appear after clicking Continue.
+     * This replaces Thread.sleep() with an explicit wait.
+     * 
+     * @param timeoutSeconds Maximum time to wait for validation
+     * @return true if validation appeared, false if timeout
+     */
+    public boolean waitForValidationToAppear(int timeoutSeconds) {
+        try {
+            WebDriverWait validationWait = new WebDriverWait(driver, Duration.ofSeconds(timeoutSeconds));
+
+            // Wait for any validation element to appear
+            validationWait.until(driver -> isAnyValidationVisible());
+            return true;
+        } catch (Exception e) {
+            // Timeout - no validation appeared
+            return false;
+        }
+    }
 }

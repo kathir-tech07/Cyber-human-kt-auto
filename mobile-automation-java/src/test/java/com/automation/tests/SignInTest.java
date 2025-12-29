@@ -2,12 +2,104 @@ package com.automation.tests;
 
 import com.automation.base.BaseTest;
 import com.automation.pages.SignInPage;
+import com.automation.pages.HomePage;
+import com.automation.pages.ProfilePage;
 import com.aventstack.extentreports.Status;
 import org.testng.Assert;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
+import io.appium.java_client.android.AndroidDriver;
+import io.appium.java_client.android.options.UiAutomator2Options;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.time.Duration;
+
 public class SignInTest extends BaseTest {
+
+    /**
+     * ✅ OVERRIDE SETUP TO SKIP HOME PAGE RESET
+     * Sign In tests need to start from Sign In page (logged out state),
+     * not Home page (logged in state). We override setup() to initialize
+     * the driver without calling resetAppToHomePage().
+     */
+    @BeforeMethod
+    public void setup() throws MalformedURLException {
+        // Initialize driver with same options as BaseTest, but skip home page reset
+        UiAutomator2Options options = new UiAutomator2Options();
+        options.setDeviceName("1dc3d76f");
+        options.setAutomationName("UiAutomator2");
+        options.setAppPackage("com.houseofepigenetics.abchopra");
+        options.setAppActivity(".MainActivity");
+        options.setNoReset(true); // Keep login state
+
+        driver = new AndroidDriver(
+                new URL("http://127.0.0.1:4723"), options);
+
+        driver.manage()
+                .timeouts()
+                .implicitlyWait(Duration.ofSeconds(6));
+
+        // Wait for app to load and navigate to Sign In page
+        try {
+            Thread.sleep(2000);
+            navigateToSignInPage();
+        } catch (Exception e) {
+            System.out.println("⚠ Warning: Navigation setup failed: " + e.getMessage());
+        }
+    }
+
+    /**
+     * ✅ NAVIGATE TO SIGN IN PAGE
+     * This ensures every test starts from Sign In page.
+     */
+    private void navigateToSignInPage() throws Exception {
+        // Driver already initialized by BaseTest.setup()
+
+        SignInPage signInPage = new SignInPage(driver);
+
+        // Check if already on Sign In page
+        if (signInPage.isOnSignInPage()) {
+            System.out.println("✓ Already on Sign In page");
+            return;
+        }
+
+        // Check if on Home page (logged in)
+        HomePage homePage = new HomePage(driver);
+        if (homePage.isHomePageDisplayed()) {
+            System.out.println("User is logged in, navigating to Sign In page...");
+
+            // Navigate: Wellbeing Dashboard → Profile → Logout → Yes
+            homePage.navigateToLogout();
+
+            ProfilePage profilePage = new ProfilePage(driver);
+            profilePage.clickLogout();
+            Thread.sleep(1000);
+
+            // Click YES in logout confirmation
+            profilePage.clickYes();
+            Thread.sleep(2000);
+
+            System.out.println("✓ Navigated to Sign In page");
+            return;
+        }
+
+        // If on other page, press back until Sign In page appears
+        int maxAttempts = 10;
+        int attempts = 0;
+        while (!signInPage.isOnSignInPage() && attempts < maxAttempts) {
+            driver.navigate().back();
+            Thread.sleep(500);
+            attempts++;
+        }
+
+        if (signInPage.isOnSignInPage()) {
+            System.out.println("✓ Navigated to Sign In page via back button");
+        } else {
+            System.out.println("⚠ Warning: Could not navigate to Sign In page");
+        }
+    }
 
     /**
      * ✅ NEGATIVE TEST DATA (NO HARDCODED EXPECTED MESSAGES)
@@ -54,8 +146,9 @@ public class SignInTest extends BaseTest {
         signInPage.clickContinue();
         test.log(Status.INFO, "Clicked Continue button");
 
-        // Step 3: Wait for validation to appear (if any)
-        Thread.sleep(2000); // Allow time for validation to render
+        // Step 3: ✅ Wait for validation to appear using explicit wait (replaces
+        // Thread.sleep)
+        signInPage.waitForValidationToAppear(3);
 
         // Step 4: ✅ RUNTIME VALIDATION CHECK (NO HARDCODED MESSAGES)
         boolean validationDetected = signInPage.isAnyValidationVisible();
@@ -101,7 +194,8 @@ public class SignInTest extends BaseTest {
         signInPage.clickContinue();
         test.log(Status.INFO, "Clicked Continue button");
 
-        Thread.sleep(3000); // Wait for navigation/success
+        // ✅ Wait for navigation/validation using explicit wait (replaces Thread.sleep)
+        signInPage.waitForValidationToAppear(3);
 
         // For positive case, we expect NO validation errors
         boolean validationDetected = signInPage.isAnyValidationVisible();
