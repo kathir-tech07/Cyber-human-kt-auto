@@ -1,5 +1,6 @@
 /home/ds/Cyber-human-kt-auto/mobile-automation-java/src/test/java/com/automation/tests/AbChopraHouseTest.java
 /home/ds/Cyber-human-kt-auto/mobile-automation-java/src/test/java/com/automation/pages/HomePage.java
+<<<<<<< HEAD
 /home/ds/Cyber-human-kt-auto/mobile-automation-java/src/test/java/com/automation/tests/EditProfileTest.java
 /home/ds/Cyber-human-kt-auto/mobile-automation-java/src/test/java/com/automation/pages/TwoFactorAuthPage.java
 /home/ds/Cyber-human-kt-auto/mobile-automation-java/src/test/java/com/automation/pages/DailyPrescriptionPage.java
@@ -9,11 +10,16 @@
 /home/ds/Cyber-human-kt-auto/mobile-automation-java/src/test/java/com/automation/pages/DataBankPage.java
 /home/ds/Cyber-human-kt-auto/mobile-automation-java/src/test/java/com/automation/base/BaseTest.java
 /home/ds/Cyber-human-kt-auto/mobile-automation-java/src/test/java/com/automation/pages/SignInPage.java
+=======
+>>>>>>> main
 /home/ds/Cyber-human-kt-auto/mobile-automation-java/src/test/java/com/automation/pages/ProfilePage.java
 /home/ds/Cyber-human-kt-auto/mobile-automation-java/src/test/java/com/automation/tests/SignUpTest.java
 /home/ds/Cyber-human-kt-auto/mobile-automation-java/src/test/java/com/automation/tests/SignInTest.java
 /home/ds/Cyber-human-kt-auto/mobile-automation-java/src/test/java/com/automation/utils/ProfileNavigationHelper.java
-/home/ds/Cyber-human-kt-auto/mobile-automation-java/src/test/java/com/automation/tests/DailyPrescriptionTest.java
-/home/ds/Cyber-human-kt-auto/mobile-automation-java/src/test/java/com/automation/tests/DataBankTest.java
+/home/ds/Cyber-human-kt-auto/mobile-automation-java/src/test/java/com/automation/tests/EditProfileTest.java
+/home/ds/Cyber-human-kt-auto/mobile-automation-java/src/test/java/com/automation/pages/TwoFactorAuthPage.java
+/home/ds/Cyber-human-kt-auto/mobile-automation-java/src/test/java/com/automation/pages/LinkDevicesPage.java
+/home/ds/Cyber-human-kt-auto/mobile-automation-java/src/test/java/com/automation/base/BaseTest.java
 /home/ds/Cyber-human-kt-auto/mobile-automation-java/src/test/java/com/automation/pages/SignUpPage.java
 /home/ds/Cyber-human-kt-auto/mobile-automation-java/src/test/java/com/automation/pages/EditProfilePage.java
+/home/ds/Cyber-human-kt-auto/mobile-automation-java/src/test/java/com/automation/pages/SignInPage.java

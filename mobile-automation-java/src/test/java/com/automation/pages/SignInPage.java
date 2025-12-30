@@ -504,4 +504,71 @@ public class SignInPage {
             return false;
         }
     }
+
+    /**
+     * Check if the "LINK DEVICES" page is displayed after successful login.
+     * 
+     * @return true if LINK DEVICES element is visible
+     */
+    public boolean isLinkDevicesDisplayed() {
+        try {
+            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+            WebElement linkDevices = wait.until(ExpectedConditions.visibilityOfElementLocated(
+                    By.xpath("//android.view.View[@content-desc='LINK DEVICES']")));
+            return linkDevices.isDisplayed();
+        } catch (Exception e) {
+            return false;
+        }
+    }
+
+    /**
+     * Try to skip or continue from Link Devices page to reach Home page.
+     */
+    public void handleLinkDevices() {
+        WebDriverWait shortWait = new WebDriverWait(driver, Duration.ofSeconds(5));
+
+        // Try clicking SKIP
+        try {
+            WebElement skipBtn = shortWait.until(ExpectedConditions.elementToBeClickable(
+                    By.xpath(
+                            "//android.widget.Button[@content-desc='SKIP'] | //android.view.View[@content-desc='SKIP']")));
+            skipBtn.click();
+            return;
+        } catch (Exception ignored) {
+        }
+
+        // Try clicking CONTINUE
+        try {
+            WebElement continueBtn = shortWait.until(ExpectedConditions.elementToBeClickable(
+                    By.xpath(
+                            "//android.widget.Button[@content-desc='CONTINUE'] | //android.view.View[@content-desc='CONTINUE']")));
+            continueBtn.click();
+            return;
+        } catch (Exception ignored) {
+        }
+
+        // Try clicking close/X if exists
+        try {
+            WebElement closeBtn = shortWait.until(ExpectedConditions.elementToBeClickable(
+                    By.xpath(
+                            "//android.widget.ImageView[contains(@content-desc, 'close') or contains(@resource-id, 'close')]")));
+            closeBtn.click();
+        } catch (Exception ignored) {
+        }
+    }
+
+    /**
+     * Click "SKIP FOR NOW" button
+     */
+    public void clickSkipForNow() {
+        try {
+            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+            WebElement skipBtn = wait.until(ExpectedConditions.elementToBeClickable(
+                    By.xpath("//android.widget.Button[@content-desc='SKIP FOR NOW']")));
+            skipBtn.click();
+        } catch (Exception e) {
+            // Log if not found, as it is part of the expected flow
+            System.out.println("SKIP FOR NOW button not found: " + e.getMessage());
+        }
+    }
 }
