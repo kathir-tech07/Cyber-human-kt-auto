@@ -5,10 +5,16 @@ import com.automation.pages.SignInPage;
 import com.automation.pages.HomePage;
 import com.automation.pages.ProfilePage;
 import com.aventstack.extentreports.Status;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
+
+import java.time.Duration;
 
 public class SignInTest extends BaseTest {
 
@@ -155,8 +161,8 @@ public class SignInTest extends BaseTest {
         SignInPage signInPage = new SignInPage(driver);
 
         // Use valid credentials
-        String validEmail = "testuser@example.com";
-        String validPassword = "Password@123";
+        String validEmail = "ramesh@navadhiti.com";
+        String validPassword = "Ramesh@2025";
 
         signInPage.enterEmail(validEmail);
         signInPage.enterPassword(validPassword);
@@ -165,21 +171,92 @@ public class SignInTest extends BaseTest {
         signInPage.clickContinue();
         test.log(Status.INFO, "Clicked Continue button");
 
-        // ✅ Wait for navigation/validation using explicit wait (replaces Thread.sleep)
-        signInPage.waitForValidationToAppear(3);
+        // ✅ Wait for navigation to LINK DEVICES page
+        // User requested approx 5 sec wait/check for "LINK DEVICES"
+        boolean isLinkDevicesPage = signInPage.isLinkDevicesDisplayed();
 
-        // For positive case, we expect NO validation errors
-        boolean validationDetected = signInPage.isAnyValidationVisible();
+        if (isLinkDevicesPage) {
+            // ✅ PASS: Successfully navigated to Link Devices page
+            test.log(Status.PASS, "✓ 'LINK DEVICES' page displayed - Login successful");
+            test.log(Status.PASS, "Test PASSED: Valid credentials accepted and navigated to next screen");
 
-        if (!validationDetected) {
-            // ✅ PASS: No validation errors for valid credentials
-            test.log(Status.PASS, "✓ No validation errors - Login successful");
-            test.log(Status.PASS, "Test PASSED: Valid credentials accepted");
+            /*
+             * 🆕 AUTO-RESET: Perform Logout
+             * This ensures the app returns to Sign In page for subsequent tests/runs.
+             */
+            test.log(Status.INFO, "initiating Auto-Reset (Logout)...");
+
+            // 1. Click "SKIP FOR NOW"
+            signInPage.clickSkipForNow();
+
+            // 2. Wait for "DAILY PRIORITY" (Home Page verification)
+            HomePage homePage = new HomePage(driver);
+            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+            try {
+                wait.until(ExpectedConditions.visibilityOfElementLocated(
+                        By.xpath("//android.view.View[@content-desc='DAILY PRIORITY']")));
+            } catch (Exception e) {
+                test.log(Status.WARNING, "DAILY PRIORITY not found after skipping link devices");
+            }
+
+            // 3. Click "WELLBEING DASHBOARD HOME"
+            try {
+                WebElement dashboardBtn = wait.until(ExpectedConditions.elementToBeClickable(
+                        By.xpath("//android.view.View[@content-desc='WELLBEING DASHBOARD HOME']")));
+                dashboardBtn.click();
+            } catch (Exception e) {
+                // Fallback to existing locator if specific one fails, or log warning
+                homePage.clickWellbeingDashboard();
+            }
+
+            // 4. Click "PROFILE"
+            try {
+                WebElement profileBtn = wait.until(ExpectedConditions.elementToBeClickable(
+                        By.xpath("//android.view.View[@content-desc='PROFILE']")));
+                profileBtn.click();
+            } catch (Exception e) {
+                test.log(Status.WARNING, "PROFILE button not found");
+            }
+
+            // 5. Click "LOG OUT"
+            ProfilePage profilePage = new ProfilePage(driver);
+            try {
+                WebElement logoutBtn = wait.until(ExpectedConditions.elementToBeClickable(
+                        By.xpath("//android.view.View[@content-desc='LOG OUT']")));
+                logoutBtn.click();
+            } catch (Exception e) {
+                test.log(Status.WARNING, "LOG OUT button not found");
+            }
+
+            // 6. Click "YES"
+            try {
+                WebElement yesBtn = wait.until(ExpectedConditions.elementToBeClickable(
+                        By.xpath("//android.view.View[@content-desc='YES']")));
+                yesBtn.click();
+            } catch (Exception e) {
+                test.log(Status.WARNING, "YES button not found");
+            }
+
+            // 7. Wait 2 sec and verify logout
+            Thread.sleep(2000);
+
+            if (signInPage.isOnSignInPage()) {
+                test.log(Status.INFO, "✓ Auto-Reset Successful: App logged out and returned to Sign In page");
+            } else {
+                test.log(Status.WARNING, "⚠ Auto-Reset Incomplete: Could not verify return to Sign In page");
+            }
+
         } else {
-            // ❌ FAIL: Unexpected validation for valid credentials
-            test.log(Status.FAIL, "✗ Unexpected validation appeared for valid credentials");
-            test.log(Status.FAIL, "Test FAILED: Valid credentials were rejected");
-            Assert.fail("Valid credentials should not show validation errors");
+            // ❌ FAIL: Did not navigate to Link Devices page
+            test.log(Status.FAIL, "✗ Failed to navigate to 'LINK DEVICES' page");
+
+            // Check if validation error is present to give more context
+            if (signInPage.isAnyValidationVisible()) {
+                String msg = signInPage.getValidationMessage();
+                test.log(Status.INFO, "Validation error detected: " + msg);
+            }
+
+            Assert.fail("Expected to navigate to 'LINK DEVICES' page after valid login");
         }
     }
 }
