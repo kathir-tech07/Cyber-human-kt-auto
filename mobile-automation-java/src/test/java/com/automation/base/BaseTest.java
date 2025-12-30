@@ -52,6 +52,13 @@ public class BaseTest {
         options.setAppActivity(".MainActivity");
         options.setNoReset(true); // Keep login state
 
+        // Stability capabilities for Android 15
+        options.setCapability("appium:disableWindowAnimation", true);
+        options.setCapability("appium:skipUnlock", true);
+        options.setCapability("appium:ignoreHiddenApiPolicyError", true);
+        options.setCapability("appium:noSign", true);
+        options.setNewCommandTimeout(Duration.ofSeconds(300));
+
         driver = new AndroidDriver(
                 new URL("http://127.0.0.1:4723"), options);
 
@@ -76,43 +83,22 @@ public class BaseTest {
     }
 
     /**
-     * Reset app state by navigating to Home page
-     * Uses Android system back to clear navigation stack
-     * This ensures each test starts from a known state
+     * Reset app state by restarting the app
+     * This ensures each test starts from a fresh state at the Main Activity
      */
     private void resetAppToHomePage() {
         try {
-            Thread.sleep(1000); // Reduced from 2000ms - Wait for app to fully load
+            String appPackage = "com.houseofepigenetics.abchopra";
+            // Terminate and Activate ensures a fresh start of the main activity
+            ((AndroidDriver) driver).terminateApp(appPackage);
+            Thread.sleep(500);
+            ((AndroidDriver) driver).activateApp(appPackage);
 
-            int maxAttempts = 5; // Reduced from 10 - Faster reset
-            int attempts = 0;
+            // Wait for app to load
+            Thread.sleep(3000);
 
-            // Keep pressing back until we reach home page or max attempts
-            while (attempts < maxAttempts) {
-                try {
-                    // Check if we're on home page by looking for DAILY PRIORITY heading
-                    org.openqa.selenium.WebElement homeHeading = driver.findElement(
-                            org.openqa.selenium.By.xpath("//android.view.View[@content-desc='DAILY PRIORITY']"));
-                    if (homeHeading.isDisplayed()) {
-                        System.out.println("✓ App state reset: Successfully navigated to Home page");
-                        return; // Successfully reached home page
-                    }
-                } catch (Exception e) {
-                    // Not on home page yet, continue
-                }
-
-                // Press Android system back
-                driver.navigate().back();
-                Thread.sleep(300); // Reduced from 500ms - Faster navigation
-                attempts++;
-            }
-
-            // If we couldn't reach home page, log warning but continue
-            // (test might still work if it handles navigation properly)
-            System.out.println("⚠ Warning: Could not navigate to Home page after " + maxAttempts + " attempts");
-
+            System.out.println("✓ App state reset: App restarted successfully");
         } catch (Exception e) {
-            // If reset fails, log warning but don't fail the test
             System.out.println("⚠ Warning: App state reset failed: " + e.getMessage());
         }
     }
