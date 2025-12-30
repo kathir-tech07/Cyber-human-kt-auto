@@ -99,7 +99,7 @@ public class AbChopraHouseTest extends BaseTest {
                 test.log(Status.INFO, "Step 7: Swiping down once");
                 abChopraHousePage.swipeDownOnce();
                 test.log(Status.PASS, "✓ Step 7: Swiped down once");
-                Thread.sleep(1000);
+                Thread.sleep(5000);
 
                 // ✅ STEP 8: Click DISCOVER +
                 test.log(Status.INFO, "Step 8: Clicking DISCOVER +");
