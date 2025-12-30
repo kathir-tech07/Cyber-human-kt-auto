@@ -106,118 +106,130 @@ public class ForgotPasswordTest extends BaseTest {
         test.log(Status.PASS, "✓ Step 6: SEND MESSAGE button clicked");
         Thread.sleep(3000);
 
-        // ==================== STEP 7: Verify Enter Verification Code Page
+        // ==================== STEP 7: Enter OTP Code ====================
+        test.log(Status.INFO, "Step 7: Entering OTP code (123456)");
+        forgotPasswordPage.enterOtpCode("123456");
+        test.log(Status.PASS, "✓ Step 7: OTP code (123456) entered");
+        Thread.sleep(2000);
+
+        // ==================== STEP 8: Verify Enter Verification Code Page
         // ====================
-        test.log(Status.INFO, "Step 7: Verifying ENTER VERIFICATION CODE page is displayed");
+        test.log(Status.INFO, "Step 8: Verifying ENTER VERIFICATION CODE page is displayed");
         boolean isVerificationPageDisplayed = forgotPasswordPage.isVerificationCodePageDisplayed();
         if (!isVerificationPageDisplayed) {
             test.log(Status.WARNING, "⚠ ENTER VERIFICATION CODE page not displayed - continuing anyway");
         } else {
-            test.log(Status.PASS, "✓ Step 7: ENTER VERIFICATION CODE page verified");
+            test.log(Status.PASS, "✓ Step 8: ENTER VERIFICATION CODE page verified");
         }
 
         // Wait 5 seconds
         test.log(Status.INFO, "Waiting 5 seconds...");
         forgotPasswordPage.waitForSeconds(5);
 
-        // ==================== STEP 8: Click Verify with Invalid OTP
+        // ==================== STEP 9: Click Verify with Invalid OTP
         // ====================
-        test.log(Status.INFO, "Step 8: Clicking VERIFY button with invalid OTP");
+        test.log(Status.INFO, "Step 9: Clicking VERIFY button with invalid OTP");
         forgotPasswordPage.clickVerifyButton();
-        test.log(Status.PASS, "✓ Step 8: VERIFY button clicked");
+        test.log(Status.PASS, "✓ Step 9: VERIFY button clicked");
         Thread.sleep(3000);
 
-        // ==================== STEP 9: Check Failed to Verify OTP Dialog
+        // ==================== STEP 10: Check Failed to Verify OTP Dialog
         // ====================
-        test.log(Status.INFO, "Step 9: Verifying FAILED TO VERIFY OTP dialog is displayed");
+        test.log(Status.INFO, "Step 10: Verifying FAILED TO VERIFY OTP dialog is displayed");
         boolean isFailedOtpDialogDisplayed = forgotPasswordPage.isFailedToVerifyOtpDialogDisplayed();
         Assert.assertTrue(isFailedOtpDialogDisplayed, "FAILED TO VERIFY OTP dialog should be displayed");
-        test.log(Status.PASS, "✓ Step 9: FAILED TO VERIFY OTP dialog verified");
+        test.log(Status.PASS, "✓ Step 10: FAILED TO VERIFY OTP dialog verified");
 
-        // ==================== STEP 10: Get OTP Error Message ====================
-        test.log(Status.INFO, "Step 10: Capturing OTP error message");
+        // ==================== STEP 11: Get OTP Error Message ====================
+        test.log(Status.INFO, "Step 11: Capturing OTP error message");
         String otpErrorMessage = forgotPasswordPage.getOtpErrorMessage();
         test.log(Status.INFO, "📋 OTP Error Message: " + otpErrorMessage);
         if (otpErrorMessage.contains("No OTP error")) {
             test.log(Status.WARNING, "⚠ Expected OTP error message not found - continuing with test");
         } else {
-            test.log(Status.PASS, "✓ Step 10: OTP error message captured and displayed in report");
+            test.log(Status.PASS, "✓ Step 11: OTP error message captured and displayed in report");
         }
         Thread.sleep(2000);
 
-        // ==================== STEP 11: Click OK Button ====================
-        test.log(Status.INFO, "Step 11: Clicking OK button");
+        // ==================== STEP 12: Click OK Button ====================
+        test.log(Status.INFO, "Step 12: Clicking OK button");
         forgotPasswordPage.clickOkButton();
-        test.log(Status.PASS, "✓ Step 11: OK button clicked");
+        test.log(Status.PASS, "✓ Step 12: OK button clicked");
         Thread.sleep(2000);
 
-        // ==================== STEP 12: Wait and Click Get a New Code
+        // ==================== STEP 13: Clear OTP Code ====================
+        test.log(Status.INFO, "Step 13: Clearing all OTP numbers");
+        forgotPasswordPage.clearOtpCode();
+        test.log(Status.PASS, "✓ Step 13: OTP code cleared");
+        Thread.sleep(1000);
+
+        // ==================== STEP 14: Wait and Click Get a New Code
         // ====================
-        test.log(Status.INFO, "Step 12: Waiting for 'Get a new code' link and clicking it");
+        test.log(Status.INFO, "Step 14: Waiting for 'Get a new code' link and clicking it");
         forgotPasswordPage.waitAndClickGetNewCode(15);
-        test.log(Status.PASS, "✓ Step 12: 'Get a new code' link clicked");
+        test.log(Status.PASS, "✓ Step 14: 'Get a new code' link clicked");
         Thread.sleep(3000);
 
-        // ==================== STEP 13: Verify Resend Successful Dialog
+        // ==================== STEP 15: Verify Resend Successful Dialog
         // ====================
-        test.log(Status.INFO, "Step 13: Verifying RESEND SUCCESSFUL dialog is displayed");
+        test.log(Status.INFO, "Step 15: Verifying RESEND SUCCESSFUL dialog is displayed");
         boolean isResendSuccessDialogDisplayed = forgotPasswordPage.isResendSuccessfulDialogDisplayed();
         if (!isResendSuccessDialogDisplayed) {
             test.log(Status.WARNING, "⚠ RESEND SUCCESSFUL dialog not displayed - continuing anyway");
         } else {
-            test.log(Status.PASS, "✓ Step 13: RESEND SUCCESSFUL dialog verified");
+            test.log(Status.PASS, "✓ Step 15: RESEND SUCCESSFUL dialog verified");
         }
 
         // Get resend success message
         String resendSuccessMessage = forgotPasswordPage.getResendSuccessMessage();
         test.log(Status.INFO, "📋 Resend Success Message: " + resendSuccessMessage);
-        test.log(Status.PASS, "✓ Step 13: Resend success message captured and displayed in report");
+        test.log(Status.PASS, "✓ Step 15: Resend success message captured and displayed in report");
         Thread.sleep(2000);
 
-        // ==================== STEP 14: Click OK Button ====================
-        test.log(Status.INFO, "Step 14: Clicking OK button");
+        // ==================== STEP 16: Click OK Button ====================
+        test.log(Status.INFO, "Step 16: Clicking OK button");
         forgotPasswordPage.clickOkButton();
-        test.log(Status.PASS, "✓ Step 14: OK button clicked");
+        test.log(Status.PASS, "✓ Step 16: OK button clicked");
 
         // Wait 10 seconds
         test.log(Status.INFO, "Waiting 10 seconds...");
         forgotPasswordPage.waitForSeconds(10);
 
-        // ==================== STEP 15: Click Verify with Correct OTP
+        // ==================== STEP 17: Click Verify with Correct OTP
         // ====================
-        test.log(Status.INFO, "Step 15: Clicking VERIFY button with correct OTP");
+        test.log(Status.INFO, "Step 17: Clicking VERIFY button with correct OTP");
         forgotPasswordPage.clickVerifyButton();
-        test.log(Status.PASS, "✓ Step 15: VERIFY button clicked with correct OTP");
+        test.log(Status.PASS, "✓ Step 17: VERIFY button clicked with correct OTP");
         Thread.sleep(3000);
 
-        // ==================== STEP 16: Verify Reset Password Page ====================
-        test.log(Status.INFO, "Step 16: Verifying RESET PASSWORD page is displayed");
+        // ==================== STEP 18: Verify Reset Password Page ====================
+        test.log(Status.INFO, "Step 18: Verifying RESET PASSWORD page is displayed");
         boolean isResetPasswordPageDisplayed = forgotPasswordPage.isResetPasswordPageDisplayed();
         Assert.assertTrue(isResetPasswordPageDisplayed, "RESET PASSWORD page should be displayed");
-        test.log(Status.PASS, "✓ Step 16: RESET PASSWORD page verified");
+        test.log(Status.PASS, "✓ Step 18: RESET PASSWORD page verified");
 
-        // ==================== STEP 17: Enter Mismatched Passwords ====================
-        test.log(Status.INFO, "Step 17: Entering mismatched passwords (1234 and 123466)");
+        // ==================== STEP 19: Enter Mismatched Passwords ====================
+        test.log(Status.INFO, "Step 19: Entering mismatched passwords (1234 and 123466)");
         forgotPasswordPage.enterPasswords("1234", "123466");
-        test.log(Status.PASS, "✓ Step 17: Mismatched passwords entered");
+        test.log(Status.PASS, "✓ Step 19: Mismatched passwords entered");
         Thread.sleep(1000);
 
-        // ==================== STEP 18: Click Reset Password Button
+        // ==================== STEP 20: Click Reset Password Button
         // ====================
-        test.log(Status.INFO, "Step 18: Clicking RESET PASSWORD button");
+        test.log(Status.INFO, "Step 20: Clicking RESET PASSWORD button");
         forgotPasswordPage.clickResetPasswordButton();
-        test.log(Status.PASS, "✓ Step 18: RESET PASSWORD button clicked");
+        test.log(Status.PASS, "✓ Step 20: RESET PASSWORD button clicked");
         Thread.sleep(3000);
 
-        // ==================== STEP 19: Get Password Validation Error
+        // ==================== STEP 21: Get Password Validation Error
         // ====================
-        test.log(Status.INFO, "Step 19: Capturing password validation error message");
+        test.log(Status.INFO, "Step 21: Capturing password validation error message");
         String passwordValidationError = forgotPasswordPage.getPasswordValidationError();
         test.log(Status.INFO, "📋 Password Validation Error: " + passwordValidationError);
         if (passwordValidationError.contains("No password error")) {
             test.log(Status.WARNING, "⚠ Expected password error message not found - continuing with test");
         } else {
-            test.log(Status.PASS, "✓ Step 19: Password validation error captured and displayed in report");
+            test.log(Status.PASS, "✓ Step 21: Password validation error captured and displayed in report");
         }
         Thread.sleep(2000);
 
@@ -226,36 +238,36 @@ public class ForgotPasswordTest extends BaseTest {
         forgotPasswordPage.dismissPasswordError();
         Thread.sleep(1000);
 
-        // ==================== STEP 20: Enter Wrong Password in First Field
+        // ==================== STEP 22: Enter Wrong Password in First Field
         // ====================
-        test.log(Status.INFO, "Step 20: Entering wrong password in first field (123)");
+        test.log(Status.INFO, "Step 22: Entering wrong password in first field (123)");
         forgotPasswordPage.enterWrongPassword1("123");
-        test.log(Status.PASS, "✓ Step 20: Wrong password entered in first field (123)");
+        test.log(Status.PASS, "✓ Step 22: Wrong password entered in first field (123)");
         Thread.sleep(1000);
 
-        // ==================== STEP 21: Enter Wrong Password in Second Field
+        // ==================== STEP 23: Enter Wrong Password in Second Field
         // ====================
-        test.log(Status.INFO, "Step 21: Entering wrong password in second field (123)");
+        test.log(Status.INFO, "Step 23: Entering wrong password in second field (123)");
         forgotPasswordPage.enterWrongPassword2("123");
-        test.log(Status.PASS, "✓ Step 21: Wrong password entered in second field (123)");
+        test.log(Status.PASS, "✓ Step 23: Wrong password entered in second field (123)");
         Thread.sleep(1000);
 
-        // ==================== STEP 22: Click Reset Password Button
+        // ==================== STEP 24: Click Reset Password Button
         // ====================
-        test.log(Status.INFO, "Step 22: Clicking RESET PASSWORD button");
+        test.log(Status.INFO, "Step 24: Clicking RESET PASSWORD button");
         forgotPasswordPage.clickResetPasswordButton();
-        test.log(Status.PASS, "✓ Step 22: RESET PASSWORD button clicked");
+        test.log(Status.PASS, "✓ Step 24: RESET PASSWORD button clicked");
         Thread.sleep(3000);
 
-        // ==================== STEP 23: Get Password Mismatch Error
+        // ==================== STEP 25: Get Password Mismatch Error
         // ====================
-        test.log(Status.INFO, "Step 23: Capturing 'Passwords do not match' error message");
+        test.log(Status.INFO, "Step 25: Capturing 'Passwords do not match' error message");
         String passwordMismatchError = forgotPasswordPage.getPasswordMismatchError();
         test.log(Status.INFO, "📋 Error Message: " + passwordMismatchError);
         if (passwordMismatchError.contains("No password mismatch")) {
             test.log(Status.WARNING, "⚠ Expected 'Passwords do not match' error not found - continuing with test");
         } else {
-            test.log(Status.PASS, "✓ Step 23: 'Passwords do not match' error captured and displayed in report");
+            test.log(Status.PASS, "✓ Step 25: 'Passwords do not match' error captured and displayed in report");
         }
         Thread.sleep(2000);
 
@@ -264,32 +276,32 @@ public class ForgotPasswordTest extends BaseTest {
         forgotPasswordPage.dismissPasswordError();
         Thread.sleep(1000);
 
-        // ==================== STEP 24: Enter Correct Password in First Field
+        // ==================== STEP 26: Enter Correct Password in First Field
         // ====================
-        test.log(Status.INFO, "Step 24: Entering correct password in first field (Ramesh@2025)");
-        forgotPasswordPage.enterCorrectPassword1("Ramesh@2025");
-        test.log(Status.PASS, "✓ Step 24: Correct password entered in first field (Ramesh@2025)");
+        test.log(Status.INFO, "Step 26: Entering correct password in first field (Testing@2025)");
+        forgotPasswordPage.enterCorrectPassword1("Testing@2025");
+        test.log(Status.PASS, "✓ Step 26: Correct password entered in first field (Testing@2025)");
         Thread.sleep(1000);
 
-        // ==================== STEP 25: Enter Correct Password in Second Field
+        // ==================== STEP 27: Enter Correct Password in Second Field
         // ====================
-        test.log(Status.INFO, "Step 25: Entering correct password in second field (Ramesh@2025)");
-        forgotPasswordPage.enterCorrectPassword2("Ramesh@2025");
-        test.log(Status.PASS, "✓ Step 25: Correct password entered in second field (Ramesh@2025)");
+        test.log(Status.INFO, "Step 27: Entering correct password in second field (Testing@2025)");
+        forgotPasswordPage.enterCorrectPassword2("Testing@2025");
+        test.log(Status.PASS, "✓ Step 27: Correct password entered in second field (Testing@2025)");
         Thread.sleep(1000);
 
-        // ==================== STEP 26: Click Reset Password Button
+        // ==================== STEP 28: Click Reset Password Button
         // ====================
-        test.log(Status.INFO, "Step 26: Clicking RESET PASSWORD button");
+        test.log(Status.INFO, "Step 28: Clicking RESET PASSWORD button");
         forgotPasswordPage.clickResetPasswordButton();
-        test.log(Status.PASS, "✓ Step 26: RESET PASSWORD button clicked");
+        test.log(Status.PASS, "✓ Step 28: RESET PASSWORD button clicked");
         Thread.sleep(5000);
 
-        // ==================== STEP 27: Verify Sign In Page ====================
-        test.log(Status.INFO, "Step 27: Verifying application is on SIGN IN page");
+        // ==================== STEP 29: Verify Sign In Page ====================
+        test.log(Status.INFO, "Step 29: Verifying application is on SIGN IN page");
         boolean isSignInPageDisplayed = forgotPasswordPage.isSignInPageDisplayed();
         Assert.assertTrue(isSignInPageDisplayed, "SIGN IN page should be displayed");
-        test.log(Status.PASS, "✓ Step 27: SIGN IN page verified");
+        test.log(Status.PASS, "✓ Step 29: SIGN IN page verified");
         test.log(Status.INFO, "📧 Please check the email for password reset confirmation");
 
         test.log(Status.PASS, "Forgot Password Flow Test completed successfully");

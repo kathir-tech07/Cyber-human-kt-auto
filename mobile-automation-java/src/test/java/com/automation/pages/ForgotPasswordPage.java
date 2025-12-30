@@ -223,6 +223,62 @@ public class ForgotPasswordPage {
     }
 
     /**
+     * Step 7a: Enter OTP verification code
+     * Uses the specific XPath for the OTP input field
+     */
+    public void enterOtpCode(String otpCode) throws InterruptedException {
+        String otpFieldXpath = "//android.widget.FrameLayout[@resource-id=\"android:id/content\"]/android.widget.FrameLayout/android.widget.FrameLayout/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[2]/android.widget.EditText[1]";
+
+        WebDriverWait longWait = new WebDriverWait(driver, Duration.ofSeconds(15));
+        WebElement otpField = longWait.until(
+                ExpectedConditions.elementToBeClickable(By.xpath(otpFieldXpath)));
+
+        otpField.click();
+        Thread.sleep(500);
+        otpField.clear();
+        Thread.sleep(500);
+        otpField.sendKeys(otpCode);
+        Thread.sleep(500);
+    }
+
+    /**
+     * Step 12a: Clear all OTP verification code fields
+     * Clicks and clears all 6 EditText fields
+     * Field 6 uses index, fields 1-5 use text attribute
+     */
+    public void clearOtpCode() throws InterruptedException {
+        WebDriverWait shortWait = new WebDriverWait(driver, Duration.ofSeconds(3));
+
+        // Clear field 6 using index-based XPath
+        try {
+            String field6Xpath = "//android.widget.FrameLayout[@resource-id=\"android:id/content\"]/android.widget.FrameLayout/android.widget.FrameLayout/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[2]/android.widget.EditText[6]";
+            WebElement field6 = shortWait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(field6Xpath)));
+            field6.click();
+            Thread.sleep(200);
+            field6.clear();
+            Thread.sleep(200);
+            System.out.println("✓ Cleared OTP field 6");
+        } catch (Exception e) {
+            System.out.println("⚠ Skipped OTP field 6 (not found)");
+        }
+
+        // Clear fields 5 to 1 using text attribute
+        for (int i = 5; i >= 1; i--) {
+            try {
+                String fieldXpath = "//android.widget.EditText[@text=\"" + i + "\"]";
+                WebElement field = shortWait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(fieldXpath)));
+                field.click();
+                Thread.sleep(200);
+                field.clear();
+                Thread.sleep(200);
+                System.out.println("✓ Cleared OTP field " + i);
+            } catch (Exception e) {
+                System.out.println("⚠ Skipped OTP field " + i + " (not found)");
+            }
+        }
+    }
+
+    /**
      * Step 8: Click Verify button (with invalid OTP)
      */
     public void clickVerifyButton() {
