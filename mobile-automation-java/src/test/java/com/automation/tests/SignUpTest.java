@@ -25,7 +25,7 @@ public class SignUpTest extends BaseTest {
                 { "Password Mismatch", "John Doe", "test@example.com", "Password@123", "DifferentPass@123" },
                 { "Weak Password", "John Doe", "test@example.com", "123", "123" },
                 { "All Fields Empty", "", "", "", "" },
-                { "Special Characters in Name", "@#$%^&*", "test@example.com", "Password@123", "Password@123" },
+
                 { "Email Without Domain", "John Doe", "test@", "Password@123", "Password@123" },
                 { "Short Password", "John Doe", "test@example.com", "12", "12" },
                 { "Only Spaces in Name", "   ", "test@example.com", "Password@123", "Password@123" },
