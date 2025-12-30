@@ -25,22 +25,56 @@ public class ForgotPasswordTest extends BaseTest {
      * ✅ NAVIGATE TO SIGN IN PAGE
      * Wait for app to load and automatically navigate to Sign In page
      */
+    /**
+     * ✅ NAVIGATE TO SIGN IN PAGE
+     * Wait for app to load and automatically navigate to Sign In page
+     */
     private void navigateToSignInPage() throws Exception {
-        // Give app time to fully load and navigate to Sign In page
-        System.out.println("Waiting for app to load and navigate to Sign In page...");
+        // Give app time to fully load
+        System.out.println("Wait for app to load...");
         Thread.sleep(3000);
 
         SignInPage signInPage = new SignInPage(driver);
 
-        // Check if on Sign In page
+        // 1. Check if we are already on Sign In page
         if (signInPage.isOnSignInPage()) {
             System.out.println("✓ App loaded on Sign In page");
             return;
         }
 
+        // 2. Check if we are Logged In and need to Logout
+        com.automation.pages.HomePage homePage = new com.automation.pages.HomePage(driver);
+        if (homePage.isHomePageDisplayed()) {
+            System.out.println("Detected Logged In state - Performing Logout");
+            homePage.navigateToLogout();
+
+            // Handle Logout Confirmation
+            com.automation.pages.ProfilePage profilePage = new com.automation.pages.ProfilePage(driver);
+            if (!profilePage.isSignInPageDisplayed()) {
+                profilePage.clickLogout();
+                profilePage.clickYes();
+            }
+
+            Thread.sleep(2000);
+            if (signInPage.isOnSignInPage()) {
+                System.out.println("✓ Navigated to Sign In page after Logout");
+                return;
+            }
+        }
+
+        // 3. Fallback: Try to navigate back to find Sign In page
+        try {
+            driver.navigate().back();
+            Thread.sleep(1000);
+            if (signInPage.isOnSignInPage()) {
+                System.out.println("✓ Navigated to Sign In page via Back button");
+                return;
+            }
+        } catch (Exception ignored) {
+        }
+
         // If not on Sign In page after waiting, log warning
-        // The test will fail early if Forgot Password button is not found
-        System.out.println("⚠ Warning: Not on Sign In page after waiting");
+        System.out.println("⚠ Warning: Not on Sign In page after automatic navigation attempts");
         System.out.println("   Test will continue - may fail if Forgot Password button not accessible");
     }
 
