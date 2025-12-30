@@ -98,14 +98,13 @@ public class AbChopraHousePage {
     // Step 25: Archive page heading
     private final String archivePageHeadingXpath = "//android.view.View[@content-desc=\"ARCHIVE\"]";
 
-    // Step 26 & 27: New file in archive
-    private final String newFileInArchiveXpath = "//android.widget.ImageView[@content-desc=\"new Modified Dec 29\"]";
+    // Step 26 & 27: New file in archive (uses contains() to handle multiline
+    // content-desc like "New\nModified Dec 30")
+    // Locator is now defined inline in methods to use contains() for dynamic date
+    // handling
 
     // Step 28: File open verification
     private final String fileOpenXpath = "//android.view.View[@content-desc=\"new\"]";
-
-    // Step 29: Remove icon
-    private final String removeIconXpath = "//android.view.View[@content-desc=\"What is Consciousness Video 3 min\"]/android.widget.ImageView";
 
     // Step 30: Yes button
     private final String yesButtonXpath = "//android.widget.Button[@content-desc=\"YES\"]";
@@ -299,6 +298,60 @@ public class AbChopraHousePage {
             throw new RuntimeException("APPLY button not found", e);
         } catch (InterruptedException e) {
             throw new RuntimeException("Interrupted while waiting for loading", e);
+        }
+    }
+
+    /**
+     * Step 13 (new): Search for "love" in search box
+     */
+    public void searchForLove() {
+        try {
+            WebElement searchBox = wait.until(ExpectedConditions.elementToBeClickable(By.xpath(searchBoxXpath)));
+            searchBox.click();
+            searchBox.clear();
+            searchBox.sendKeys("love");
+        } catch (TimeoutException e) {
+            throw new RuntimeException("Search box not found", e);
+        }
+    }
+
+    /**
+     * Step 13 (new): Hide keyboard
+     */
+    public void hideKeyboard() {
+        try {
+            ((io.appium.java_client.android.AndroidDriver) driver).hideKeyboard();
+        } catch (Exception e) {
+            // Keyboard might already be hidden, ignore
+            System.out.println("Keyboard hide failed or already hidden: " + e.getMessage());
+        }
+    }
+
+    /**
+     * Step 13 (new): Verify Love & Unity article is displayed
+     */
+    public boolean isLoveArticleDisplayed() {
+        try {
+            WebElement article = wait.until(
+                    ExpectedConditions.presenceOfElementLocated(
+                            By.xpath("//android.view.View[@content-desc='Love & Unity\nAudio \n 8 min']")));
+            return article.isDisplayed();
+        } catch (Exception e) {
+            System.out.println("Love & Unity article not found. Error: " + e.getMessage());
+            return false;
+        }
+    }
+
+    /**
+     * Step 13 (new): Clear search box
+     */
+    public void clearSearch() {
+        try {
+            WebElement searchBox = wait.until(ExpectedConditions.elementToBeClickable(By.xpath(searchBoxXpath)));
+            searchBox.click();
+            searchBox.clear();
+        } catch (TimeoutException e) {
+            throw new RuntimeException("Search box not found for clearing", e);
         }
     }
 
@@ -581,26 +634,69 @@ public class AbChopraHousePage {
 
     /**
      * Step 26: Verify new file is in archive
+     * Uses contains() to handle multiline content-desc (e.g., "New\nModified Dec
+     * 30")
+     * Element is android.widget.ImageView, not View
      */
     public boolean isNewFileInArchive() {
         try {
-            WebElement newFile = wait
-                    .until(ExpectedConditions.presenceOfElementLocated(By.xpath(newFileInArchiveXpath)));
-            return newFile.isDisplayed();
+            // Use contains() to handle multiline content-desc with dynamic date
+            By archivedNewFile = By.xpath(
+                    "//android.widget.ImageView[contains(@content-desc,'New')]");
+
+            // Wait until the archive list is visible
+            WebElement file = wait.until(
+                    ExpectedConditions.visibilityOfElementLocated(archivedNewFile));
+
+            // Validate using isDisplayed()
+            return file.isDisplayed();
         } catch (Exception e) {
+            System.out.println("New file not found in archive. Error: " + e.getMessage());
             return false;
         }
     }
 
     /**
-     * Step 27: Click new file in archive
+     * Step 27: Click new file in archive using coordinate-based tap
+     * Taps the LEFT SIDE (image area) of the container at 25% width from left
+     * Normal click() taps center/right which doesn't trigger navigation
+     * Uses W3C PointerInput actions for precise coordinate tapping
      */
     public void clickNewFileInArchive() {
         try {
-            WebElement newFile = wait.until(ExpectedConditions.elementToBeClickable(By.xpath(newFileInArchiveXpath)));
-            newFile.click();
-        } catch (TimeoutException e) {
-            throw new RuntimeException("New file in archive not found", e);
+            // Locate the article/container element
+            By articleLocator = By.xpath(
+                    "//android.widget.ImageView[contains(@content-desc,'New')]");
+
+            WebElement articleElement = wait.until(
+                    ExpectedConditions.presenceOfElementLocated(articleLocator));
+
+            // Get container position & size
+            org.openqa.selenium.Point location = articleElement.getLocation();
+            Dimension size = articleElement.getSize();
+
+            // Calculate LEFT-SIDE tap (image area) - 25% width from left + vertical center
+            int tapX = location.getX() + (int) (size.getWidth() * 0.25);
+            int tapY = location.getY() + (size.getHeight() / 2);
+
+            // Perform coordinate tap using W3C Actions
+            PointerInput finger = new PointerInput(PointerInput.Kind.TOUCH, "finger");
+            Sequence tap = new Sequence(finger, 1);
+            tap.addAction(finger.createPointerMove(
+                    Duration.ZERO,
+                    PointerInput.Origin.viewport(),
+                    tapX,
+                    tapY));
+            tap.addAction(finger.createPointerDown(PointerInput.MouseButton.LEFT.asArg()));
+            tap.addAction(finger.createPointerUp(PointerInput.MouseButton.LEFT.asArg()));
+
+            driver.perform(Collections.singletonList(tap));
+
+            // Wait for navigation to complete
+            Thread.sleep(2000);
+
+        } catch (Exception e) {
+            throw new RuntimeException("Failed to tap left side of archive item", e);
         }
     }
 
@@ -618,13 +714,29 @@ public class AbChopraHousePage {
 
     /**
      * Step 29: Click remove icon
+     * Uses relative XPath to locate the clickable ImageView within the article view
+     * Waits for element to be visible and clickable before clicking
      */
     public void clickRemoveIcon() {
         try {
-            WebElement removeIcon = wait.until(ExpectedConditions.elementToBeClickable(By.xpath(removeIconXpath)));
+            // Use relative XPath to find the clickable ImageView (remove icon)
+            // This locates the icon relative to the article content-desc
+            By removeIconLocator = By.xpath(
+                    "//android.view.View[contains(@content-desc,'The Timeless Dance')]//android.widget.ImageView[@clickable='true']");
+
+            // Wait for the remove icon to be visible and clickable
+            WebDriverWait longWait = new WebDriverWait(driver, Duration.ofSeconds(15));
+            WebElement removeIcon = longWait.until(
+                    ExpectedConditions.elementToBeClickable(removeIconLocator));
+
+            // Click the remove icon
             removeIcon.click();
-        } catch (TimeoutException e) {
-            throw new RuntimeException("Remove icon not found", e);
+
+            // Wait for remove confirmation dialog to appear
+            Thread.sleep(1000);
+
+        } catch (Exception e) {
+            throw new RuntimeException("Failed to click remove icon", e);
         }
     }
 

@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="1" passed="0" failed="1" skipped="0">
+<testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2025-12-30T02:05:59 IST" name="Surefire suite" finished-at="2025-12-30T02:08:25 IST" duration-ms="146805">
+  <suite started-at="2025-12-30T13:08:19 IST" name="Surefire suite" finished-at="2025-12-30T13:11:33 IST" duration-ms="194013">
     <groups>
     </groups>
-    <test started-at="2025-12-30T02:05:59 IST" name="Surefire test" finished-at="2025-12-30T02:08:25 IST" duration-ms="146805">
+    <test started-at="2025-12-30T13:08:19 IST" name="Surefire test" finished-at="2025-12-30T13:11:33 IST" duration-ms="194013">
       <class name="com.automation.tests.AbChopraHouseTest">
-        <test-method is-config="true" signature="setupReport()[pri:0, instance:com.automation.tests.AbChopraHouseTest@619713e5]" started-at="2025-12-30T02:05:58 IST" name="setupReport" finished-at="2025-12-30T02:05:59 IST" duration-ms="214" status="PASS">
+        <test-method is-config="true" signature="setupReport()[pri:0, instance:com.automation.tests.AbChopraHouseTest@619713e5]" started-at="2025-12-30T13:08:19 IST" name="setupReport" finished-at="2025-12-30T13:08:19 IST" duration-ms="179" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setupReport -->
-        <test-method is-config="true" signature="setup(java.lang.reflect.Method)[pri:0, instance:com.automation.tests.AbChopraHouseTest@619713e5]" started-at="2025-12-30T02:05:59 IST" name="setup" finished-at="2025-12-30T02:06:10 IST" duration-ms="11375" status="PASS">
+        <test-method is-config="true" signature="setup(java.lang.reflect.Method)[pri:0, instance:com.automation.tests.AbChopraHouseTest@619713e5]" started-at="2025-12-30T13:08:19 IST" name="setup" finished-at="2025-12-30T13:08:31 IST" duration-ms="11413" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -22,68 +22,22 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setup -->
-        <test-method signature="testAbChopraHouse_Case1()[pri:1, instance:com.automation.tests.AbChopraHouseTest@619713e5]" started-at="2025-12-30T02:06:10 IST" name="testAbChopraHouse_Case1" finished-at="2025-12-30T02:08:22 IST" duration-ms="131574" status="FAIL">
-          <exception class="java.lang.AssertionError">
-            <message>
-              <![CDATA[Search result 'One' should be displayed expected [true] but found [false]]]>
-            </message>
-            <full-stacktrace>
-              <![CDATA[java.lang.AssertionError: Search result 'One' should be displayed expected [true] but found [false]
-at org.testng.Assert.fail(Assert.java:111)
-at org.testng.Assert.failNotEquals(Assert.java:1578)
-at org.testng.Assert.assertTrue(Assert.java:57)
-at com.automation.tests.AbChopraHouseTest.testAbChopraHouse_Case1(AbChopraHouseTest.java:204)
-at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-at java.base/java.lang.reflect.Method.invoke(Method.java:566)
-at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:139)
-at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:664)
-at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:227)
-at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:50)
-at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:957)
-at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:200)
-at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:148)
-at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:128)
-at java.base/java.util.ArrayList.forEach(ArrayList.java:1541)
-at org.testng.TestRunner.privateRun(TestRunner.java:848)
-at org.testng.TestRunner.run(TestRunner.java:621)
-at org.testng.SuiteRunner.runTest(SuiteRunner.java:443)
-at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:437)
-at org.testng.SuiteRunner.privateRun(SuiteRunner.java:397)
-at org.testng.SuiteRunner.run(SuiteRunner.java:336)
-at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
-at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
-at org.testng.TestNG.runSuitesSequentially(TestNG.java:1280)
-at org.testng.TestNG.runSuitesLocally(TestNG.java:1200)
-at org.testng.TestNG.runSuites(TestNG.java:1114)
-at org.testng.TestNG.run(TestNG.java:1082)
-at org.apache.maven.surefire.testng.TestNGExecutor.run(TestNGExecutor.java:155)
-at org.apache.maven.surefire.testng.TestNGDirectoryTestSuite.executeSingleClass(TestNGDirectoryTestSuite.java:102)
-at org.apache.maven.surefire.testng.TestNGDirectoryTestSuite.execute(TestNGDirectoryTestSuite.java:91)
-at org.apache.maven.surefire.testng.TestNGProvider.invoke(TestNGProvider.java:137)
-at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:385)
-at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162)
-at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507)
-at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
-]]>
-            </full-stacktrace>
-          </exception> <!-- java.lang.AssertionError -->
+        <test-method signature="testAbChopraHouse_Case1()[pri:1, instance:com.automation.tests.AbChopraHouseTest@619713e5]" started-at="2025-12-30T13:08:31 IST" name="testAbChopraHouse_Case1" finished-at="2025-12-30T13:11:30 IST" duration-ms="179434" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- testAbChopraHouse_Case1 -->
-        <test-method is-config="true" signature="tearDown(org.testng.ITestResult)[pri:0, instance:com.automation.tests.AbChopraHouseTest@619713e5]" started-at="2025-12-30T02:08:22 IST" name="tearDown" finished-at="2025-12-30T02:08:25 IST" duration-ms="3813" status="PASS">
+        <test-method is-config="true" signature="tearDown(org.testng.ITestResult)[pri:0, instance:com.automation.tests.AbChopraHouseTest@619713e5]" started-at="2025-12-30T13:11:30 IST" name="tearDown" finished-at="2025-12-30T13:11:33 IST" duration-ms="3131" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=testAbChopraHouse_Case1 status=FAILURE method=AbChopraHouseTest.testAbChopraHouse_Case1()[pri:1, instance:com.automation.tests.AbChopraHouseTest@619713e5] output={null}]]]>
+                <![CDATA[[TestResult name=testAbChopraHouse_Case1 status=SUCCESS method=AbChopraHouseTest.testAbChopraHouse_Case1()[pri:1, instance:com.automation.tests.AbChopraHouseTest@619713e5] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-        <test-method is-config="true" signature="tearDownReport()[pri:0, instance:com.automation.tests.AbChopraHouseTest@619713e5]" started-at="2025-12-30T02:08:25 IST" name="tearDownReport" finished-at="2025-12-30T02:08:26 IST" duration-ms="278" status="PASS">
+        <test-method is-config="true" signature="tearDownReport()[pri:0, instance:com.automation.tests.AbChopraHouseTest@619713e5]" started-at="2025-12-30T13:11:33 IST" name="tearDownReport" finished-at="2025-12-30T13:11:33 IST" duration-ms="226" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDownReport -->
