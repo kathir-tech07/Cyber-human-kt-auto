@@ -82,9 +82,9 @@ public class BaseTest {
      */
     private void resetAppToHomePage() {
         try {
-            Thread.sleep(2000); // Wait for app to fully load
+            Thread.sleep(1000); // Reduced from 2000ms - Wait for app to fully load
 
-            int maxAttempts = 10;
+            int maxAttempts = 5; // Reduced from 10 - Faster reset
             int attempts = 0;
 
             // Keep pressing back until we reach home page or max attempts
@@ -103,7 +103,7 @@ public class BaseTest {
 
                 // Press Android system back
                 driver.navigate().back();
-                Thread.sleep(500);
+                Thread.sleep(300); // Reduced from 500ms - Faster navigation
                 attempts++;
             }
 
