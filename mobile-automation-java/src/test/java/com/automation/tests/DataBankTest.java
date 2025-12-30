@@ -398,10 +398,10 @@ public class DataBankTest extends BaseTest {
         dataBankPage.clickOkButton();
         test.log(Status.PASS, "✓ Step 22: OK button clicked");
 
-        // ✅ Navigate back to Wellbeing Dashboard for next test
-        test.log(Status.INFO, "Step 23: Navigating back to Wellbeing Dashboard");
-        dataBankPage.clickBackButtonTwice();
-        test.log(Status.PASS, "✓ Step 23: Navigated back to Wellbeing Dashboard (clicked back button twice)");
+        // ✅ Step 23: Close the application to start fresh for the next test
+        test.log(Status.INFO, "Step 23: Closing application for fresh start");
+        ((io.appium.java_client.android.AndroidDriver) driver).terminateApp("com.houseofepigenetics.abchopra");
+        test.log(Status.PASS, "✓ Step 23: Application closed successfully");
 
         test.log(Status.PASS, "Data Bank Test Case 3 completed successfully");
     }
