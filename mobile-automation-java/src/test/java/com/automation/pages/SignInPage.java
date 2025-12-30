@@ -466,4 +466,109 @@ public class SignInPage {
         // ❌ No validation message found
         return null;
     }
+
+    /**
+     * Check if the app is currently on the Sign In page.
+     * This is used to determine if navigation to Sign In page is needed.
+     * 
+     * @return true if on Sign In page, false otherwise
+     */
+    public boolean isOnSignInPage() {
+        try {
+            WebDriverWait shortWait = new WebDriverWait(driver, Duration.ofSeconds(3));
+            // Check for email field which is unique to Sign In page
+            WebElement emailField = shortWait.until(
+                    ExpectedConditions.presenceOfElementLocated(By.xpath(emailXpath)));
+            return emailField.isDisplayed();
+        } catch (Exception e) {
+            return false;
+        }
+    }
+
+    /**
+     * Wait for validation message to appear after clicking Continue.
+     * This replaces Thread.sleep() with an explicit wait.
+     * 
+     * @param timeoutSeconds Maximum time to wait for validation
+     * @return true if validation appeared, false if timeout
+     */
+    public boolean waitForValidationToAppear(int timeoutSeconds) {
+        try {
+            WebDriverWait validationWait = new WebDriverWait(driver, Duration.ofSeconds(timeoutSeconds));
+
+            // Wait for any validation element to appear
+            validationWait.until(driver -> isAnyValidationVisible());
+            return true;
+        } catch (Exception e) {
+            // Timeout - no validation appeared
+            return false;
+        }
+    }
+
+    /**
+     * Check if the "LINK DEVICES" page is displayed after successful login.
+     * 
+     * @return true if LINK DEVICES element is visible
+     */
+    public boolean isLinkDevicesDisplayed() {
+        try {
+            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+            WebElement linkDevices = wait.until(ExpectedConditions.visibilityOfElementLocated(
+                    By.xpath("//android.view.View[@content-desc='LINK DEVICES']")));
+            return linkDevices.isDisplayed();
+        } catch (Exception e) {
+            return false;
+        }
+    }
+
+    /**
+     * Try to skip or continue from Link Devices page to reach Home page.
+     */
+    public void handleLinkDevices() {
+        WebDriverWait shortWait = new WebDriverWait(driver, Duration.ofSeconds(5));
+
+        // Try clicking SKIP
+        try {
+            WebElement skipBtn = shortWait.until(ExpectedConditions.elementToBeClickable(
+                    By.xpath(
+                            "//android.widget.Button[@content-desc='SKIP'] | //android.view.View[@content-desc='SKIP']")));
+            skipBtn.click();
+            return;
+        } catch (Exception ignored) {
+        }
+
+        // Try clicking CONTINUE
+        try {
+            WebElement continueBtn = shortWait.until(ExpectedConditions.elementToBeClickable(
+                    By.xpath(
+                            "//android.widget.Button[@content-desc='CONTINUE'] | //android.view.View[@content-desc='CONTINUE']")));
+            continueBtn.click();
+            return;
+        } catch (Exception ignored) {
+        }
+
+        // Try clicking close/X if exists
+        try {
+            WebElement closeBtn = shortWait.until(ExpectedConditions.elementToBeClickable(
+                    By.xpath(
+                            "//android.widget.ImageView[contains(@content-desc, 'close') or contains(@resource-id, 'close')]")));
+            closeBtn.click();
+        } catch (Exception ignored) {
+        }
+    }
+
+    /**
+     * Click "SKIP FOR NOW" button
+     */
+    public void clickSkipForNow() {
+        try {
+            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+            WebElement skipBtn = wait.until(ExpectedConditions.elementToBeClickable(
+                    By.xpath("//android.widget.Button[@content-desc='SKIP FOR NOW']")));
+            skipBtn.click();
+        } catch (Exception e) {
+            // Log if not found, as it is part of the expected flow
+            System.out.println("SKIP FOR NOW button not found: " + e.getMessage());
+        }
+    }
 }

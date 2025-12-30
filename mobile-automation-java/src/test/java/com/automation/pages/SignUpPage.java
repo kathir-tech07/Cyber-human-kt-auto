@@ -44,7 +44,7 @@ public class SignUpPage {
     // Locators
     private final String nameFieldXpath = "//android.widget.EditText[@hint='Name']";
     private final String emailFieldXpath = "//android.widget.EditText[@hint='Email']";
-    private final String countryButtonXpath = "//android.widget.Button[@content-desc='Country']";
+    private final String countryButtonXpath = "//android.widget.ImageView[@content-desc='Country']";
     private final String passwordFieldXpath = "//android.view.View[@content-desc='Password']//android.widget.EditText[@password='true']";
     private final String confirmPasswordFieldXpath = "//android.view.View[@content-desc='Confirm Password']//android.widget.EditText[@password='true']";
     private final String continueBtnXpath = "//android.widget.Button[@content-desc='CONTINUE']";
@@ -407,5 +407,18 @@ public class SignUpPage {
 
         // ❌ No validation message found
         return null;
+    }
+
+    /**
+     * Check if Sign Up page is displayed
+     */
+    public boolean isSignUpPageDisplayed() {
+        try {
+            // Check for SIGN UP heading
+            WebElement heading = findElementWithFallback(null, "//android.view.View[@content-desc='SIGN UP']", null);
+            return heading.isDisplayed();
+        } catch (Exception e) {
+            return false;
+        }
     }
 }

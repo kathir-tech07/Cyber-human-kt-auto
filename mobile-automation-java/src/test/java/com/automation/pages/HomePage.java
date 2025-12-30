@@ -87,4 +87,22 @@ public class HomePage {
             return false;
         }
     }
+
+    /**
+     * Navigate to logout from Home page.
+     * This is a helper method for SignInTest to navigate from logged-in state to
+     * Sign In page.
+     * Flow: Wellbeing Dashboard → Profile → Logout → Yes
+     * 
+     * @throws InterruptedException if sleep is interrupted
+     */
+    public void navigateToLogout() throws InterruptedException {
+        // Click Wellbeing Dashboard
+        clickWellbeingDashboard();
+        Thread.sleep(1000);
+
+        // Click Profile
+        clickProfile();
+        Thread.sleep(1000);
+    }
 }

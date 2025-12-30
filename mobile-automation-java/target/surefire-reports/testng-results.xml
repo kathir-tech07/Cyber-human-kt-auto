@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<<<<<<< HEAD
 <testng-results ignored="0" total="4" passed="4" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
@@ -43,12 +44,94 @@
             <param index="0">
               <value>
                 <![CDATA[[TestResult name=testDataBank_Case2 status=SUCCESS method=DataBankTest.testDataBank_Case2()[pri:2, instance:com.automation.tests.DataBankTest@619713e5] output={null}]]]>
+=======
+<testng-results ignored="0" total="9" passed="1" failed="2" skipped="6">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2025-12-30T17:29:52 IST" name="Surefire suite" finished-at="2025-12-30T17:33:04 IST" duration-ms="191922">
+    <groups>
+    </groups>
+    <test started-at="2025-12-30T17:29:52 IST" name="Surefire test" finished-at="2025-12-30T17:33:04 IST" duration-ms="191922">
+      <class name="com.automation.tests.EditProfileTest">
+        <test-method is-config="true" signature="setupReport()[pri:0, instance:com.automation.tests.EditProfileTest@5f058f00]" started-at="2025-12-30T17:29:52 IST" name="setupReport" finished-at="2025-12-30T17:29:52 IST" duration-ms="213" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setupReport -->
+        <test-method is-config="true" signature="setup(java.lang.reflect.Method)[pri:0, instance:com.automation.tests.EditProfileTest@5f058f00]" started-at="2025-12-30T17:29:52 IST" name="setup" finished-at="2025-12-30T17:29:57 IST" duration-ms="4839" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.automation.tests.EditProfileTest.testEditProfileWithDateGenderCountry() throws java.lang.InterruptedException]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setup -->
+        <test-method signature="testEditProfileWithDateGenderCountry()[pri:0, instance:com.automation.tests.EditProfileTest@5f058f00]" started-at="2025-12-30T17:29:57 IST" name="testEditProfileWithDateGenderCountry" finished-at="2025-12-30T17:30:22 IST" duration-ms="25685" status="FAIL">
+          <exception class="java.lang.RuntimeException">
+            <message>
+              <![CDATA[Element not found with ID: null, XPath: //android.widget.EditText[@hint='Email'], AccessID: null]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.RuntimeException: Element not found with ID: null, XPath: //android.widget.EditText[@hint='Email'], AccessID: null
+at com.automation.pages.SignInPage.findElementWithFallback(SignInPage.java:40)
+at com.automation.pages.SignInPage.enterEmail(SignInPage.java:49)
+at com.automation.tests.EditProfileTest.navigateToEditProfileFirstTime(EditProfileTest.java:42)
+at com.automation.tests.EditProfileTest.navigateToEditProfile(EditProfileTest.java:149)
+at com.automation.tests.EditProfileTest.testEditProfileWithDateGenderCountry(EditProfileTest.java:257)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:139)
+at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:664)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:227)
+at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:50)
+at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:957)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:200)
+at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:148)
+at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:128)
+at java.base/java.util.ArrayList.forEach(ArrayList.java:1541)
+at org.testng.TestRunner.privateRun(TestRunner.java:848)
+at org.testng.TestRunner.run(TestRunner.java:621)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:443)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:437)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:397)
+at org.testng.SuiteRunner.run(SuiteRunner.java:336)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1280)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1200)
+at org.testng.TestNG.runSuites(TestNG.java:1114)
+at org.testng.TestNG.run(TestNG.java:1082)
+at org.apache.maven.surefire.testng.TestNGExecutor.run(TestNGExecutor.java:155)
+at org.apache.maven.surefire.testng.TestNGDirectoryTestSuite.executeSingleClass(TestNGDirectoryTestSuite.java:102)
+at org.apache.maven.surefire.testng.TestNGDirectoryTestSuite.execute(TestNGDirectoryTestSuite.java:91)
+at org.apache.maven.surefire.testng.TestNGProvider.invoke(TestNGProvider.java:137)
+at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:385)
+at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162)
+at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507)
+at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.RuntimeException -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testEditProfileWithDateGenderCountry -->
+        <test-method is-config="true" signature="tearDown(org.testng.ITestResult)[pri:0, instance:com.automation.tests.EditProfileTest@5f058f00]" started-at="2025-12-30T17:30:22 IST" name="tearDown" finished-at="2025-12-30T17:30:27 IST" duration-ms="4270" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=testEditProfileWithDateGenderCountry status=FAILURE method=EditProfileTest.testEditProfileWithDateGenderCountry()[pri:0, instance:com.automation.tests.EditProfileTest@5f058f00] output={null}]]]>
+>>>>>>> main
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
+<<<<<<< HEAD
         <test-method is-config="true" signature="setup()[pri:0, instance:com.automation.tests.DataBankTest@619713e5]" started-at="2025-12-30T14:40:19 IST" name="setup" finished-at="2025-12-30T14:40:24 IST" duration-ms="4529" status="PASS">
           <reporter-output>
           </reporter-output>
@@ -62,12 +145,57 @@
             <param index="0">
               <value>
                 <![CDATA[[TestResult name=testDataBank_Case3 status=SUCCESS method=DataBankTest.testDataBank_Case3()[pri:3, instance:com.automation.tests.DataBankTest@619713e5] output={null}]]]>
+=======
+        <test-method is-config="true" signature="setup(java.lang.reflect.Method)[pri:0, instance:com.automation.tests.EditProfileTest@5f058f00]" started-at="2025-12-30T17:30:27 IST" name="setup" finished-at="2025-12-30T17:30:31 IST" duration-ms="4576" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.automation.tests.EditProfileTest.testNegativeEditProfile(java.lang.String,java.lang.String,java.lang.String,java.lang.String) throws java.lang.InterruptedException]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setup -->
+        <test-method signature="testNegativeEditProfile(java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:0, instance:com.automation.tests.EditProfileTest@5f058f00]" started-at="2025-12-30T17:30:31 IST" name="testNegativeEditProfile" data-provider="negativeEditProfileData" finished-at="2025-12-30T17:32:07 IST" duration-ms="95627" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[Email Without @]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[John Doe]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[testexample.com]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[123456789]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testNegativeEditProfile -->
+        <test-method is-config="true" signature="tearDown(org.testng.ITestResult)[pri:0, instance:com.automation.tests.EditProfileTest@5f058f00]" started-at="2025-12-30T17:32:07 IST" name="tearDown" finished-at="2025-12-30T17:32:10 IST" duration-ms="3165" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=testNegativeEditProfile status=SUCCESS method=EditProfileTest.testNegativeEditProfile(java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:0, instance:com.automation.tests.EditProfileTest@5f058f00] output={null}]]]>
+>>>>>>> main
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
+<<<<<<< HEAD
         <test-method is-config="true" signature="setup()[pri:0, instance:com.automation.tests.DataBankTest@619713e5]" started-at="2025-12-30T14:40:57 IST" name="setup" finished-at="2025-12-30T14:41:02 IST" duration-ms="4503" status="PASS">
           <reporter-output>
           </reporter-output>
@@ -92,6 +220,851 @@
           </reporter-output>
         </test-method> <!-- tearDownReport -->
       </class> <!-- com.automation.tests.DataBankTest -->
+=======
+        <test-method is-config="true" signature="setup(java.lang.reflect.Method)[pri:0, instance:com.automation.tests.EditProfileTest@5f058f00]" started-at="2025-12-30T17:32:10 IST" name="setup" finished-at="2025-12-30T17:32:15 IST" duration-ms="4656" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.automation.tests.EditProfileTest.testNegativeEditProfile(java.lang.String,java.lang.String,java.lang.String,java.lang.String) throws java.lang.InterruptedException]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setup -->
+        <test-method signature="testNegativeEditProfile(java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:0, instance:com.automation.tests.EditProfileTest@5f058f00]" started-at="2025-12-30T17:32:15 IST" name="testNegativeEditProfile" data-provider="negativeEditProfileData" finished-at="2025-12-30T17:33:04 IST" duration-ms="48997" status="FAIL">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[Email Without Domain]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[John Doe]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[test@]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[123456789]]>
+              </value>
+            </param>
+          </params>
+          <exception class="org.openqa.selenium.NoSuchSessionException">
+            <message>
+              <![CDATA[A session is either terminated or not started
+Build info: version: '4.13.0', revision: 'ba948ece5b*'
+System info: os.name: 'Linux', os.arch: 'amd64', os.version: '6.14.0-37-generic', java.version: '11.0.29'
+Driver info: io.appium.java_client.android.AndroidDriver
+Command: [56580bad-305f-4569-adb3-acf1a32504a5, findElement {using=xpath, value=//android.widget.EditText[@hint='Phone Number']}]
+Capabilities {appium:appActivity: .MainActivity, appium:appPackage: com.houseofepigenetics.abch..., appium:automationName: UiAutomator2, appium:databaseEnabled: false, appium:desired: {appActivity: .MainActivity, appPackage: com.houseofepigenetics.abch..., automationName: UiAutomator2, deviceName: 1dc3d76f, noReset: true, platformName: ANDROID}, appium:deviceApiLevel: 35, appium:deviceManufacturer: Xiaomi, appium:deviceModel: 24116RNC1I, appium:deviceName: 1dc3d76f, appium:deviceScreenDensity: 320, appium:deviceScreenSize: 720x1640, appium:deviceUDID: 1dc3d76f, appium:javascriptEnabled: true, appium:locationContextEnabled: false, appium:networkConnectionEnabled: true, appium:noReset: true, appium:pixelRatio: 2, appium:platformVersion: 15, appium:statBarHeight: 68, appium:takesScreenshot: true, appium:viewportRect: {height: 1572, left: 0, top: 68, width: 720}, appium:warnings: {}, appium:webStorageEnabled: false, platformName: ANDROID}
+Session ID: 56580bad-305f-4569-adb3-acf1a32504a5]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[org.openqa.selenium.NoSuchSessionException: A session is either terminated or not started
+Build info: version: '4.13.0', revision: 'ba948ece5b*'
+System info: os.name: 'Linux', os.arch: 'amd64', os.version: '6.14.0-37-generic', java.version: '11.0.29'
+Driver info: io.appium.java_client.android.AndroidDriver
+Command: [56580bad-305f-4569-adb3-acf1a32504a5, findElement {using=xpath, value=//android.widget.EditText[@hint='Phone Number']}]
+Capabilities {appium:appActivity: .MainActivity, appium:appPackage: com.houseofepigenetics.abch..., appium:automationName: UiAutomator2, appium:databaseEnabled: false, appium:desired: {appActivity: .MainActivity, appPackage: com.houseofepigenetics.abch..., automationName: UiAutomator2, deviceName: 1dc3d76f, noReset: true, platformName: ANDROID}, appium:deviceApiLevel: 35, appium:deviceManufacturer: Xiaomi, appium:deviceModel: 24116RNC1I, appium:deviceName: 1dc3d76f, appium:deviceScreenDensity: 320, appium:deviceScreenSize: 720x1640, appium:deviceUDID: 1dc3d76f, appium:javascriptEnabled: true, appium:locationContextEnabled: false, appium:networkConnectionEnabled: true, appium:noReset: true, appium:pixelRatio: 2, appium:platformVersion: 15, appium:statBarHeight: 68, appium:takesScreenshot: true, appium:viewportRect: {height: 1572, left: 0, top: 68, width: 720}, appium:warnings: {}, appium:webStorageEnabled: false, platformName: ANDROID}
+Session ID: 56580bad-305f-4569-adb3-acf1a32504a5
+at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:490)
+at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:200)
+at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:133)
+at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:52)
+at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:191)
+at io.appium.java_client.remote.AppiumCommandExecutor.execute(AppiumCommandExecutor.java:250)
+at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:602)
+at org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:165)
+at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:59)
+at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:359)
+at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:353)
+at org.openqa.selenium.support.ui.ExpectedConditions$7.apply(ExpectedConditions.java:194)
+at org.openqa.selenium.support.ui.ExpectedConditions$7.apply(ExpectedConditions.java:190)
+at org.openqa.selenium.support.ui.ExpectedConditions$22.apply(ExpectedConditions.java:627)
+at org.openqa.selenium.support.ui.ExpectedConditions$22.apply(ExpectedConditions.java:624)
+at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:205)
+at com.automation.pages.EditProfilePage.enterPhoneNumber(EditProfilePage.java:72)
+at com.automation.tests.EditProfileTest.testNegativeEditProfile(EditProfileTest.java:207)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:139)
+at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:664)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:227)
+at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:50)
+at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:957)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:200)
+at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:148)
+at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:128)
+at java.base/java.util.ArrayList.forEach(ArrayList.java:1541)
+at org.testng.TestRunner.privateRun(TestRunner.java:848)
+at org.testng.TestRunner.run(TestRunner.java:621)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:443)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:437)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:397)
+at org.testng.SuiteRunner.run(SuiteRunner.java:336)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1280)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1200)
+at org.testng.TestNG.runSuites(TestNG.java:1114)
+at org.testng.TestNG.run(TestNG.java:1082)
+at org.apache.maven.surefire.testng.TestNGExecutor.run(TestNGExecutor.java:155)
+at org.apache.maven.surefire.testng.TestNGDirectoryTestSuite.executeSingleClass(TestNGDirectoryTestSuite.java:102)
+at org.apache.maven.surefire.testng.TestNGDirectoryTestSuite.execute(TestNGDirectoryTestSuite.java:91)
+at org.apache.maven.surefire.testng.TestNGProvider.invoke(TestNGProvider.java:137)
+at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:385)
+at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162)
+at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507)
+at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
+]]>
+            </full-stacktrace>
+          </exception> <!-- org.openqa.selenium.NoSuchSessionException -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testNegativeEditProfile -->
+        <test-method is-config="true" signature="tearDown(org.testng.ITestResult)[pri:0, instance:com.automation.tests.EditProfileTest@5f058f00]" started-at="2025-12-30T17:33:04 IST" name="tearDown" finished-at="2025-12-30T17:33:04 IST" duration-ms="27" status="FAIL">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=testNegativeEditProfile status=FAILURE method=EditProfileTest.testNegativeEditProfile(java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:0, instance:com.automation.tests.EditProfileTest@5f058f00] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <exception class="org.openqa.selenium.NoSuchSessionException">
+            <message>
+              <![CDATA[A session is either terminated or not started
+Build info: version: '4.13.0', revision: 'ba948ece5b*'
+System info: os.name: 'Linux', os.arch: 'amd64', os.version: '6.14.0-37-generic', java.version: '11.0.29'
+Driver info: io.appium.java_client.android.AndroidDriver
+Command: [56580bad-305f-4569-adb3-acf1a32504a5, quit {}]
+Capabilities {appium:appActivity: .MainActivity, appium:appPackage: com.houseofepigenetics.abch..., appium:automationName: UiAutomator2, appium:databaseEnabled: false, appium:desired: {appActivity: .MainActivity, appPackage: com.houseofepigenetics.abch..., automationName: UiAutomator2, deviceName: 1dc3d76f, noReset: true, platformName: ANDROID}, appium:deviceApiLevel: 35, appium:deviceManufacturer: Xiaomi, appium:deviceModel: 24116RNC1I, appium:deviceName: 1dc3d76f, appium:deviceScreenDensity: 320, appium:deviceScreenSize: 720x1640, appium:deviceUDID: 1dc3d76f, appium:javascriptEnabled: true, appium:locationContextEnabled: false, appium:networkConnectionEnabled: true, appium:noReset: true, appium:pixelRatio: 2, appium:platformVersion: 15, appium:statBarHeight: 68, appium:takesScreenshot: true, appium:viewportRect: {height: 1572, left: 0, top: 68, width: 720}, appium:warnings: {}, appium:webStorageEnabled: false, platformName: ANDROID}
+Session ID: 56580bad-305f-4569-adb3-acf1a32504a5]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[org.openqa.selenium.NoSuchSessionException: A session is either terminated or not started
+Build info: version: '4.13.0', revision: 'ba948ece5b*'
+System info: os.name: 'Linux', os.arch: 'amd64', os.version: '6.14.0-37-generic', java.version: '11.0.29'
+Driver info: io.appium.java_client.android.AndroidDriver
+Command: [56580bad-305f-4569-adb3-acf1a32504a5, quit {}]
+Capabilities {appium:appActivity: .MainActivity, appium:appPackage: com.houseofepigenetics.abch..., appium:automationName: UiAutomator2, appium:databaseEnabled: false, appium:desired: {appActivity: .MainActivity, appPackage: com.houseofepigenetics.abch..., automationName: UiAutomator2, deviceName: 1dc3d76f, noReset: true, platformName: ANDROID}, appium:deviceApiLevel: 35, appium:deviceManufacturer: Xiaomi, appium:deviceModel: 24116RNC1I, appium:deviceName: 1dc3d76f, appium:deviceScreenDensity: 320, appium:deviceScreenSize: 720x1640, appium:deviceUDID: 1dc3d76f, appium:javascriptEnabled: true, appium:locationContextEnabled: false, appium:networkConnectionEnabled: true, appium:noReset: true, appium:pixelRatio: 2, appium:platformVersion: 15, appium:statBarHeight: 68, appium:takesScreenshot: true, appium:viewportRect: {height: 1572, left: 0, top: 68, width: 720}, appium:warnings: {}, appium:webStorageEnabled: false, platformName: ANDROID}
+Session ID: 56580bad-305f-4569-adb3-acf1a32504a5
+at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:490)
+at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:200)
+at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:133)
+at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:52)
+at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:191)
+at io.appium.java_client.remote.AppiumCommandExecutor.execute(AppiumCommandExecutor.java:250)
+at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:602)
+at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:675)
+at io.appium.java_client.AppiumDriver.execute(AppiumDriver.java:313)
+at org.openqa.selenium.remote.RemoteWebDriver.quit(RemoteWebDriver.java:437)
+at com.automation.base.BaseTest.tearDown(BaseTest.java:146)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:139)
+at org.testng.internal.invokers.MethodInvocationHelper.invokeMethodConsideringTimeout(MethodInvocationHelper.java:69)
+at org.testng.internal.invokers.ConfigInvoker.invokeConfigurationMethod(ConfigInvoker.java:390)
+at org.testng.internal.invokers.ConfigInvoker.invokeConfigurations(ConfigInvoker.java:325)
+at org.testng.internal.invokers.TestInvoker.runConfigMethods(TestInvoker.java:810)
+at org.testng.internal.invokers.TestInvoker.runAfterConfigurations(TestInvoker.java:779)
+at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:755)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:227)
+at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:50)
+at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:957)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:200)
+at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:148)
+at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:128)
+at java.base/java.util.ArrayList.forEach(ArrayList.java:1541)
+at org.testng.TestRunner.privateRun(TestRunner.java:848)
+at org.testng.TestRunner.run(TestRunner.java:621)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:443)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:437)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:397)
+at org.testng.SuiteRunner.run(SuiteRunner.java:336)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1280)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1200)
+at org.testng.TestNG.runSuites(TestNG.java:1114)
+at org.testng.TestNG.run(TestNG.java:1082)
+at org.apache.maven.surefire.testng.TestNGExecutor.run(TestNGExecutor.java:155)
+at org.apache.maven.surefire.testng.TestNGDirectoryTestSuite.executeSingleClass(TestNGDirectoryTestSuite.java:102)
+at org.apache.maven.surefire.testng.TestNGDirectoryTestSuite.execute(TestNGDirectoryTestSuite.java:91)
+at org.apache.maven.surefire.testng.TestNGProvider.invoke(TestNGProvider.java:137)
+at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:385)
+at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162)
+at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507)
+at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
+]]>
+            </full-stacktrace>
+          </exception> <!-- org.openqa.selenium.NoSuchSessionException -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method is-config="true" signature="setup(java.lang.reflect.Method)[pri:0, instance:com.automation.tests.EditProfileTest@5f058f00]" started-at="2025-12-30T17:33:04 IST" name="setup" finished-at="2025-12-30T17:33:04 IST" duration-ms="0" status="SKIP">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setup -->
+        <test-method signature="testNegativeEditProfile(java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:0, instance:com.automation.tests.EditProfileTest@5f058f00]" started-at="2025-12-30T17:33:04 IST" name="testNegativeEditProfile" data-provider="negativeEditProfileData" finished-at="2025-12-30T17:33:04 IST" duration-ms="0" status="SKIP">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[Invalid Phone - Letters]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[John Doe]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[test@example.com]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[abcdefgh]]>
+              </value>
+            </param>
+          </params>
+          <exception class="org.openqa.selenium.NoSuchSessionException">
+            <message>
+              <![CDATA[A session is either terminated or not started
+Build info: version: '4.13.0', revision: 'ba948ece5b*'
+System info: os.name: 'Linux', os.arch: 'amd64', os.version: '6.14.0-37-generic', java.version: '11.0.29'
+Driver info: io.appium.java_client.android.AndroidDriver
+Command: [56580bad-305f-4569-adb3-acf1a32504a5, quit {}]
+Capabilities {appium:appActivity: .MainActivity, appium:appPackage: com.houseofepigenetics.abch..., appium:automationName: UiAutomator2, appium:databaseEnabled: false, appium:desired: {appActivity: .MainActivity, appPackage: com.houseofepigenetics.abch..., automationName: UiAutomator2, deviceName: 1dc3d76f, noReset: true, platformName: ANDROID}, appium:deviceApiLevel: 35, appium:deviceManufacturer: Xiaomi, appium:deviceModel: 24116RNC1I, appium:deviceName: 1dc3d76f, appium:deviceScreenDensity: 320, appium:deviceScreenSize: 720x1640, appium:deviceUDID: 1dc3d76f, appium:javascriptEnabled: true, appium:locationContextEnabled: false, appium:networkConnectionEnabled: true, appium:noReset: true, appium:pixelRatio: 2, appium:platformVersion: 15, appium:statBarHeight: 68, appium:takesScreenshot: true, appium:viewportRect: {height: 1572, left: 0, top: 68, width: 720}, appium:warnings: {}, appium:webStorageEnabled: false, platformName: ANDROID}
+Session ID: 56580bad-305f-4569-adb3-acf1a32504a5]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[org.openqa.selenium.NoSuchSessionException: A session is either terminated or not started
+Build info: version: '4.13.0', revision: 'ba948ece5b*'
+System info: os.name: 'Linux', os.arch: 'amd64', os.version: '6.14.0-37-generic', java.version: '11.0.29'
+Driver info: io.appium.java_client.android.AndroidDriver
+Command: [56580bad-305f-4569-adb3-acf1a32504a5, quit {}]
+Capabilities {appium:appActivity: .MainActivity, appium:appPackage: com.houseofepigenetics.abch..., appium:automationName: UiAutomator2, appium:databaseEnabled: false, appium:desired: {appActivity: .MainActivity, appPackage: com.houseofepigenetics.abch..., automationName: UiAutomator2, deviceName: 1dc3d76f, noReset: true, platformName: ANDROID}, appium:deviceApiLevel: 35, appium:deviceManufacturer: Xiaomi, appium:deviceModel: 24116RNC1I, appium:deviceName: 1dc3d76f, appium:deviceScreenDensity: 320, appium:deviceScreenSize: 720x1640, appium:deviceUDID: 1dc3d76f, appium:javascriptEnabled: true, appium:locationContextEnabled: false, appium:networkConnectionEnabled: true, appium:noReset: true, appium:pixelRatio: 2, appium:platformVersion: 15, appium:statBarHeight: 68, appium:takesScreenshot: true, appium:viewportRect: {height: 1572, left: 0, top: 68, width: 720}, appium:warnings: {}, appium:webStorageEnabled: false, platformName: ANDROID}
+Session ID: 56580bad-305f-4569-adb3-acf1a32504a5
+at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:490)
+at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:200)
+at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:133)
+at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:52)
+at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:191)
+at io.appium.java_client.remote.AppiumCommandExecutor.execute(AppiumCommandExecutor.java:250)
+at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:602)
+at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:675)
+at io.appium.java_client.AppiumDriver.execute(AppiumDriver.java:313)
+at org.openqa.selenium.remote.RemoteWebDriver.quit(RemoteWebDriver.java:437)
+at com.automation.base.BaseTest.tearDown(BaseTest.java:146)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:139)
+at org.testng.internal.invokers.MethodInvocationHelper.invokeMethodConsideringTimeout(MethodInvocationHelper.java:69)
+at org.testng.internal.invokers.ConfigInvoker.invokeConfigurationMethod(ConfigInvoker.java:390)
+at org.testng.internal.invokers.ConfigInvoker.invokeConfigurations(ConfigInvoker.java:325)
+at org.testng.internal.invokers.TestInvoker.runConfigMethods(TestInvoker.java:810)
+at org.testng.internal.invokers.TestInvoker.runAfterConfigurations(TestInvoker.java:779)
+at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:755)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:227)
+at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:50)
+at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:957)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:200)
+at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:148)
+at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:128)
+at java.base/java.util.ArrayList.forEach(ArrayList.java:1541)
+at org.testng.TestRunner.privateRun(TestRunner.java:848)
+at org.testng.TestRunner.run(TestRunner.java:621)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:443)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:437)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:397)
+at org.testng.SuiteRunner.run(SuiteRunner.java:336)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1280)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1200)
+at org.testng.TestNG.runSuites(TestNG.java:1114)
+at org.testng.TestNG.run(TestNG.java:1082)
+at org.apache.maven.surefire.testng.TestNGExecutor.run(TestNGExecutor.java:155)
+at org.apache.maven.surefire.testng.TestNGDirectoryTestSuite.executeSingleClass(TestNGDirectoryTestSuite.java:102)
+at org.apache.maven.surefire.testng.TestNGDirectoryTestSuite.execute(TestNGDirectoryTestSuite.java:91)
+at org.apache.maven.surefire.testng.TestNGProvider.invoke(TestNGProvider.java:137)
+at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:385)
+at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162)
+at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507)
+at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
+]]>
+            </full-stacktrace>
+          </exception> <!-- org.openqa.selenium.NoSuchSessionException -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testNegativeEditProfile -->
+        <test-method is-config="true" signature="tearDown(org.testng.ITestResult)[pri:0, instance:com.automation.tests.EditProfileTest@5f058f00]" started-at="2025-12-30T17:33:04 IST" name="tearDown" finished-at="2025-12-30T17:33:04 IST" duration-ms="0" status="SKIP">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method is-config="true" signature="setup(java.lang.reflect.Method)[pri:0, instance:com.automation.tests.EditProfileTest@5f058f00]" started-at="2025-12-30T17:33:04 IST" name="setup" finished-at="2025-12-30T17:33:04 IST" duration-ms="0" status="SKIP">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setup -->
+        <test-method signature="testNegativeEditProfile(java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:0, instance:com.automation.tests.EditProfileTest@5f058f00]" started-at="2025-12-30T17:33:04 IST" name="testNegativeEditProfile" data-provider="negativeEditProfileData" finished-at="2025-12-30T17:33:04 IST" duration-ms="0" status="SKIP">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[Short Phone Number]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[John Doe]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[test@example.com]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[12]]>
+              </value>
+            </param>
+          </params>
+          <exception class="org.openqa.selenium.NoSuchSessionException">
+            <message>
+              <![CDATA[A session is either terminated or not started
+Build info: version: '4.13.0', revision: 'ba948ece5b*'
+System info: os.name: 'Linux', os.arch: 'amd64', os.version: '6.14.0-37-generic', java.version: '11.0.29'
+Driver info: io.appium.java_client.android.AndroidDriver
+Command: [56580bad-305f-4569-adb3-acf1a32504a5, quit {}]
+Capabilities {appium:appActivity: .MainActivity, appium:appPackage: com.houseofepigenetics.abch..., appium:automationName: UiAutomator2, appium:databaseEnabled: false, appium:desired: {appActivity: .MainActivity, appPackage: com.houseofepigenetics.abch..., automationName: UiAutomator2, deviceName: 1dc3d76f, noReset: true, platformName: ANDROID}, appium:deviceApiLevel: 35, appium:deviceManufacturer: Xiaomi, appium:deviceModel: 24116RNC1I, appium:deviceName: 1dc3d76f, appium:deviceScreenDensity: 320, appium:deviceScreenSize: 720x1640, appium:deviceUDID: 1dc3d76f, appium:javascriptEnabled: true, appium:locationContextEnabled: false, appium:networkConnectionEnabled: true, appium:noReset: true, appium:pixelRatio: 2, appium:platformVersion: 15, appium:statBarHeight: 68, appium:takesScreenshot: true, appium:viewportRect: {height: 1572, left: 0, top: 68, width: 720}, appium:warnings: {}, appium:webStorageEnabled: false, platformName: ANDROID}
+Session ID: 56580bad-305f-4569-adb3-acf1a32504a5]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[org.openqa.selenium.NoSuchSessionException: A session is either terminated or not started
+Build info: version: '4.13.0', revision: 'ba948ece5b*'
+System info: os.name: 'Linux', os.arch: 'amd64', os.version: '6.14.0-37-generic', java.version: '11.0.29'
+Driver info: io.appium.java_client.android.AndroidDriver
+Command: [56580bad-305f-4569-adb3-acf1a32504a5, quit {}]
+Capabilities {appium:appActivity: .MainActivity, appium:appPackage: com.houseofepigenetics.abch..., appium:automationName: UiAutomator2, appium:databaseEnabled: false, appium:desired: {appActivity: .MainActivity, appPackage: com.houseofepigenetics.abch..., automationName: UiAutomator2, deviceName: 1dc3d76f, noReset: true, platformName: ANDROID}, appium:deviceApiLevel: 35, appium:deviceManufacturer: Xiaomi, appium:deviceModel: 24116RNC1I, appium:deviceName: 1dc3d76f, appium:deviceScreenDensity: 320, appium:deviceScreenSize: 720x1640, appium:deviceUDID: 1dc3d76f, appium:javascriptEnabled: true, appium:locationContextEnabled: false, appium:networkConnectionEnabled: true, appium:noReset: true, appium:pixelRatio: 2, appium:platformVersion: 15, appium:statBarHeight: 68, appium:takesScreenshot: true, appium:viewportRect: {height: 1572, left: 0, top: 68, width: 720}, appium:warnings: {}, appium:webStorageEnabled: false, platformName: ANDROID}
+Session ID: 56580bad-305f-4569-adb3-acf1a32504a5
+at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:490)
+at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:200)
+at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:133)
+at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:52)
+at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:191)
+at io.appium.java_client.remote.AppiumCommandExecutor.execute(AppiumCommandExecutor.java:250)
+at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:602)
+at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:675)
+at io.appium.java_client.AppiumDriver.execute(AppiumDriver.java:313)
+at org.openqa.selenium.remote.RemoteWebDriver.quit(RemoteWebDriver.java:437)
+at com.automation.base.BaseTest.tearDown(BaseTest.java:146)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:139)
+at org.testng.internal.invokers.MethodInvocationHelper.invokeMethodConsideringTimeout(MethodInvocationHelper.java:69)
+at org.testng.internal.invokers.ConfigInvoker.invokeConfigurationMethod(ConfigInvoker.java:390)
+at org.testng.internal.invokers.ConfigInvoker.invokeConfigurations(ConfigInvoker.java:325)
+at org.testng.internal.invokers.TestInvoker.runConfigMethods(TestInvoker.java:810)
+at org.testng.internal.invokers.TestInvoker.runAfterConfigurations(TestInvoker.java:779)
+at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:755)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:227)
+at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:50)
+at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:957)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:200)
+at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:148)
+at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:128)
+at java.base/java.util.ArrayList.forEach(ArrayList.java:1541)
+at org.testng.TestRunner.privateRun(TestRunner.java:848)
+at org.testng.TestRunner.run(TestRunner.java:621)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:443)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:437)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:397)
+at org.testng.SuiteRunner.run(SuiteRunner.java:336)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1280)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1200)
+at org.testng.TestNG.runSuites(TestNG.java:1114)
+at org.testng.TestNG.run(TestNG.java:1082)
+at org.apache.maven.surefire.testng.TestNGExecutor.run(TestNGExecutor.java:155)
+at org.apache.maven.surefire.testng.TestNGDirectoryTestSuite.executeSingleClass(TestNGDirectoryTestSuite.java:102)
+at org.apache.maven.surefire.testng.TestNGDirectoryTestSuite.execute(TestNGDirectoryTestSuite.java:91)
+at org.apache.maven.surefire.testng.TestNGProvider.invoke(TestNGProvider.java:137)
+at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:385)
+at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162)
+at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507)
+at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
+]]>
+            </full-stacktrace>
+          </exception> <!-- org.openqa.selenium.NoSuchSessionException -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testNegativeEditProfile -->
+        <test-method is-config="true" signature="tearDown(org.testng.ITestResult)[pri:0, instance:com.automation.tests.EditProfileTest@5f058f00]" started-at="2025-12-30T17:33:04 IST" name="tearDown" finished-at="2025-12-30T17:33:04 IST" duration-ms="0" status="SKIP">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method signature="testNegativeEditProfile(java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:0, instance:com.automation.tests.EditProfileTest@5f058f00]" started-at="2025-12-30T17:33:04 IST" name="testNegativeEditProfile" data-provider="negativeEditProfileData" finished-at="2025-12-30T17:33:04 IST" duration-ms="0" status="SKIP">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[Invalid Email Format]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[John Doe]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[invalidemail]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[123456789]]>
+              </value>
+            </param>
+          </params>
+          <exception class="org.openqa.selenium.NoSuchSessionException">
+            <message>
+              <![CDATA[A session is either terminated or not started
+Build info: version: '4.13.0', revision: 'ba948ece5b*'
+System info: os.name: 'Linux', os.arch: 'amd64', os.version: '6.14.0-37-generic', java.version: '11.0.29'
+Driver info: io.appium.java_client.android.AndroidDriver
+Command: [56580bad-305f-4569-adb3-acf1a32504a5, quit {}]
+Capabilities {appium:appActivity: .MainActivity, appium:appPackage: com.houseofepigenetics.abch..., appium:automationName: UiAutomator2, appium:databaseEnabled: false, appium:desired: {appActivity: .MainActivity, appPackage: com.houseofepigenetics.abch..., automationName: UiAutomator2, deviceName: 1dc3d76f, noReset: true, platformName: ANDROID}, appium:deviceApiLevel: 35, appium:deviceManufacturer: Xiaomi, appium:deviceModel: 24116RNC1I, appium:deviceName: 1dc3d76f, appium:deviceScreenDensity: 320, appium:deviceScreenSize: 720x1640, appium:deviceUDID: 1dc3d76f, appium:javascriptEnabled: true, appium:locationContextEnabled: false, appium:networkConnectionEnabled: true, appium:noReset: true, appium:pixelRatio: 2, appium:platformVersion: 15, appium:statBarHeight: 68, appium:takesScreenshot: true, appium:viewportRect: {height: 1572, left: 0, top: 68, width: 720}, appium:warnings: {}, appium:webStorageEnabled: false, platformName: ANDROID}
+Session ID: 56580bad-305f-4569-adb3-acf1a32504a5]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[org.openqa.selenium.NoSuchSessionException: A session is either terminated or not started
+Build info: version: '4.13.0', revision: 'ba948ece5b*'
+System info: os.name: 'Linux', os.arch: 'amd64', os.version: '6.14.0-37-generic', java.version: '11.0.29'
+Driver info: io.appium.java_client.android.AndroidDriver
+Command: [56580bad-305f-4569-adb3-acf1a32504a5, quit {}]
+Capabilities {appium:appActivity: .MainActivity, appium:appPackage: com.houseofepigenetics.abch..., appium:automationName: UiAutomator2, appium:databaseEnabled: false, appium:desired: {appActivity: .MainActivity, appPackage: com.houseofepigenetics.abch..., automationName: UiAutomator2, deviceName: 1dc3d76f, noReset: true, platformName: ANDROID}, appium:deviceApiLevel: 35, appium:deviceManufacturer: Xiaomi, appium:deviceModel: 24116RNC1I, appium:deviceName: 1dc3d76f, appium:deviceScreenDensity: 320, appium:deviceScreenSize: 720x1640, appium:deviceUDID: 1dc3d76f, appium:javascriptEnabled: true, appium:locationContextEnabled: false, appium:networkConnectionEnabled: true, appium:noReset: true, appium:pixelRatio: 2, appium:platformVersion: 15, appium:statBarHeight: 68, appium:takesScreenshot: true, appium:viewportRect: {height: 1572, left: 0, top: 68, width: 720}, appium:warnings: {}, appium:webStorageEnabled: false, platformName: ANDROID}
+Session ID: 56580bad-305f-4569-adb3-acf1a32504a5
+at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:490)
+at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:200)
+at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:133)
+at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:52)
+at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:191)
+at io.appium.java_client.remote.AppiumCommandExecutor.execute(AppiumCommandExecutor.java:250)
+at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:602)
+at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:675)
+at io.appium.java_client.AppiumDriver.execute(AppiumDriver.java:313)
+at org.openqa.selenium.remote.RemoteWebDriver.quit(RemoteWebDriver.java:437)
+at com.automation.base.BaseTest.tearDown(BaseTest.java:146)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:139)
+at org.testng.internal.invokers.MethodInvocationHelper.invokeMethodConsideringTimeout(MethodInvocationHelper.java:69)
+at org.testng.internal.invokers.ConfigInvoker.invokeConfigurationMethod(ConfigInvoker.java:390)
+at org.testng.internal.invokers.ConfigInvoker.invokeConfigurations(ConfigInvoker.java:325)
+at org.testng.internal.invokers.TestInvoker.runConfigMethods(TestInvoker.java:810)
+at org.testng.internal.invokers.TestInvoker.runAfterConfigurations(TestInvoker.java:779)
+at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:755)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:227)
+at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:50)
+at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:957)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:200)
+at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:148)
+at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:128)
+at java.base/java.util.ArrayList.forEach(ArrayList.java:1541)
+at org.testng.TestRunner.privateRun(TestRunner.java:848)
+at org.testng.TestRunner.run(TestRunner.java:621)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:443)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:437)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:397)
+at org.testng.SuiteRunner.run(SuiteRunner.java:336)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1280)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1200)
+at org.testng.TestNG.runSuites(TestNG.java:1114)
+at org.testng.TestNG.run(TestNG.java:1082)
+at org.apache.maven.surefire.testng.TestNGExecutor.run(TestNGExecutor.java:155)
+at org.apache.maven.surefire.testng.TestNGDirectoryTestSuite.executeSingleClass(TestNGDirectoryTestSuite.java:102)
+at org.apache.maven.surefire.testng.TestNGDirectoryTestSuite.execute(TestNGDirectoryTestSuite.java:91)
+at org.apache.maven.surefire.testng.TestNGProvider.invoke(TestNGProvider.java:137)
+at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:385)
+at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162)
+at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507)
+at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
+]]>
+            </full-stacktrace>
+          </exception> <!-- org.openqa.selenium.NoSuchSessionException -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testNegativeEditProfile -->
+        <test-method is-config="true" signature="setup(java.lang.reflect.Method)[pri:0, instance:com.automation.tests.EditProfileTest@5f058f00]" started-at="2025-12-30T17:33:04 IST" name="setup" finished-at="2025-12-30T17:33:04 IST" duration-ms="0" status="SKIP">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setup -->
+        <test-method is-config="true" signature="tearDown(org.testng.ITestResult)[pri:0, instance:com.automation.tests.EditProfileTest@5f058f00]" started-at="2025-12-30T17:33:04 IST" name="tearDown" finished-at="2025-12-30T17:33:04 IST" duration-ms="0" status="SKIP">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method signature="testNegativeEditProfile(java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:0, instance:com.automation.tests.EditProfileTest@5f058f00]" started-at="2025-12-30T17:33:04 IST" name="testNegativeEditProfile" data-provider="negativeEditProfileData" finished-at="2025-12-30T17:33:04 IST" duration-ms="0" status="SKIP">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[Empty Name Field]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[test@example.com]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[123456789]]>
+              </value>
+            </param>
+          </params>
+          <exception class="org.openqa.selenium.NoSuchSessionException">
+            <message>
+              <![CDATA[A session is either terminated or not started
+Build info: version: '4.13.0', revision: 'ba948ece5b*'
+System info: os.name: 'Linux', os.arch: 'amd64', os.version: '6.14.0-37-generic', java.version: '11.0.29'
+Driver info: io.appium.java_client.android.AndroidDriver
+Command: [56580bad-305f-4569-adb3-acf1a32504a5, quit {}]
+Capabilities {appium:appActivity: .MainActivity, appium:appPackage: com.houseofepigenetics.abch..., appium:automationName: UiAutomator2, appium:databaseEnabled: false, appium:desired: {appActivity: .MainActivity, appPackage: com.houseofepigenetics.abch..., automationName: UiAutomator2, deviceName: 1dc3d76f, noReset: true, platformName: ANDROID}, appium:deviceApiLevel: 35, appium:deviceManufacturer: Xiaomi, appium:deviceModel: 24116RNC1I, appium:deviceName: 1dc3d76f, appium:deviceScreenDensity: 320, appium:deviceScreenSize: 720x1640, appium:deviceUDID: 1dc3d76f, appium:javascriptEnabled: true, appium:locationContextEnabled: false, appium:networkConnectionEnabled: true, appium:noReset: true, appium:pixelRatio: 2, appium:platformVersion: 15, appium:statBarHeight: 68, appium:takesScreenshot: true, appium:viewportRect: {height: 1572, left: 0, top: 68, width: 720}, appium:warnings: {}, appium:webStorageEnabled: false, platformName: ANDROID}
+Session ID: 56580bad-305f-4569-adb3-acf1a32504a5]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[org.openqa.selenium.NoSuchSessionException: A session is either terminated or not started
+Build info: version: '4.13.0', revision: 'ba948ece5b*'
+System info: os.name: 'Linux', os.arch: 'amd64', os.version: '6.14.0-37-generic', java.version: '11.0.29'
+Driver info: io.appium.java_client.android.AndroidDriver
+Command: [56580bad-305f-4569-adb3-acf1a32504a5, quit {}]
+Capabilities {appium:appActivity: .MainActivity, appium:appPackage: com.houseofepigenetics.abch..., appium:automationName: UiAutomator2, appium:databaseEnabled: false, appium:desired: {appActivity: .MainActivity, appPackage: com.houseofepigenetics.abch..., automationName: UiAutomator2, deviceName: 1dc3d76f, noReset: true, platformName: ANDROID}, appium:deviceApiLevel: 35, appium:deviceManufacturer: Xiaomi, appium:deviceModel: 24116RNC1I, appium:deviceName: 1dc3d76f, appium:deviceScreenDensity: 320, appium:deviceScreenSize: 720x1640, appium:deviceUDID: 1dc3d76f, appium:javascriptEnabled: true, appium:locationContextEnabled: false, appium:networkConnectionEnabled: true, appium:noReset: true, appium:pixelRatio: 2, appium:platformVersion: 15, appium:statBarHeight: 68, appium:takesScreenshot: true, appium:viewportRect: {height: 1572, left: 0, top: 68, width: 720}, appium:warnings: {}, appium:webStorageEnabled: false, platformName: ANDROID}
+Session ID: 56580bad-305f-4569-adb3-acf1a32504a5
+at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:490)
+at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:200)
+at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:133)
+at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:52)
+at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:191)
+at io.appium.java_client.remote.AppiumCommandExecutor.execute(AppiumCommandExecutor.java:250)
+at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:602)
+at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:675)
+at io.appium.java_client.AppiumDriver.execute(AppiumDriver.java:313)
+at org.openqa.selenium.remote.RemoteWebDriver.quit(RemoteWebDriver.java:437)
+at com.automation.base.BaseTest.tearDown(BaseTest.java:146)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:139)
+at org.testng.internal.invokers.MethodInvocationHelper.invokeMethodConsideringTimeout(MethodInvocationHelper.java:69)
+at org.testng.internal.invokers.ConfigInvoker.invokeConfigurationMethod(ConfigInvoker.java:390)
+at org.testng.internal.invokers.ConfigInvoker.invokeConfigurations(ConfigInvoker.java:325)
+at org.testng.internal.invokers.TestInvoker.runConfigMethods(TestInvoker.java:810)
+at org.testng.internal.invokers.TestInvoker.runAfterConfigurations(TestInvoker.java:779)
+at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:755)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:227)
+at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:50)
+at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:957)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:200)
+at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:148)
+at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:128)
+at java.base/java.util.ArrayList.forEach(ArrayList.java:1541)
+at org.testng.TestRunner.privateRun(TestRunner.java:848)
+at org.testng.TestRunner.run(TestRunner.java:621)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:443)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:437)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:397)
+at org.testng.SuiteRunner.run(SuiteRunner.java:336)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1280)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1200)
+at org.testng.TestNG.runSuites(TestNG.java:1114)
+at org.testng.TestNG.run(TestNG.java:1082)
+at org.apache.maven.surefire.testng.TestNGExecutor.run(TestNGExecutor.java:155)
+at org.apache.maven.surefire.testng.TestNGDirectoryTestSuite.executeSingleClass(TestNGDirectoryTestSuite.java:102)
+at org.apache.maven.surefire.testng.TestNGDirectoryTestSuite.execute(TestNGDirectoryTestSuite.java:91)
+at org.apache.maven.surefire.testng.TestNGProvider.invoke(TestNGProvider.java:137)
+at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:385)
+at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162)
+at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507)
+at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
+]]>
+            </full-stacktrace>
+          </exception> <!-- org.openqa.selenium.NoSuchSessionException -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testNegativeEditProfile -->
+        <test-method is-config="true" signature="setup(java.lang.reflect.Method)[pri:0, instance:com.automation.tests.EditProfileTest@5f058f00]" started-at="2025-12-30T17:33:04 IST" name="setup" finished-at="2025-12-30T17:33:04 IST" duration-ms="0" status="SKIP">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setup -->
+        <test-method is-config="true" signature="tearDown(org.testng.ITestResult)[pri:0, instance:com.automation.tests.EditProfileTest@5f058f00]" started-at="2025-12-30T17:33:04 IST" name="tearDown" finished-at="2025-12-30T17:33:04 IST" duration-ms="0" status="SKIP">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method signature="testNegativeEditProfile(java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:0, instance:com.automation.tests.EditProfileTest@5f058f00]" started-at="2025-12-30T17:33:04 IST" name="testNegativeEditProfile" data-provider="negativeEditProfileData" finished-at="2025-12-30T17:33:04 IST" duration-ms="0" status="SKIP">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[Empty Email Field]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[John Doe]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[123456789]]>
+              </value>
+            </param>
+          </params>
+          <exception class="org.openqa.selenium.NoSuchSessionException">
+            <message>
+              <![CDATA[A session is either terminated or not started
+Build info: version: '4.13.0', revision: 'ba948ece5b*'
+System info: os.name: 'Linux', os.arch: 'amd64', os.version: '6.14.0-37-generic', java.version: '11.0.29'
+Driver info: io.appium.java_client.android.AndroidDriver
+Command: [56580bad-305f-4569-adb3-acf1a32504a5, quit {}]
+Capabilities {appium:appActivity: .MainActivity, appium:appPackage: com.houseofepigenetics.abch..., appium:automationName: UiAutomator2, appium:databaseEnabled: false, appium:desired: {appActivity: .MainActivity, appPackage: com.houseofepigenetics.abch..., automationName: UiAutomator2, deviceName: 1dc3d76f, noReset: true, platformName: ANDROID}, appium:deviceApiLevel: 35, appium:deviceManufacturer: Xiaomi, appium:deviceModel: 24116RNC1I, appium:deviceName: 1dc3d76f, appium:deviceScreenDensity: 320, appium:deviceScreenSize: 720x1640, appium:deviceUDID: 1dc3d76f, appium:javascriptEnabled: true, appium:locationContextEnabled: false, appium:networkConnectionEnabled: true, appium:noReset: true, appium:pixelRatio: 2, appium:platformVersion: 15, appium:statBarHeight: 68, appium:takesScreenshot: true, appium:viewportRect: {height: 1572, left: 0, top: 68, width: 720}, appium:warnings: {}, appium:webStorageEnabled: false, platformName: ANDROID}
+Session ID: 56580bad-305f-4569-adb3-acf1a32504a5]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[org.openqa.selenium.NoSuchSessionException: A session is either terminated or not started
+Build info: version: '4.13.0', revision: 'ba948ece5b*'
+System info: os.name: 'Linux', os.arch: 'amd64', os.version: '6.14.0-37-generic', java.version: '11.0.29'
+Driver info: io.appium.java_client.android.AndroidDriver
+Command: [56580bad-305f-4569-adb3-acf1a32504a5, quit {}]
+Capabilities {appium:appActivity: .MainActivity, appium:appPackage: com.houseofepigenetics.abch..., appium:automationName: UiAutomator2, appium:databaseEnabled: false, appium:desired: {appActivity: .MainActivity, appPackage: com.houseofepigenetics.abch..., automationName: UiAutomator2, deviceName: 1dc3d76f, noReset: true, platformName: ANDROID}, appium:deviceApiLevel: 35, appium:deviceManufacturer: Xiaomi, appium:deviceModel: 24116RNC1I, appium:deviceName: 1dc3d76f, appium:deviceScreenDensity: 320, appium:deviceScreenSize: 720x1640, appium:deviceUDID: 1dc3d76f, appium:javascriptEnabled: true, appium:locationContextEnabled: false, appium:networkConnectionEnabled: true, appium:noReset: true, appium:pixelRatio: 2, appium:platformVersion: 15, appium:statBarHeight: 68, appium:takesScreenshot: true, appium:viewportRect: {height: 1572, left: 0, top: 68, width: 720}, appium:warnings: {}, appium:webStorageEnabled: false, platformName: ANDROID}
+Session ID: 56580bad-305f-4569-adb3-acf1a32504a5
+at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:490)
+at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:200)
+at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:133)
+at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:52)
+at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:191)
+at io.appium.java_client.remote.AppiumCommandExecutor.execute(AppiumCommandExecutor.java:250)
+at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:602)
+at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:675)
+at io.appium.java_client.AppiumDriver.execute(AppiumDriver.java:313)
+at org.openqa.selenium.remote.RemoteWebDriver.quit(RemoteWebDriver.java:437)
+at com.automation.base.BaseTest.tearDown(BaseTest.java:146)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:139)
+at org.testng.internal.invokers.MethodInvocationHelper.invokeMethodConsideringTimeout(MethodInvocationHelper.java:69)
+at org.testng.internal.invokers.ConfigInvoker.invokeConfigurationMethod(ConfigInvoker.java:390)
+at org.testng.internal.invokers.ConfigInvoker.invokeConfigurations(ConfigInvoker.java:325)
+at org.testng.internal.invokers.TestInvoker.runConfigMethods(TestInvoker.java:810)
+at org.testng.internal.invokers.TestInvoker.runAfterConfigurations(TestInvoker.java:779)
+at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:755)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:227)
+at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:50)
+at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:957)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:200)
+at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:148)
+at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:128)
+at java.base/java.util.ArrayList.forEach(ArrayList.java:1541)
+at org.testng.TestRunner.privateRun(TestRunner.java:848)
+at org.testng.TestRunner.run(TestRunner.java:621)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:443)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:437)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:397)
+at org.testng.SuiteRunner.run(SuiteRunner.java:336)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1280)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1200)
+at org.testng.TestNG.runSuites(TestNG.java:1114)
+at org.testng.TestNG.run(TestNG.java:1082)
+at org.apache.maven.surefire.testng.TestNGExecutor.run(TestNGExecutor.java:155)
+at org.apache.maven.surefire.testng.TestNGDirectoryTestSuite.executeSingleClass(TestNGDirectoryTestSuite.java:102)
+at org.apache.maven.surefire.testng.TestNGDirectoryTestSuite.execute(TestNGDirectoryTestSuite.java:91)
+at org.apache.maven.surefire.testng.TestNGProvider.invoke(TestNGProvider.java:137)
+at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:385)
+at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162)
+at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507)
+at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
+]]>
+            </full-stacktrace>
+          </exception> <!-- org.openqa.selenium.NoSuchSessionException -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testNegativeEditProfile -->
+        <test-method is-config="true" signature="setup(java.lang.reflect.Method)[pri:0, instance:com.automation.tests.EditProfileTest@5f058f00]" started-at="2025-12-30T17:33:04 IST" name="setup" finished-at="2025-12-30T17:33:04 IST" duration-ms="0" status="SKIP">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setup -->
+        <test-method is-config="true" signature="tearDown(org.testng.ITestResult)[pri:0, instance:com.automation.tests.EditProfileTest@5f058f00]" started-at="2025-12-30T17:33:04 IST" name="tearDown" finished-at="2025-12-30T17:33:04 IST" duration-ms="0" status="SKIP">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method is-config="true" signature="setup(java.lang.reflect.Method)[pri:0, instance:com.automation.tests.EditProfileTest@5f058f00]" started-at="2025-12-30T17:33:04 IST" name="setup" finished-at="2025-12-30T17:33:04 IST" duration-ms="0" status="SKIP">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setup -->
+        <test-method signature="testNegativeEditProfile(java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:0, instance:com.automation.tests.EditProfileTest@5f058f00]" started-at="2025-12-30T17:33:04 IST" name="testNegativeEditProfile" data-provider="negativeEditProfileData" finished-at="2025-12-30T17:33:04 IST" duration-ms="0" status="SKIP">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[Empty Phone Number]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[John Doe]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[test@example.com]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[]]>
+              </value>
+            </param>
+          </params>
+          <exception class="org.openqa.selenium.NoSuchSessionException">
+            <message>
+              <![CDATA[A session is either terminated or not started
+Build info: version: '4.13.0', revision: 'ba948ece5b*'
+System info: os.name: 'Linux', os.arch: 'amd64', os.version: '6.14.0-37-generic', java.version: '11.0.29'
+Driver info: io.appium.java_client.android.AndroidDriver
+Command: [56580bad-305f-4569-adb3-acf1a32504a5, quit {}]
+Capabilities {appium:appActivity: .MainActivity, appium:appPackage: com.houseofepigenetics.abch..., appium:automationName: UiAutomator2, appium:databaseEnabled: false, appium:desired: {appActivity: .MainActivity, appPackage: com.houseofepigenetics.abch..., automationName: UiAutomator2, deviceName: 1dc3d76f, noReset: true, platformName: ANDROID}, appium:deviceApiLevel: 35, appium:deviceManufacturer: Xiaomi, appium:deviceModel: 24116RNC1I, appium:deviceName: 1dc3d76f, appium:deviceScreenDensity: 320, appium:deviceScreenSize: 720x1640, appium:deviceUDID: 1dc3d76f, appium:javascriptEnabled: true, appium:locationContextEnabled: false, appium:networkConnectionEnabled: true, appium:noReset: true, appium:pixelRatio: 2, appium:platformVersion: 15, appium:statBarHeight: 68, appium:takesScreenshot: true, appium:viewportRect: {height: 1572, left: 0, top: 68, width: 720}, appium:warnings: {}, appium:webStorageEnabled: false, platformName: ANDROID}
+Session ID: 56580bad-305f-4569-adb3-acf1a32504a5]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[org.openqa.selenium.NoSuchSessionException: A session is either terminated or not started
+Build info: version: '4.13.0', revision: 'ba948ece5b*'
+System info: os.name: 'Linux', os.arch: 'amd64', os.version: '6.14.0-37-generic', java.version: '11.0.29'
+Driver info: io.appium.java_client.android.AndroidDriver
+Command: [56580bad-305f-4569-adb3-acf1a32504a5, quit {}]
+Capabilities {appium:appActivity: .MainActivity, appium:appPackage: com.houseofepigenetics.abch..., appium:automationName: UiAutomator2, appium:databaseEnabled: false, appium:desired: {appActivity: .MainActivity, appPackage: com.houseofepigenetics.abch..., automationName: UiAutomator2, deviceName: 1dc3d76f, noReset: true, platformName: ANDROID}, appium:deviceApiLevel: 35, appium:deviceManufacturer: Xiaomi, appium:deviceModel: 24116RNC1I, appium:deviceName: 1dc3d76f, appium:deviceScreenDensity: 320, appium:deviceScreenSize: 720x1640, appium:deviceUDID: 1dc3d76f, appium:javascriptEnabled: true, appium:locationContextEnabled: false, appium:networkConnectionEnabled: true, appium:noReset: true, appium:pixelRatio: 2, appium:platformVersion: 15, appium:statBarHeight: 68, appium:takesScreenshot: true, appium:viewportRect: {height: 1572, left: 0, top: 68, width: 720}, appium:warnings: {}, appium:webStorageEnabled: false, platformName: ANDROID}
+Session ID: 56580bad-305f-4569-adb3-acf1a32504a5
+at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:490)
+at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:200)
+at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:133)
+at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:52)
+at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:191)
+at io.appium.java_client.remote.AppiumCommandExecutor.execute(AppiumCommandExecutor.java:250)
+at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:602)
+at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:675)
+at io.appium.java_client.AppiumDriver.execute(AppiumDriver.java:313)
+at org.openqa.selenium.remote.RemoteWebDriver.quit(RemoteWebDriver.java:437)
+at com.automation.base.BaseTest.tearDown(BaseTest.java:146)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:139)
+at org.testng.internal.invokers.MethodInvocationHelper.invokeMethodConsideringTimeout(MethodInvocationHelper.java:69)
+at org.testng.internal.invokers.ConfigInvoker.invokeConfigurationMethod(ConfigInvoker.java:390)
+at org.testng.internal.invokers.ConfigInvoker.invokeConfigurations(ConfigInvoker.java:325)
+at org.testng.internal.invokers.TestInvoker.runConfigMethods(TestInvoker.java:810)
+at org.testng.internal.invokers.TestInvoker.runAfterConfigurations(TestInvoker.java:779)
+at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:755)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:227)
+at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:50)
+at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:957)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:200)
+at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:148)
+at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:128)
+at java.base/java.util.ArrayList.forEach(ArrayList.java:1541)
+at org.testng.TestRunner.privateRun(TestRunner.java:848)
+at org.testng.TestRunner.run(TestRunner.java:621)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:443)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:437)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:397)
+at org.testng.SuiteRunner.run(SuiteRunner.java:336)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1280)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1200)
+at org.testng.TestNG.runSuites(TestNG.java:1114)
+at org.testng.TestNG.run(TestNG.java:1082)
+at org.apache.maven.surefire.testng.TestNGExecutor.run(TestNGExecutor.java:155)
+at org.apache.maven.surefire.testng.TestNGDirectoryTestSuite.executeSingleClass(TestNGDirectoryTestSuite.java:102)
+at org.apache.maven.surefire.testng.TestNGDirectoryTestSuite.execute(TestNGDirectoryTestSuite.java:91)
+at org.apache.maven.surefire.testng.TestNGProvider.invoke(TestNGProvider.java:137)
+at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:385)
+at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162)
+at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507)
+at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
+]]>
+            </full-stacktrace>
+          </exception> <!-- org.openqa.selenium.NoSuchSessionException -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testNegativeEditProfile -->
+        <test-method is-config="true" signature="tearDown(org.testng.ITestResult)[pri:0, instance:com.automation.tests.EditProfileTest@5f058f00]" started-at="2025-12-30T17:33:04 IST" name="tearDown" finished-at="2025-12-30T17:33:04 IST" duration-ms="0" status="SKIP">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method is-config="true" signature="tearDownReport()[pri:0, instance:com.automation.tests.EditProfileTest@5f058f00]" started-at="2025-12-30T17:33:04 IST" name="tearDownReport" finished-at="2025-12-30T17:33:04 IST" duration-ms="449" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDownReport -->
+      </class> <!-- com.automation.tests.EditProfileTest -->
+>>>>>>> main
     </test> <!-- Surefire test -->
   </suite> <!-- Surefire suite -->
 </testng-results>

@@ -43,14 +43,14 @@ public class BaseTest {
     /* ================= DRIVER SETUP ================= */
 
     @BeforeMethod
-    public void setup() throws MalformedURLException {
+    public void setup(java.lang.reflect.Method method) throws MalformedURLException {
 
         UiAutomator2Options options = new UiAutomator2Options();
         options.setDeviceName("1dc3d76f");
         options.setAutomationName("UiAutomator2");
         options.setAppPackage("com.houseofepigenetics.abchopra");
         options.setAppActivity(".MainActivity");
-        options.setNoReset(true);
+        options.setNoReset(true); // Keep login state
 
         driver = new AndroidDriver(
                 new URL("http://127.0.0.1:4723"), options);
@@ -58,6 +58,63 @@ public class BaseTest {
         driver.manage()
                 .timeouts()
                 .implicitlyWait(Duration.ofSeconds(6));
+
+        // ✅ CONDITIONAL RESET: Skip resetAppToHomePage for tests with custom navigation
+        // EditProfileTest: manages Sign In -> Home -> Edit Profile flow
+        // SignInTest: needs to start from Sign In page (logged out state)
+        // SignUpTest: needs to start from Sign Up page
+        String testClassName = method.getDeclaringClass().getSimpleName();
+        if (!"EditProfileTest".equals(testClassName) &&
+                !"SignInTest".equals(testClassName) &&
+                !"SignUpTest".equals(testClassName)) {
+            // ✅ RESET APP STATE: Navigate to Home page before each test
+            // This ensures test independence without requiring re-login
+            resetAppToHomePage();
+        } else {
+            System.out.println("⏭ Skipping resetAppToHomePage for " + testClassName + " - uses custom navigation");
+        }
+    }
+
+    /**
+     * Reset app state by navigating to Home page
+     * Uses Android system back to clear navigation stack
+     * This ensures each test starts from a known state
+     */
+    private void resetAppToHomePage() {
+        try {
+            Thread.sleep(2000); // Wait for app to fully load
+
+            int maxAttempts = 10;
+            int attempts = 0;
+
+            // Keep pressing back until we reach home page or max attempts
+            while (attempts < maxAttempts) {
+                try {
+                    // Check if we're on home page by looking for DAILY PRIORITY heading
+                    org.openqa.selenium.WebElement homeHeading = driver.findElement(
+                            org.openqa.selenium.By.xpath("//android.view.View[@content-desc='DAILY PRIORITY']"));
+                    if (homeHeading.isDisplayed()) {
+                        System.out.println("✓ App state reset: Successfully navigated to Home page");
+                        return; // Successfully reached home page
+                    }
+                } catch (Exception e) {
+                    // Not on home page yet, continue
+                }
+
+                // Press Android system back
+                driver.navigate().back();
+                Thread.sleep(500);
+                attempts++;
+            }
+
+            // If we couldn't reach home page, log warning but continue
+            // (test might still work if it handles navigation properly)
+            System.out.println("⚠ Warning: Could not navigate to Home page after " + maxAttempts + " attempts");
+
+        } catch (Exception e) {
+            // If reset fails, log warning but don't fail the test
+            System.out.println("⚠ Warning: App state reset failed: " + e.getMessage());
+        }
     }
 
     /* ================= CLEAN TEARDOWN ================= */

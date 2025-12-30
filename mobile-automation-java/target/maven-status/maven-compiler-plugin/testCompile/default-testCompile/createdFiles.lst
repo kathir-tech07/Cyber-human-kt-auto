@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 com/automation/pages/DailyPrescriptionPage.class
 com/automation/tests/EditProfileTest.class
 com/automation/pages/DataBankPage.class
@@ -5,11 +6,21 @@ com/automation/pages/SignInPage.class
 com/automation/tests/SignUpTest.class
 com/automation/base/BaseTest.class
 com/automation/pages/ProfilePage.class
+=======
+>>>>>>> main
 com/automation/pages/LinkDevicesPage.class
 com/automation/pages/SignUpPage.class
 com/automation/pages/HomePage.class
 com/automation/pages/TwoFactorAuthPage.class
+<<<<<<< HEAD
 com/automation/tests/DailyPrescriptionTest.class
+=======
+com/automation/tests/EditProfileTest.class
+com/automation/utils/ProfileNavigationHelper.class
+com/automation/pages/SignInPage.class
+com/automation/tests/SignUpTest.class
+com/automation/base/BaseTest.class
+>>>>>>> main
 com/automation/tests/SignInTest.class
-com/automation/tests/DataBankTest.class
 com/automation/pages/EditProfilePage.class
+com/automation/pages/ProfilePage.class
