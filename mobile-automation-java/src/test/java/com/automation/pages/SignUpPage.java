@@ -408,17 +408,4 @@ public class SignUpPage {
         // ❌ No validation message found
         return null;
     }
-
-    /**
-     * Check if Sign Up page is displayed
-     */
-    public boolean isSignUpPageDisplayed() {
-        try {
-            // Check for SIGN UP heading
-            WebElement heading = findElementWithFallback(null, "//android.view.View[@content-desc='SIGN UP']", null);
-            return heading.isDisplayed();
-        } catch (Exception e) {
-            return false;
-        }
-    }
 }
